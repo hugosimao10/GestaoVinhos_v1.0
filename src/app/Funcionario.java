@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sample;
+package app;
+
+import app.util.Util;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -99,7 +101,7 @@ public class Funcionario {
     // Criar funcionário
 
     public void create() throws SQLException {
-        Connection conn = sample.Util.criarConexao();
+        Connection conn = Util.criarConexao();
 
         PreparedStatement pst =
                 conn.prepareStatement("INSERT INTO FUNCIONARIO COLUMNS (NOME, RUA) VALUES (?,?)",
@@ -114,7 +116,7 @@ public class Funcionario {
 
 
     public void read(int id_funcionario) throws SQLException {
-        Connection conn = sample.Util.criarConexao();
+        Connection conn = Util.criarConexao();
 
         String sqlCommand = "SELECT TIPO_FUNCIONARIO, NOME, EMAIL, TLM, NPORTA, RUA, COD_POSTAL FROM FUNCIONARIO WHERE ID_FUNCIONARIO = ?";
 
@@ -155,7 +157,7 @@ public class Funcionario {
 
         List<Funcionario> resultAux = new ArrayList<>();
 
-        Connection conn = sample.Util.criarConexao();
+        Connection conn = Util.criarConexao();
         String sqlCommand = "SELECT ID_FUNCIONARIO, TIPO_FUNCIONARIO, NOME, EMAIL, TLM, NPORTA, RUA, COD_POSTAL FROM FUNCIONARIO " +
                 "ORDER BY NOME, ID_FUNCIONARIO";
 
