@@ -1,5 +1,7 @@
 package app;
 
+import app.entities.Funcionario;
+
 import java.sql.SQLException;
 
 public class Main {
