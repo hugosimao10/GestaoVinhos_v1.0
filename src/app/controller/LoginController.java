@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 import java.awt.*;
 
-public class InitialScreenController {
+public class LoginController {
 
     @FXML
     private TextField userInserido;

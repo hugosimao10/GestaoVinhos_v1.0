@@ -1,7 +1,7 @@
 package app;
 
 import app.entities.Funcionario;
-import com.sun.glass.ui.Application;
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,52 +12,21 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
-
-
-public class Main{
+public class Main extends Application {
 
 
     public static void main(String[] args) {
-
-
-
-/*
-
-        Funcionario funcionario1 = new Funcionario("NovoFunc");
-
-        funcionario1.setRua("Rua NovaIntellIJ");
-
-        try{
-            funcionario1.create();
-        }
-        catch(SQLException ex){
-            System.out.println("Erro: " + ex.getMessage());
-        }
-
-        Funcionario funcionario2 = new Funcionario();
-
-        try{
-            funcionario2.read(1);
-        }
-        catch(SQLException ex){
-            System.out.println("ERRO: " + ex.getMessage());
-        }
-        System.out.println("Nome: " + funcionario2.getNome());
-        System.out.println("Rua: " + funcionario2.getRua());
-
-
-        List<Funcionario> lista = new ArrayList<>();
-        try{
-            lista = Funcionario.readAll("Ana");
-        }catch(SQLException ex){
-            System.out.println("ERRO: " + ex.getMessage());
-        }
-
-
-
-        */
+        launch(args);
     }
 
 
-
+    @Override
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ui/login.fxml"));
+        stage.setTitle("Login");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        //setTitleIcon.setIcon(stage);
+        stage.show();
+    }
 }
