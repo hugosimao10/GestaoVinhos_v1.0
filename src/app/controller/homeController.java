@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
+
 public class homeController {
     public ImageView iconQuintas;
     public ImageView iconFuncionarios;
@@ -22,4 +24,9 @@ public class homeController {
     public Text percControlos;
     public Text numCaixas;
     public Button btnLogout;
+
+
+    public void iniciar() {
+        System.out.println("chegou tudo fixe!");
+    }
 }

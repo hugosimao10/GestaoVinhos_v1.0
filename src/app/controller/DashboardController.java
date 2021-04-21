@@ -1,7 +1,15 @@
 package app.controller;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.TextAlignment;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class DashboardController {
     public Button btnQuintas;
@@ -12,9 +20,23 @@ public class DashboardController {
     public Button btnAvaliacoes;
     public Button btnEmbalamentos;
     public Button btnPaginaInicial;
-    public Pane paneToChange;
+    public BorderPane paneToChange;
+
+    public void iniciar() throws IOException {
+
+        btnPaginaInicial.fire();
+    }
+
+    @FXML
+    private void openHome() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/homePane.fxml"));
+        Parent root = loader.load();
+        homeController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
 
+    }
 
 
 }

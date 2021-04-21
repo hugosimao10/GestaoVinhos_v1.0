@@ -39,18 +39,18 @@ public class LoginController {
 
         ResultSet rs = pst.executeQuery();
 
-
-
         if(rs.next()){
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ui/mainDashboard.fxml"));
-            Parent root = loader.load();
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/mainDashboard.fxml"));
+            Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("EmpresaVinhos | Dashboard");
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();
+            DashboardController dashboard = loader.getController();
+            dashboard.iniciar();
             ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
             System.out.println("Login com sucesso!");
@@ -66,11 +66,10 @@ public class LoginController {
             else {
                 msg.alerta("Corrija o utilizador e/ou a password!", "Erro!", "Username e password não correspondem!");
             }
-        };
-
-
-
-
+        }
 
     }
+
+
+
 }
