@@ -6,7 +6,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class editUserController {
+public class editFuncionarioController {
     public ComboBox dropdownEditFunc;
     public TextField usernameEditFunc;
     public PasswordField pwdEditFunc;

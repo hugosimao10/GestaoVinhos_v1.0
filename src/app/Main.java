@@ -19,6 +19,7 @@ public class Main extends Application {
         launch(args);
     }
 
+    //começar a app com o login
 
     @Override
     public void start(Stage stage) throws IOException {

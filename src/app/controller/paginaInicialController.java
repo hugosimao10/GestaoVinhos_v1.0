@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class homeController {
+public class paginaInicialController {
     public ImageView iconQuintas;
     public ImageView iconFuncionarios;
     public ImageView iconVindimas;

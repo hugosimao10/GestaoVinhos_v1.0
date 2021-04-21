@@ -5,7 +5,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class removeUserController {
+public class removeFuncionarioController {
     public Pane funcionariosRemovePane;
     public TextField usernameRomoveFunc;
     public Button btnConfirmRemoveFunc;

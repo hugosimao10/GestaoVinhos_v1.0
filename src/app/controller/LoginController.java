@@ -3,7 +3,6 @@ package app.controller;
 import app.erros.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,9 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class LoginController {
@@ -42,7 +39,7 @@ public class LoginController {
         if(rs.next()){
 
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/mainDashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("EmpresaVinhos | Dashboard");
