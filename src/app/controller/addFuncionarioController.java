@@ -19,4 +19,10 @@ public class addFuncionarioController {
     public Button btnConfirmAddFunc;
     public Button btnCancelAddFunc;
     public Pane funcionariosPane;
+
+    public void iniciar() {
+        System.out.println("Está na area de adicionar funcionários!");
+
+
+    }
 }

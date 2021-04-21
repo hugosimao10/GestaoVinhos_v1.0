@@ -11,4 +11,10 @@ public class removeFuncionarioController {
     public Button btnConfirmRemoveFunc;
     public Button btnCancelRemoveFunc;
     public CheckBox checkRemoveFunc;
+
+    public void iniciar() {
+        System.out.println("Está na area de remover funcionários!");
+
+
+    }
 }

@@ -19,4 +19,10 @@ public class editFuncionarioController {
     public Button btnConfirmEditFunc;
     public Button btnCancelEditFunc;
     public Pane funcionariosEditPane;
+
+    public void iniciar() {
+        System.out.println("Está na area de editar funcionários!");
+
+
+    }
 }

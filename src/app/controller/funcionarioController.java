@@ -10,4 +10,14 @@ public class funcionarioController {
     public Button btnDeleteFuncionario;
     public TableView tableFuncionarios;
     public Pane funcionariosPane;
+
+
+    public void iniciar() {
+        System.out.println("Está na area de listar funcionários!");
+
+
+    }
+
+
+
 }

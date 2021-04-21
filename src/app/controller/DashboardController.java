@@ -43,42 +43,68 @@ public class DashboardController {
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE QUINTAS
 
     @FXML
-    public void btnQuintasClic(ActionEvent actionEvent) {
+    public void btnQuintasClic(ActionEvent actionEvent) throws IOException{
+
+
+
+
     }
 
     //BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE FUNCIONARIOS
 
     @FXML
-    public void btnFuncionarioClic(ActionEvent actionEvent) {
+    public void btnFuncionarioClic(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionariosPane.fxml"));
+        Parent root = loader.load();
+        funcionarioController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
+
     }
 
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE PLANTACOES
 
     @FXML
-    public void btnPlantacaoClic(ActionEvent actionEvent) {
+    public void btnPlantacaoClic(ActionEvent actionEvent) throws IOException{
+
+
+
     }
 
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE VINDIMAS
 
     @FXML
-    public void btnVindimaClic(ActionEvent actionEvent) {
+    public void btnVindimaClic(ActionEvent actionEvent) throws IOException{
+
+
+
     }
 
     // BOTAO QUE LEVA O UTILZIADOR PARA A AREA DE CONTROLOS
 
     @FXML
-    public void btnControloClic(ActionEvent actionEvent) {
+    public void btnControloClic(ActionEvent actionEvent) throws IOException{
+
+
+
     }
 
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE AVALIACOES
 
     @FXML
-    public void btnAvaliacoesClic(ActionEvent actionEvent) {
+    public void btnAvaliacoesClic(ActionEvent actionEvent) throws IOException{
+
+
+
     }
 
     // BOTAO QUE LEVA O UTILZIADOR PARA A AREA DE EMBALAMENTOS
 
     @FXML
-    public void btnEmbalamentosClic(ActionEvent actionEvent) {
+    public void btnEmbalamentosClic(ActionEvent actionEvent) throws IOException{
+
+
+
     }
 }
