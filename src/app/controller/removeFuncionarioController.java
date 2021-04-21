@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class removeFuncionarioController {
     public Pane funcionariosRemovePane;
@@ -29,7 +34,49 @@ public class removeFuncionarioController {
 
     // BOTAO DE REMOVER FUNCIONARIO NA PANE DE REMOVER FUNCIONARIO
     @FXML
-    public void btnRemoverFuncRemoveClic(ActionEvent actionEvent) throws IOException {
+    public void btnRemoverFuncRemoveClic(ActionEvent actionEvent) throws IOException, SQLException {
+
+        String user =  usernameRemoveFunc.getText();
+
+
+        Connection conn = Util.criarConexao();
+
+        PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME LIKE ?");
+
+        pst.setString(1, user);
+
+        ResultSet rs = pst.executeQuery();
+
+        if(user.isEmpty()){
+            System.out.println("Por favor, preencha o username!");
+
+        }
+        else{
+
+            if(checkRemoveFunc.isSelected()){
+
+
+            if(rs.next()){
+
+                PreparedStatement pst1 = conn.prepareStatement("DELETE FROM FUNCIONARIO WHERE USERNAME LIKE ?");
+                pst1.setString(1,user);
+                System.out.println("O user foi removido com sucesso!");
+
+
+            }
+            else{
+                System.out.println("O user nao foi encontrado!");
+            }
+
+            }
+            else{
+                System.out.println("Por favor, selecione a checkbox para confirmar que pretende remover!");
+            }
+
+
+
+        }
+
 
 
     }

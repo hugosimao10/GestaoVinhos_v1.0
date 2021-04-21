@@ -17,7 +17,7 @@
       <Text layoutX="121.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
       <TextField fx:id="usernameRemoveFunc" layoutX="181.0" layoutY="164.0" translateY="10.0" />
       <Button fx:id="btnConfirmRemoveFunc" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnRemoverFuncRemoveClic" text="Remover" />
-      <Button fx:id="btnCancelRemoveFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnRemoveFuncCancelarClic" text="Cancelar" />
+      <Button fx:id="btnCancelRemoveFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnRemoveFuncCancelarClic" text="Voltar" />
       <CheckBox fx:id="checkRemoveFunc" layoutX="135.0" layoutY="208.0" mnemonicParsing="false" text="Confirmo que quero remover!" />
    </children>
 </Pane>
