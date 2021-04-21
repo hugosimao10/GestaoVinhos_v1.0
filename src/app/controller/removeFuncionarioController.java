@@ -39,7 +39,6 @@ public class removeFuncionarioController {
 
         String user =  usernameRemoveFunc.getText();
 
-
         Connection conn = Util.criarConexao();
 
         PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME LIKE ?");
@@ -48,18 +47,23 @@ public class removeFuncionarioController {
 
         ResultSet rs = pst.executeQuery();
 
+        // VER SE O USERNAME ESTA VAZIO
+
         if(user.isEmpty()){
             System.out.println("Por favor, preencha o username!");
             msg.alertaAviso("Por favor insira o username que pretende remover!", "Aviso!", "Username não pode estar vazio!");
         }
         else{
 
+            // VER SE A CHECKBOX ESTÁ SELECIONADA
+
             if(checkRemoveFunc.isSelected()){
 
+            // VER SE FOI ENCONTRADO O USERNAME, E SE FOI ENCONTRADO, ENTAO PASSA O ESTADO A 0 (NÃO TRABALHA MAIS NA EMPRESA)
 
             if(rs.next()){
 
-                PreparedStatement pst1 = conn.prepareStatement("DELETE FROM FUNCIONARIO WHERE USERNAME LIKE ?");
+                PreparedStatement pst1 = conn.prepareStatement("UPDATE FUNCIONARIO SET ESTADO = 0 WHERE USERNAME = ?");
                 pst1.setString(1,user);
                 pst1.executeQuery();
                 System.out.println("O user foi removido com sucesso!");
