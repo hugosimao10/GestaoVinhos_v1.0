@@ -38,6 +38,7 @@ public class LoginController {
 
         if(rs.next()){
 
+            System.out.println("Login com sucesso!");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard.fxml"));
             Parent root = loader.load();
@@ -50,18 +51,18 @@ public class LoginController {
             dashboard.iniciar();
             ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
-            System.out.println("Login com sucesso!");
+
 
         }
         else {
             if (user.isEmpty()) {
-                msg.alerta("Por favor corrija o username!", "Erro!", "Username não pode estar vazio!");
+                msg.alertaAviso("Por favor insira o username!", "Erro!", "Username não pode estar vazio!");
             } else if (pass.isEmpty()) {
-                msg.alerta("Por favor corrija a password!", "Erro!", "Password não pode estar vazia!");
+                msg.alertaAviso("Por favor insira a password!", "Erro!", "Password não pode estar vazia!");
             }
 
             else {
-                msg.alerta("Corrija o utilizador e/ou a password!", "Erro!", "Username e password não correspondem!");
+                msg.alertaErro("Corrija o utilizador e/ou a password!", "Erro!", "Username e password não correspondem!");
             }
         }
 
