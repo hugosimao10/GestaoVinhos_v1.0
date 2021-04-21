@@ -13,4 +13,8 @@ public class DashboardController {
     public Button btnEmbalamentos;
     public Button btnPaginaInicial;
     public Pane paneToChange;
+
+
+
+
 }
