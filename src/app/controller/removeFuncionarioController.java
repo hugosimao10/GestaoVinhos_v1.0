@@ -64,6 +64,7 @@ public class removeFuncionarioController {
                 pst1.executeQuery();
                 System.out.println("O user foi removido com sucesso!");
                 msg.alertaInfo("O funcionário foi removido com sucesso!", "Sucesso!", "Funcionário encontrado!");
+                usernameRemoveFunc.setText("");
 
             }
             else{
