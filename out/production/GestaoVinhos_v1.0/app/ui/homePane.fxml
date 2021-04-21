@@ -7,15 +7,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.homeController">
    <children>
-      <Text layoutX="214.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa" />
-      <Text layoutX="207.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo," />
-      <Text layoutX="59.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Quintas" />
-      <Text layoutX="270.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vindimas ativas" />
-      <Text layoutX="59.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Funcionários" />
-      <Text layoutX="271.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlos bem" />
+      <Text layoutX="191.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa" />
+      <Text layoutX="185.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo," />
+      <Text layoutX="72.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Quintas" />
+      <Text layoutX="286.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vindimas ativas" />
+      <Text layoutX="59.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Funcionários" />
+      <Text layoutX="287.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlos bem" />
       <ImageView fx:id="iconQuintas" fitHeight="40.0" fitWidth="45.0" layoutX="14.0" layoutY="102.0">
          <image>
             <Image url="@../../imagens/logo.png" />
@@ -36,31 +35,31 @@
             <Image url="@../../imagens/logo.png" />
          </image>
       </ImageView>
-      <Text fx:id="numQuintas" layoutX="156.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="numQuintas" layoutX="181.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="numFuncionarios" layoutX="175.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="numFuncionarios" layoutX="181.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="numVindimasAtivas" layoutX="360.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="numVindimasAtivas" layoutX="379.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="284.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sucedidos" />
-      <Text fx:id="numControlos" layoutX="360.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text layoutX="300.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sucedidos" />
+      <Text fx:id="numControlos" layoutX="379.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="60.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Plantações" />
-      <Text layoutX="279.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\% controlos" />
-      <Text layoutX="60.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de castas" />
-      <Text layoutX="272.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixas produzidas" />
+      <Text layoutX="71.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Plantações" />
+      <Text layoutX="296.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\% controlos" />
+      <Text layoutX="75.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de castas" />
+      <Text layoutX="278.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixas produzidas" />
       <ImageView fx:id="iconPlatacoes" fitHeight="40.0" fitWidth="45.0" layoutX="15.0" layoutY="194.0">
          <image>
             <Image url="@../../imagens/logo.png" />
@@ -81,29 +80,29 @@
             <Image url="@../../imagens/logo.png" />
          </image>
       </ImageView>
-      <Text fx:id="numPlantacoes" layoutX="157.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="numPlantacoes" layoutX="181.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="numCastas" layoutX="146.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="numCastas" layoutX="181.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="percControlos" layoutX="361.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="percControlos" layoutX="379.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="numCaixas" layoutX="379.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+      <Text fx:id="numCaixas" layoutX="379.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="87.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ativas" />
-      <Text layoutX="271.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bem sucedidos" />
-      <Text layoutX="294.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="neste ano" />
+      <Text layoutX="98.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ativas" />
+      <Text layoutX="288.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bem sucedidos" />
+      <Text layoutX="300.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="neste ano" />
       <Button fx:id="btnLogout" layoutX="373.0" layoutY="361.0" mnemonicParsing="false" text="Logout" />
    </children>
 </Pane>
