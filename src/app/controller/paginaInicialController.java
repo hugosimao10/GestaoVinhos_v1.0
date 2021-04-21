@@ -27,6 +27,8 @@ public class paginaInicialController {
 
 
     public void iniciar() {
-        System.out.println("chegou tudo fixe!");
+        System.out.println("Está na página Inicial!");
+
+
     }
 }

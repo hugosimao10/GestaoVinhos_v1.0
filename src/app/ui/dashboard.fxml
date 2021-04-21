@@ -20,42 +20,42 @@
                   <Font name="Segoe UI" size="18.0" />
                </font>
             </Text>
-            <Button fx:id="btnQuintas" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" text="Quintas" textAlignment="CENTER">
+            <Button fx:id="btnQuintas" mnemonicParsing="false" onAction="#btnQuintasClic" prefHeight="26.0" prefWidth="130.0" text="Quintas" textAlignment="CENTER">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnFuncionarios" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Funcionários">
+            <Button fx:id="btnFuncionarios" mnemonicParsing="false" onAction="#btnFuncionarioClic" prefHeight="25.0" prefWidth="130.0" text="Funcionários">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnPlantacoes" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Plantações">
+            <Button fx:id="btnPlantacoes" mnemonicParsing="false" onAction="#btnPlantacaoClic" prefHeight="25.0" prefWidth="130.0" text="Plantações">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnVindimas" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Vindimas">
+            <Button fx:id="btnVindimas" mnemonicParsing="false" onAction="#btnVindimaClic" prefHeight="25.0" prefWidth="130.0" text="Vindimas">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnControlos" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Controlos">
+            <Button fx:id="btnControlos" mnemonicParsing="false" onAction="#btnControloClic" prefHeight="25.0" prefWidth="130.0" text="Controlos">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnAvaliacoes" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Avaliações">
+            <Button fx:id="btnAvaliacoes" mnemonicParsing="false" onAction="#btnAvaliacoesClic" prefHeight="25.0" prefWidth="130.0" text="Avaliações">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnEmbalamentos" mnemonicParsing="false" prefWidth="130.0" text="Embalamentos">
+            <Button fx:id="btnEmbalamentos" mnemonicParsing="false" onAction="#btnEmbalamentosClic" prefWidth="130.0" text="Embalamentos">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnPaginaInicial" mnemonicParsing="false" onAction="#openHome" prefHeight="25.0" prefWidth="130.0" text="Página Inicial">
+            <Button fx:id="btnPaginaInicial" mnemonicParsing="false" onAction="#openPaginaInicial" prefHeight="25.0" prefWidth="130.0" text="Página Inicial">
                <VBox.margin>
                   <Insets left="10.0" top="50.0" />
                </VBox.margin>

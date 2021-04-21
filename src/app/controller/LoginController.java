@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.erros.msg;
+import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
