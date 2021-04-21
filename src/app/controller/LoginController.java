@@ -56,9 +56,9 @@ public class LoginController {
         }
         else {
             if (user.isEmpty()) {
-                msg.alertaAviso("Por favor insira o username!", "Erro!", "Username não pode estar vazio!");
+                msg.alertaAviso("Por favor insira o username!", "Aviso!", "Username não pode estar vazio!");
             } else if (pass.isEmpty()) {
-                msg.alertaAviso("Por favor insira a password!", "Erro!", "Password não pode estar vazia!");
+                msg.alertaAviso("Por favor insira a password!", "Aviso!", "Password não pode estar vazia!");
             }
 
             else {

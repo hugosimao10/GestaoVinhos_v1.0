@@ -49418,6 +49418,7 @@
     </table>
     <table id="7104" parent="38" name="FUNCIONARIO">
       <ObjectId>100028</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
       <ModifiedTimestamp>2021-04-12.11:42:03</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>

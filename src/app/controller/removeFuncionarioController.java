@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,7 +50,7 @@ public class removeFuncionarioController {
 
         if(user.isEmpty()){
             System.out.println("Por favor, preencha o username!");
-
+            msg.alertaAviso("Por favor insira o username que pretende remover!", "Aviso!", "Username não pode estar vazio!");
         }
         else{
 
@@ -60,17 +61,20 @@ public class removeFuncionarioController {
 
                 PreparedStatement pst1 = conn.prepareStatement("DELETE FROM FUNCIONARIO WHERE USERNAME LIKE ?");
                 pst1.setString(1,user);
+                pst1.executeQuery();
                 System.out.println("O user foi removido com sucesso!");
-
+                msg.alertaInfo("O funcionário foi removido com sucesso!", "Sucesso!", "Funcionário encontrado!");
 
             }
             else{
                 System.out.println("O user nao foi encontrado!");
+                msg.alertaErro("O username não foi encontrado!", "Erro!", "Username não existe!");
             }
 
             }
             else{
                 System.out.println("Por favor, selecione a checkbox para confirmar que pretende remover!");
+                msg.alertaAviso("Por favor selecione a checkbox!", "Aviso!", "Confirme que pretende remover!");
             }
 
 
