@@ -50,8 +50,8 @@ public class removeFuncionarioController {
         // VER SE O USERNAME ESTA VAZIO
 
         if(user.isEmpty()){
-            System.out.println("Por favor, preencha o username!");
-            msg.alertaAviso("Por favor insira o username que pretende remover!", "Aviso!", "Username não pode estar vazio!");
+            System.out.println("Por favor, preencha o funcionário!");
+            msg.alertaAviso("Por favor insira o funcionário que pretende remover!", "Aviso!", "Funcionário não pode estar vazio!");
         }
         else{
 
@@ -72,8 +72,8 @@ public class removeFuncionarioController {
 
             }
             else{
-                System.out.println("O user nao foi encontrado!");
-                msg.alertaErro("O username não foi encontrado!", "Erro!", "Username não existe!");
+                System.out.println("O funcionário nao foi encontrado!");
+                msg.alertaErro("O funcionário não foi encontrado!", "Erro!", "Funcionário não existe!");
             }
 
             }

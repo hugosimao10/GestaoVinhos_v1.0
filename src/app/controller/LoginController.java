@@ -28,7 +28,7 @@ public class LoginController {
         String pass = this.passInserida.getText();
         String user = this.userInserido.getText();
 
-        PreparedStatement pst = conn.prepareStatement("SELECT ID_FUNCIONARIO, TIPO_FUNCIONARIO, USERNAME, PW" +
+        PreparedStatement pst = conn.prepareStatement("SELECT TIPO_FUNCIONARIO, USERNAME, PW, ID_EMPRESA" +
                 " FROM FUNCIONARIO WHERE USERNAME LIKE ? AND PW LIKE ?");
 
         pst.setString(1, user);
