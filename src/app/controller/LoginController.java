@@ -36,7 +36,10 @@ public class LoginController {
 
         ResultSet rs = pst.executeQuery();
 
+
         if(rs.next()){
+
+            int empresa = rs.getInt("ID_EMPRESA");
 
             System.out.println("Login com sucesso!");
 
@@ -48,7 +51,7 @@ public class LoginController {
             stage.setResizable(false);
             stage.show();
             DashboardController dashboard = loader.getController();
-            dashboard.iniciar();
+            dashboard.iniciar(empresa);
             ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
 
