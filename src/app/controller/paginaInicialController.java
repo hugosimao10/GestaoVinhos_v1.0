@@ -4,7 +4,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-public class homeController {
+import java.io.IOException;
+
+public class paginaInicialController {
     public ImageView iconQuintas;
     public ImageView iconFuncionarios;
     public ImageView iconVindimas;
@@ -22,4 +24,11 @@ public class homeController {
     public Text percControlos;
     public Text numCaixas;
     public Button btnLogout;
+
+
+    public void iniciar() {
+        System.out.println("Está na página Inicial!");
+
+
+    }
 }

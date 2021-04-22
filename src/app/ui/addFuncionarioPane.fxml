@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="funcionariosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.addUserController">
+<Pane fx:id="funcionariosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.addFuncionarioController">
    <children>
       <Text layoutX="138.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Funcionário">
          <font>
@@ -24,7 +24,7 @@
       <Text layoutX="154.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rua" />
       <Text layoutX="150.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porta" />
       <Text layoutX="104.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código Postal" />
-      <ComboBox fx:id="dropdownIdFunc" layoutX="180.0" layoutY="52.0" prefWidth="150.0" />
+      <ComboBox fx:id="dropdownTipoFunc" layoutX="180.0" layoutY="52.0" prefWidth="150.0" />
       <TextField fx:id="usernameFunc" layoutX="181.0" layoutY="76.0" translateY="10.0" />
       <PasswordField fx:id="pwdFunc" layoutX="181.0" layoutY="101.0" translateY="20.0" />
       <TextField fx:id="nomeFunc" layoutX="181.0" layoutY="126.0" translateY="30.0" />
@@ -33,7 +33,7 @@
       <TextField fx:id="ruaFunc" layoutX="181.0" layoutY="201.0" translateY="60.0" />
       <TextField fx:id="portaFunc" layoutX="181.0" layoutY="226.0" translateY="70.0" />
       <TextField fx:id="cpFunc" layoutX="181.0" layoutY="251.0" translateY="80.0" />
-      <Button fx:id="btnConfirmAddFunc" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" text="Adicionar" />
-      <Button fx:id="btnCancelAddFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btnConfirmAddFunc" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAddFuncionarioAddClic" text="Adicionar" />
+      <Button fx:id="btnCancelAddFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAddFuncCancelarClic" text="Voltar" />
    </children>
 </Pane>

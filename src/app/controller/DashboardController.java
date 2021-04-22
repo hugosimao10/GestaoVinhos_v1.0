@@ -1,7 +1,13 @@
 package app.controller;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
+
+import java.io.IOException;
 
 public class DashboardController {
     public Button btnQuintas;
@@ -12,5 +18,93 @@ public class DashboardController {
     public Button btnAvaliacoes;
     public Button btnEmbalamentos;
     public Button btnPaginaInicial;
-    public Pane paneToChange;
+    public BorderPane paneToChange;
+
+    // FUNCAO QUE ATIVA O BOTAO DA PAGINA INICIAL
+
+    public void iniciar() throws IOException {
+
+        btnPaginaInicial.fire();
+    }
+
+    // BOTAO QUE APRESENTA A PAGINA INICIAL AO UTILIZADOR
+
+    @FXML
+    private void openPaginaInicial() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/paginaInicialPane.fxml"));
+        Parent root = loader.load();
+        paginaInicialController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
+
+
+    }
+
+    // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE QUINTAS
+
+    @FXML
+    public void btnQuintasClic(ActionEvent actionEvent) throws IOException{
+
+
+
+
+    }
+
+    //BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE FUNCIONARIOS
+
+    @FXML
+    public void btnFuncionarioClic(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionariosPane.fxml"));
+        Parent root = loader.load();
+        funcionarioController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
+
+    }
+
+    // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE PLANTACOES
+
+    @FXML
+    public void btnPlantacaoClic(ActionEvent actionEvent) throws IOException{
+
+
+
+    }
+
+    // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE VINDIMAS
+
+    @FXML
+    public void btnVindimaClic(ActionEvent actionEvent) throws IOException{
+
+
+
+    }
+
+    // BOTAO QUE LEVA O UTILZIADOR PARA A AREA DE CONTROLOS
+
+    @FXML
+    public void btnControloClic(ActionEvent actionEvent) throws IOException{
+
+
+
+    }
+
+    // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE AVALIACOES
+
+    @FXML
+    public void btnAvaliacoesClic(ActionEvent actionEvent) throws IOException{
+
+
+
+    }
+
+    // BOTAO QUE LEVA O UTILZIADOR PARA A AREA DE EMBALAMENTOS
+
+    @FXML
+    public void btnEmbalamentosClic(ActionEvent actionEvent) throws IOException{
+
+
+
+    }
 }

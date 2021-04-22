@@ -19,6 +19,7 @@ public class Main extends Application {
         launch(args);
     }
 
+    //começar a app com o login
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -29,4 +30,13 @@ public class Main extends Application {
         //setTitleIcon.setIcon(stage);
         stage.show();
     }
+
+
+/*
+    // codigo de escolher data, meter dentro do botão
+
+    DatePicker datepicker = new DatePicker(this);
+
+      recebe_data_ini.setText(datepicker.setPickedDate());
+*/
 }

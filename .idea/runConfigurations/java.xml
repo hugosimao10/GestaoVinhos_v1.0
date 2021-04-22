@@ -2,7 +2,7 @@
   <configuration default="false" name="java" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="app.Main" />
     <module name="GestaoVinhos_v1.0" />
-    <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\diogo\IdeaProjects\GestaoVinhos_v1.0\importantFiles\javafx-sdk-16\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
+    <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\hug01\Documents\JAVA.FX.16\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="funcionariosRemovePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.removeUserController">
+<Pane fx:id="funcionariosRemovePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.removeFuncionarioController">
    <children>
       <Text layoutX="140.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remover Funcionário">
          <font>
@@ -15,9 +15,9 @@
          </font>
       </Text>
       <Text layoutX="121.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-      <TextField fx:id="usernameRomoveFunc" layoutX="181.0" layoutY="164.0" translateY="10.0" />
-      <Button fx:id="btnConfirmRemoveFunc" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" text="Remover" />
-      <Button fx:id="btnCancelRemoveFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" text="Cancelar" />
+      <TextField fx:id="usernameRemoveFunc" layoutX="181.0" layoutY="164.0" translateY="10.0" />
+      <Button fx:id="btnConfirmRemoveFunc" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnRemoverFuncRemoveClic" text="Remover" />
+      <Button fx:id="btnCancelRemoveFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnRemoveFuncCancelarClic" text="Voltar" />
       <CheckBox fx:id="checkRemoveFunc" layoutX="135.0" layoutY="208.0" mnemonicParsing="false" text="Confirmo que quero remover!" />
    </children>
 </Pane>

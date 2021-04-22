@@ -115,6 +115,9 @@ public class Funcionario {
     }
 
 
+
+
+
     public void read(int id_funcionario) throws SQLException {
         Connection conn = Util.criarConexao();
 
