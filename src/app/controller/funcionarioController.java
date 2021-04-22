@@ -61,7 +61,6 @@ public class funcionarioController {
         editFuncionarioController edit = loader.getController();
         edit.iniciar();
 
-
     }
 
     // BOTAO PARA REMOVER FUNCIONARIO
