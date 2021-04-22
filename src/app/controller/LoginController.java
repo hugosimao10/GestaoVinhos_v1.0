@@ -39,7 +39,17 @@ public class LoginController {
 
         if(rs.next()){
 
+            // VER NOME DA EMPRESA
+
+            /*
+            PreparedStatement pst2 = conn.prepareStatement("SELECT NOME_EMPRESA FROM EMPRESA WHERE" +
+                    "");
+            */
+
             int empresa = rs.getInt("ID_EMPRESA");
+            String username = rs.getString("USERNAME");
+            String nomeEmpresa = rs.getString("");
+
 
             System.out.println("Login com sucesso!");
 
@@ -51,7 +61,7 @@ public class LoginController {
             stage.setResizable(false);
             stage.show();
             DashboardController dashboard = loader.getController();
-            dashboard.iniciar(empresa);
+            dashboard.iniciar(empresa, username, nomeEmpresa);
             ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
 
