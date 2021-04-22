@@ -8,10 +8,7 @@ package app.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- *
- * @author miguel
- */
+
 public class Util {
 
     private static Connection conn = null;

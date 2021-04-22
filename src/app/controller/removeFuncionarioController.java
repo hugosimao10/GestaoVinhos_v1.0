@@ -63,6 +63,8 @@ public class removeFuncionarioController {
 
             if(rs.next()){
 
+
+
                 PreparedStatement pst1 = conn.prepareStatement("UPDATE FUNCIONARIO SET ESTADO = 0 WHERE USERNAME = ?");
                 pst1.setString(1,user);
                 pst1.executeQuery();

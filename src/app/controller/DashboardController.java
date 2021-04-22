@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.userLogado.userID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,21 +23,29 @@ public class DashboardController {
 
     // FUNCAO QUE ATIVA O BOTAO DA PAGINA INICIAL
 
-    public void iniciar() throws IOException {
+    public void iniciar(int idEmpresa, String username, String nomeEmpresa) throws IOException {
+
+    // PASSAR O ID DA EMPRESA PARA UMA VARIAVEL GLOBAL
+
+        userID idLogado = new userID();
+        idLogado.setId(idEmpresa);
+        idLogado.setUsername(username);
+        idLogado.setNomeEmpresa(nomeEmpresa);
 
         btnPaginaInicial.fire();
+
     }
 
     // BOTAO QUE APRESENTA A PAGINA INICIAL AO UTILIZADOR
 
     @FXML
     private void openPaginaInicial() throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/paginaInicialPane.fxml"));
         Parent root = loader.load();
         paginaInicialController controller = loader.getController();
         paneToChange.setCenter(root);
         controller.iniciar();
-
 
     }
 
