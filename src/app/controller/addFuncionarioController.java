@@ -4,10 +4,7 @@ import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -39,6 +36,7 @@ public class addFuncionarioController {
     @FXML
     public void btnAddFuncionarioAddClic(ActionEvent actionEvent) throws IOException, SQLException {
 
+
         Connection conn = Util.criarConexao();
 
         String tipo_func = dropdownTipoFunc.getValue().toString();
@@ -56,7 +54,6 @@ public class addFuncionarioController {
         int codpostalInt = Integer.parseInt(codpostal);
 
         // FALTA CODIGO DE VER A EMPRESA
-
 
         PreparedStatement pst = conn.prepareStatement("INSERT INTO FUNCIONARIO(TIPO_FUNCIONARIO, NOME, EMAIL, TLM, NPORTA," +
                 "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
