@@ -49,14 +49,14 @@ public class funcionarioController {
     @FXML
     public void btnEditFuncClic(ActionEvent actionEvent)throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/editFuncionarioPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/selectFuncionarioToEditPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Editar Funcionario");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
-        editFuncionarioController edit = loader.getController();
+        selectFuncionarioToEditController edit = loader.getController();
         edit.iniciar();
 
     }
