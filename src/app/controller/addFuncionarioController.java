@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.error.msg;
 import app.guardaDados.userID;
 import app.util.Util;
 import javafx.event.ActionEvent;
@@ -39,38 +40,48 @@ public class addFuncionarioController {
 
         Connection conn = Util.criarConexao();
 
-        String tipo_func = dropdownTipoFunc.getValue().toString();
+        //String tipo_func = dropdownTipoFunc.getValue().toString();
         String pass = this.usernameFunc.getText();
         String user = this.pwdFunc.getText();
         String nome = nomeFunc.getText();
         String email = emailFunc.getText();
         String tlm = tlmFunc.getText();
-        String nporta = portaFunc.getText();
         String rua = ruaFunc.getText();
-        String codpostal = cpFunc.getText();
+       ;
 
         int estado = 1;
-        int nportaInt=Integer.parseInt(nporta);
-        int codpostalInt = Integer.parseInt(codpostal);
+        int nportaInt=Integer.parseInt(portaFunc.getText());
+        int codpostalInt = Integer.parseInt(cpFunc.getText());
         int idEmpresaLogada = userID.getId();
 
-        PreparedStatement pst = conn.prepareStatement("INSERT INTO FUNCIONARIO(TIPO_FUNCIONARIO, NOME, EMAIL, TLM, NPORTA," +
-                "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement pst = conn.prepareStatement("INSERT INTO FUNCIONARIO(NOME, EMAIL, TLM, NPORTA," +
+                "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO, TIPO_FUNCIONARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-        pst.setString(1, tipo_func);
-        pst.setString(2, nome);
-        pst.setString(3, email);
-        pst.setString(4, tlm);
-        pst.setInt(5, nportaInt);
-        pst.setString(6, rua);
-        pst.setInt(7, codpostalInt);
-        pst.setInt(8, idEmpresaLogada);  // EMPRESA
-        pst.setString(9, pass);
-        pst.setString(10, user);
-        pst.setInt(11, estado);
 
+        pst.setString(1, nome);
+        pst.setString(2, email);
+        pst.setString(3, tlm);
+        pst.setInt(4, nportaInt);
+        pst.setString(5, rua);
+        pst.setInt(6, codpostalInt);
+        pst.setInt(7, idEmpresaLogada);  // EMPRESA
+        pst.setString(8, pass);
+        pst.setString(9, user);
+        pst.setInt(10, estado);
+        pst.setInt(11, 1);
 
         pst.executeQuery();
+
+        if(pst.executeQuery().next()){
+            System.out.println("Funcionário adicionado com sucesso!");
+            msg.alertaInfo("Funcionário adicionado com sucesso!", "Info!", "Sucesso!");
+
+        }
+        else{
+            System.out.println("Erro ao adicionar funcionário!");
+            msg.alertaErro("Erro ao adicionar funcionário!", "Erro!", "Insucesso!");
+
+        }
 
 
     }

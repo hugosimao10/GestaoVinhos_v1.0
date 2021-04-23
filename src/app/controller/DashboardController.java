@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class DashboardController {
     public Button btnQuintas;
@@ -62,7 +63,7 @@ public class DashboardController {
     //BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE FUNCIONARIOS
 
     @FXML
-    public void btnFuncionarioClic(ActionEvent actionEvent) throws IOException {
+    public void btnFuncionarioClic(ActionEvent actionEvent) throws IOException, SQLException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionariosPane.fxml"));
         Parent root = loader.load();
