@@ -1,6 +1,7 @@
 package app.controller;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -23,5 +24,9 @@ public class concluirPlantacaoController {
     }
 
     public void btnConcluirPlantCancelarClic(ActionEvent actionEvent) {
+
+        numPlantacao.setText("");
+
+        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

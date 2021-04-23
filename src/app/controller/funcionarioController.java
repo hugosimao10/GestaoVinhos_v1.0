@@ -1,5 +1,8 @@
 package app.controller;
 
+import app.error.msg;
+import app.guardaDados.userID;
+import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +14,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class funcionarioController {
     public Button btnAddFuncionario;
@@ -20,10 +27,33 @@ public class funcionarioController {
     public Pane funcionariosPane;
 
 
-    public void iniciar() {
+    public void iniciar() throws SQLException {
         System.out.println("Está na area de listar funcionários!");
 
+        int funcEmpresa = userID.getId();
 
+        Connection conn = Util.criarConexao();
+
+        PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE ID_EMPRESA = ?");
+        pst.setInt(1, funcEmpresa);
+
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()){
+
+            int num = rs.getInt("ID_FUNCIONARIO");
+            String nome = rs.getString("NOME");
+            String tipo = rs.getString("TIPO_FUNCIONARIO");
+            String email = rs.getString("EMAIL");
+            String tlm = rs.getString("TLM");
+            int estado = rs.getInt("ESTADO");
+
+
+
+        }
+        else{
+            System.out.println("A empresa não tem nenhum funcionário!");
+        }
 
     }
 
