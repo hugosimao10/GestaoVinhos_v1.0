@@ -13,6 +13,12 @@ public class concluirPlantacaoController {
     public Button btnCancelConcluirPlant;
     public CheckBox checkConcluirPlant;
 
+    public void iniciar() {
+        System.out.println("Está na area de concluir plantações!");
+
+
+    }
+
     public void btnConcluirPlantClic(ActionEvent actionEvent) {
     }
 

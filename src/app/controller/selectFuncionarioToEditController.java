@@ -12,7 +12,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +31,7 @@ public class selectFuncionarioToEditController {
     }
 
 
-    public void butConfirmFuncEditClic(ActionEvent actionEvent) throws SQLException {
+    public void butConfirmFuncEditClic(ActionEvent actionEvent) throws SQLException, IOException {
 
         Connection conn = Util.criarConexao();
 
@@ -45,6 +45,41 @@ public class selectFuncionarioToEditController {
 
         if(rs.next()){
 
+            if(checkEditFunc.isSelected()){
+
+                int idUserEdit = rs.getInt("ID_FUNCIONARIO");
+                String cargo = rs.getString("TIPO_FUNCIONARIO");
+                String nome = rs.getString("NOME");
+                String email = rs.getString("EMAIL");
+                String tlm = rs.getString("TLM");
+                int nPorta = rs.getInt("NPORTA");
+                String rua = rs.getString("RUA");
+                int cod_postal = rs.getInt("COD_POSTAL");
+                int empresa = rs.getInt("ID_EMPRESA");
+                String pw = rs.getString("PW");
+                String user = rs.getString("USERNAME");
+                int estado = rs.getInt("ESTADO");
+
+
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/editFuncionarioPane.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Editar Funcionario");
+                stage.setScene(new Scene(root));
+                stage.setResizable(false);
+                stage.show();
+                editFuncionarioController edit = loader.getController();
+                edit.iniciar(idUserEdit, cargo, nome, email, tlm, nPorta, rua, cod_postal, empresa, pw, user, estado);
+
+                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+            }
+            else{
+                System.out.println("Selecione a checbox para confirmar!");
+                msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
+
+            }
+
 
 
         }
@@ -54,7 +89,6 @@ public class selectFuncionarioToEditController {
 
         }
 
-        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
     }
 

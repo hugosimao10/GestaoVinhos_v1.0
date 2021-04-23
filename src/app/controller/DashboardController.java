@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.userLogado.userID;
+import app.guardaDados.userID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,7 +77,11 @@ public class DashboardController {
     @FXML
     public void btnPlantacaoClic(ActionEvent actionEvent) throws IOException{
 
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/plantacoesPane.fxml"));
+        Parent root = loader.load();
+        plantacoesController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
     }
 

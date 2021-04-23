@@ -24,6 +24,7 @@ public class funcionarioController {
         System.out.println("Está na area de listar funcionários!");
 
 
+
     }
 
     // BOTAO DE ADICIONAR FUNCIONARIO

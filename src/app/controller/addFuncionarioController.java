@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.userLogado.userID;
+import app.guardaDados.userID;
 import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,6 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class addFuncionarioController {

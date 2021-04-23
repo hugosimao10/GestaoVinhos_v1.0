@@ -25,9 +25,21 @@ public class editFuncionarioController {
     public Button btnCancelEditFunc;
     public Pane funcionariosEditPane;
 
-    public void iniciar() {
+    public void iniciar(int idUserEdit, String cargo,String nome, String email,String tlm,int nPorta,String rua,int cod_postal,int empresa,String pw,String user,int estado) {
         System.out.println("Está na area de editar funcionários!");
 
+        String nporta1 = String.valueOf(nPorta);
+        String cp1 = String.valueOf(cod_postal);
+
+        // dropdownEditFunc.setItems(list);
+        usernameEditFunc.setText(user);
+        pwdEditFunc.setText(pw);
+        nomeEditFunc.setText(nome);
+        emailEditFunc.setText(email);
+        tlmEditFunc.setText(tlm);
+        ruaEditFunc.setText(rua);
+        portaEditFunc.setText(nporta1);
+        cpEditFunc.setText(cp1);
 
     }
 
