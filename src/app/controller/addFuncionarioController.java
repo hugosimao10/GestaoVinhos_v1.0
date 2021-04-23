@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.userLogado.userID;
 import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,8 +53,7 @@ public class addFuncionarioController {
         int estado = 1;
         int nportaInt=Integer.parseInt(nporta);
         int codpostalInt = Integer.parseInt(codpostal);
-
-        // FALTA CODIGO DE VER A EMPRESA
+        int idEmpresaLogada = userID.getId();
 
         PreparedStatement pst = conn.prepareStatement("INSERT INTO FUNCIONARIO(TIPO_FUNCIONARIO, NOME, EMAIL, TLM, NPORTA," +
                 "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
@@ -65,7 +65,7 @@ public class addFuncionarioController {
         pst.setInt(5, nportaInt);
         pst.setString(6, rua);
         pst.setInt(7, codpostalInt);
-        pst.setInt(8, 1);  // EMPRESA
+        pst.setInt(8, idEmpresaLogada);  // EMPRESA
         pst.setString(9, pass);
         pst.setString(10, user);
         pst.setInt(11, estado);

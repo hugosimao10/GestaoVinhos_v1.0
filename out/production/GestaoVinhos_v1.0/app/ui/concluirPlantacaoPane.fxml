@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="conclurPlantacoesPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.concluirPlantacaoController">
+   <children>
+      <Text layoutX="154.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Concluir Plantação">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="107.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Num. Plantação" />
+      <TextField fx:id="numPlantacao" layoutX="193.0" layoutY="158.0" translateY="10.0" />
+      <Button fx:id="btnConfirmConcluirPlant" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnConcluirPlantClic" text="Concluir" />
+      <Button fx:id="btnCancelConcluirPlant" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnConcluirPlantCancelarClic" text="Voltar" />
+      <CheckBox fx:id="checkConcluirPlant" layoutX="139.0" layoutY="216.0" mnemonicParsing="false" text="Confirmo que quero concluir!" />
+   </children>
+</Pane>

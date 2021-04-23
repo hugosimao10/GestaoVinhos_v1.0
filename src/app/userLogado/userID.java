@@ -3,15 +3,16 @@ package app.userLogado;
 public class userID {
 
     private static int id;
+    private static int idUser;
     private static String username;
     private static String nomeEmpresa;
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static void setId(int id) {
+        userID.id = id;
     }
 
     public static String getUsername() {
@@ -24,6 +25,14 @@ public class userID {
 
     public static String getNomeEmpresa() {
         return nomeEmpresa;
+    }
+
+    public static int getIdUser() {
+        return idUser;
+    }
+
+    public static void setIdUser(int idUser) {
+        userID.idUser = idUser;
     }
 
     public static void setNomeEmpresa(String nomeEmpresa) {

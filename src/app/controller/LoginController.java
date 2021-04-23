@@ -28,7 +28,7 @@ public class LoginController {
         String pass = this.passInserida.getText();
         String user = this.userInserido.getText();
 
-        PreparedStatement pst = conn.prepareStatement("SELECT TIPO_FUNCIONARIO, USERNAME, PW, ID_EMPRESA" +
+        PreparedStatement pst = conn.prepareStatement("SELECT ID_FUNCIONARIO, TIPO_FUNCIONARIO, USERNAME, PW, ID_EMPRESA" +
                 " FROM FUNCIONARIO WHERE USERNAME LIKE ? AND PW LIKE ?");
 
         pst.setString(1, user);
@@ -36,33 +36,53 @@ public class LoginController {
 
         ResultSet rs = pst.executeQuery();
 
-
         if(rs.next()){
 
-            // VER NOME DA EMPRESA
 
-            /*
-            PreparedStatement pst2 = conn.prepareStatement("SELECT NOME_EMPRESA FROM EMPRESA WHERE" +
-                    "");
-            */
+            int idLog = rs.getInt("ID_FUNCIONARIO");
 
-            int empresa = rs.getInt("ID_EMPRESA");
-            String username = rs.getString("USERNAME");
-            String nomeEmpresa = rs.getString("");
+            PreparedStatement pst2 = conn.prepareStatement("SELECT e.NOME_EMPRESA,f.ID_EMPRESA," +
+                    "f.ID_FUNCIONARIO, f.ESTADO FROM EMPRESA e," +
+                    "FUNCIONARIO f " +
+                    "WHERE e.ID_EMPRESA = f.ID_EMPRESA AND f.ID_FUNCIONARIO = ?");
+
+            pst2.setInt(1, idLog);
+
+            ResultSet rs1 = pst2.executeQuery();
 
 
-            System.out.println("Login com sucesso!");
+            if(rs1.next()){
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("EmpresaVinhos | Dashboard");
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.show();
-            DashboardController dashboard = loader.getController();
-            dashboard.iniciar(empresa, username, nomeEmpresa);
-            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                if (rs1.getInt("ESTADO") != 0) {
+                    System.out.println("Login com sucesso!");
+
+                    // VER NOME DA EMPRESA
+                    int empresa = rs1.getInt("ID_EMPRESA");
+                    String username = rs.getString("USERNAME");
+                    String nomeEmpresa = rs1.getString("NOME_EMPRESA");
+                    int idLog1 = rs1.getInt("ID_FUNCIONARIO");
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("EmpresaVinhos | Dashboard");
+                    stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    stage.show();
+                    DashboardController dashboard = loader.getController();
+                    dashboard.iniciar(empresa, idLog1, username, nomeEmpresa);
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                }
+                else{
+                    System.out.println("O utilizador não tem permissão para entrar na aplicação!");
+                    msg.alertaAviso("O utilizador não tem permissão para entrar na aplicação!", "Aviso!", "Dados desativados!");
+
+                }
+            }
+            else{
+                System.out.println("Falha ao procurar empresa do utilizador Logado!");
+                msg.alertaErro("Falha ao procurar empresa do utilizador Logado!", "Erro!", "Falha ao procurar empresa do utilizador Logado!");
+            }
 
 
 

@@ -23,14 +23,14 @@ public class DashboardController {
 
     // FUNCAO QUE ATIVA O BOTAO DA PAGINA INICIAL
 
-    public void iniciar(int idEmpresa, String username, String nomeEmpresa) throws IOException {
+    public void iniciar(int idEmpresa, int idLog1,String username, String nomeEmpresa) throws IOException {
 
     // PASSAR O ID DA EMPRESA PARA UMA VARIAVEL GLOBAL
 
-        userID idLogado = new userID();
-        idLogado.setId(idEmpresa);
-        idLogado.setUsername(username);
-        idLogado.setNomeEmpresa(nomeEmpresa);
+        userID.setId(idEmpresa);
+        userID.setIdUser(idLog1);
+        userID.setUsername(username);
+        userID.setNomeEmpresa(nomeEmpresa);
 
         btnPaginaInicial.fire();
 
