@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.guardaDados.userID;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -24,11 +25,14 @@ public class paginaInicialController {
     public Text percControlos;
     public Text numCaixas;
     public Button btnLogout;
-
+    public Text bemVindoEmpresa;
+    public Text bemVindoUser;
 
     public void iniciar() {
         System.out.println("Está na página Inicial!");
 
+        bemVindoEmpresa.setText(userID.getNomeEmpresa());
+        bemVindoUser.setText("Bem-vindo, " + userID.getUsername());
 
     }
 }

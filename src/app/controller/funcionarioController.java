@@ -60,7 +60,7 @@ public class funcionarioController {
     // BOTAO DE ADICIONAR FUNCIONARIO
 
     @FXML
-    public void btnAddFuncClic(ActionEvent actionEvent) throws IOException {
+    public void btnAddFuncClic(ActionEvent actionEvent) throws IOException, SQLException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/addFuncionarioPane.fxml"));
         Parent root = loader.load();
