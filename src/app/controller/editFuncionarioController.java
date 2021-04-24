@@ -165,8 +165,8 @@ public class editFuncionarioController {
 
                                 int codPostExiste = rs12.getInt("ID_CODPOSTAL");
 
-                                PreparedStatement pst = c1.prepareStatement("INSERT INTO FUNCIONARIO(NOME, EMAIL, TLM, NPORTA," +
-                                        "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO, TIPO_FUNCIONARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?) WHERE ID_FUNCIONARIO = ?");
+                                PreparedStatement pst = c1.prepareStatement("UPDATE FUNCIONARIO SET NOME = ?, EMAIL= ?, TLM= ?, NPORTA= ?," +
+                                        "RUA= ?, COD_POSTAL= ?, ID_EMPRESA= ?, PW= ?, USERNAME= ?, ESTADO= ?, TIPO_FUNCIONARIO= ? WHERE ID_FUNCIONARIO = ?");
 
 
                                 pst.setString(1, nome);
@@ -201,8 +201,8 @@ public class editFuncionarioController {
                                 if(rs16.next()) {
                                     int codPostExiste1 = rs16.getInt("ID_CODPOSTAL");
 
-                                    PreparedStatement pst20 = c1.prepareStatement("INSERT INTO FUNCIONARIO(NOME, EMAIL, TLM, NPORTA," +
-                                            "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO, TIPO_FUNCIONARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?) WHERE ID_FUNCIONARIO = ?");
+                                    PreparedStatement pst20 = c1.prepareStatement("UPDATE FUNCIONARIO SET NOME = ?, EMAIL= ?, TLM= ?, NPORTA= ?," +
+                                            "RUA= ?, COD_POSTAL= ?, ID_EMPRESA= ?, PW= ?, USERNAME= ?, ESTADO= ?, TIPO_FUNCIONARIO= ? WHERE ID_FUNCIONARIO = ?");
 
 
                                     pst20.setString(1, nome);
