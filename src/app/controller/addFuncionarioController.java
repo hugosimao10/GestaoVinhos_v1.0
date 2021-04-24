@@ -92,7 +92,6 @@ public class addFuncionarioController {
 
                 int nCargo = s4.getInt("ID");
 
-
                 PreparedStatement p5 = c1.prepareStatement("SELECT USERNAME FROM FUNCIONARIO WHERE USERNAME = ?");
                 p5.setString(1, user);
 

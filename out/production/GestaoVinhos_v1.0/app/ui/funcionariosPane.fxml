@@ -7,22 +7,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane fx:id="funcionariosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.funcionarioController">
+<Pane fx:id="funcionariosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.funcionarioController">
    <children>
       <Text layoutX="175.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionários">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TableView fx:id="tableFuncionarios" layoutX="4.0" layoutY="76.0" prefHeight="248.0" prefWidth="442.0">
+      <TableView fx:id="table" layoutX="1.0" layoutY="76.0" prefHeight="248.0" prefWidth="443.0">
         <columns>
-            <TableColumn prefWidth="37.600006103515625" text="Num" />
-          <TableColumn prefWidth="88.7999267578125" text="Nome" />
-          <TableColumn prefWidth="100.00006103515625" text="Cargo" />
-            <TableColumn prefWidth="75.0" text="Mail" />
-            <TableColumn prefWidth="75.0" text="Tlm" />
-            <TableColumn prefWidth="75.0" text="Estado" />
+            <TableColumn fx:id="colNum" prefWidth="37.600006103515625" text="Num" />
+          <TableColumn fx:id="colNome" prefWidth="88.7999267578125" text="Nome" />
+          <TableColumn fx:id="colCargo" prefWidth="100.00006103515625" text="Cargo" />
+            <TableColumn fx:id="colMail" prefWidth="87.0" text="Mail" />
+            <TableColumn fx:id="colTLM" prefWidth="84.0" text="Tlm" />
+            <TableColumn fx:id="colEstado" maxWidth="63.0" prefWidth="42.0" text="Estado" />
         </columns>
       </TableView>
       <Button fx:id="btnAddFuncionario" layoutX="26.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddFuncClic" text="Adicionar Funcionário" />

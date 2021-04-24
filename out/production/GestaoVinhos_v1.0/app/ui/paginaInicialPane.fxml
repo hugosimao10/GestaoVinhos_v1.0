@@ -9,8 +9,8 @@
 
 <Pane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.paginaInicialController">
    <children>
-      <Text layoutX="191.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa" />
-      <Text layoutX="184.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo," />
+      <Text fx:id="bemVindoEmpresa" layoutX="75.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa" />
+      <Text fx:id="bemVindoUser" layoutX="257.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo," />
       <Text layoutX="72.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Quintas" />
       <Text layoutX="286.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vindimas ativas" />
       <Text layoutX="60.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Funcionários" />

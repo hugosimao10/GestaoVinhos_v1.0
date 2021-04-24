@@ -14,20 +14,73 @@ import java.util.List;
 public class Funcionario {
 
     private int id_funcionario;
-    private String tipo_funcionario;
+    private int tipo_funcionario;
     private String nome;
     private String email;
     private String tlm;
     private int nporta;
     private String rua;
     private int id_codpostal;
+    private int id_empresa;
+    private int estado;
+    private String pw;
+    private String username;
 
     public Funcionario() {
 
 
 
     }
-    
+
+    public Funcionario(int id_funcionario, int tipo_funcionario, String nome, String email, String tlm, int estado) {
+        this.id_funcionario = id_funcionario;
+        this.tipo_funcionario = tipo_funcionario;
+        this.nome = nome;
+        this.email = email;
+        this.tlm = tlm;
+        this.estado = estado;
+    }
+
+    public int getTipo_funcionario() {
+        return tipo_funcionario;
+    }
+
+    public void setTipo_funcionario(int tipo_funcionario) {
+        this.tipo_funcionario = tipo_funcionario;
+    }
+
+    public int getId_empresa() {
+        return id_empresa;
+    }
+
+    public void setId_empresa(int id_empresa) {
+        this.id_empresa = id_empresa;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public Funcionario(String nome) {
         this.nome = nome;
     }
@@ -41,13 +94,9 @@ public class Funcionario {
         this.id_funcionario = id_funcionario;
     }
 
-    public String getTipo_funcionario() {
-        return tipo_funcionario;
-    }
 
-    public void setTipo_funcionario(String tipo_funcionario) {
-        this.tipo_funcionario = tipo_funcionario;
-    }
+
+
 
     public String getNome() {
         return nome;
@@ -130,7 +179,7 @@ public class Funcionario {
         if (rs.next()) {
             this.id_funcionario = id_funcionario;
             if (rs.getString("TIPO_FUNCIONARIO") != null) {
-                this.tipo_funcionario = rs.getString("TIPO_FUNCIONARIO");
+                this.tipo_funcionario = rs.getInt("TIPO_FUNCIONARIO");
             }
             if (rs.getString("NOME") != null) {
                 this.nome = rs.getString("NOME");
@@ -175,7 +224,7 @@ public class Funcionario {
                 funcionario.setId_funcionario(rs.getInt("ID_FUNCIONARIO"));
 
             if (rs.getString("TIPO_FUNCIONARIO") != null) {
-                funcionario.setTipo_funcionario(rs.getString("TIPO_FUNCIONARIO"));
+                funcionario.setTipo_funcionario(rs.getInt("TIPO_FUNCIONARIO"));
             }
             if (rs.getString("NOME") != null) {
                 funcionario.setNome(rs.getString("NOME"));

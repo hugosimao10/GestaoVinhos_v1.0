@@ -4,8 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class Main extends Application {
@@ -27,5 +30,7 @@ public class Main extends Application {
         //setTitleIcon.setIcon(stage);
         stage.show();
     }
+
+
 
 }
