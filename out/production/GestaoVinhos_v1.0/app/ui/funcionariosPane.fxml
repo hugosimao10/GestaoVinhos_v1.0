@@ -16,8 +16,8 @@
       </Text>
       <TableView fx:id="table" layoutX="1.0" layoutY="76.0" prefHeight="248.0" prefWidth="443.0">
         <columns>
-            <TableColumn fx:id="colNum" prefWidth="37.600006103515625" text="Num" />
-          <TableColumn fx:id="colNome" prefWidth="88.7999267578125" text="Nome" />
+            <TableColumn fx:id="colNum" prefWidth="46.0" text="Num" />
+          <TableColumn fx:id="colNome" prefWidth="81.0" text="Nome" />
           <TableColumn fx:id="colCargo" prefWidth="100.00006103515625" text="Cargo" />
             <TableColumn fx:id="colMail" prefWidth="87.0" text="Mail" />
             <TableColumn fx:id="colTLM" prefWidth="84.0" text="Tlm" />

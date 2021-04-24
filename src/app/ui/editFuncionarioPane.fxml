@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="funcionariosEditPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.editFuncionarioController">
+<Pane fx:id="funcionariosEditPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.editFuncionarioController">
    <children>
-      <Text layoutX="153.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Funcionário">
+      <Text fx:id="editFuncLabel" layoutX="153.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Funcionário">
          <font>
             <Font size="18.0" />
          </font>
@@ -35,5 +35,6 @@
       <TextField fx:id="cpEditFunc" layoutX="181.0" layoutY="251.0" translateY="80.0" />
       <Button fx:id="btnConfirmEditFunc" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditFuncEditClic" text="Editar" />
       <Button fx:id="btnCancelEditFunc" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditFuncCancelarClic" text="Voltar" />
+      <Text fx:id="guardaIdEdit" layoutX="35.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </Pane>
