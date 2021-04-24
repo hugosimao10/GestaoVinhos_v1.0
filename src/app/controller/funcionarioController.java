@@ -72,7 +72,7 @@ public class funcionarioController implements Initializable {
 
         PreparedStatement pst = null;
         try {
-            pst = conn.prepareStatement("SELECT ID_FUNCIONARIO, NOME, TIPO_FUNCIONARIO, EMAIL, TLM, ESTADO, ID_EMPRESA " +
+            pst = conn.prepareStatement("SELECT ID_FUNCIONARIO, NOME, TIPO_FUNCIONARIO, EMAIL, USERNAME, ESTADO, ID_EMPRESA " +
                     "FROM FUNCIONARIO WHERE ID_EMPRESA LIKE ?");
 
                      pst.setInt(1, funcEmpresa);
@@ -92,7 +92,7 @@ public class funcionarioController implements Initializable {
 
                     oblist.add(new ModelTableFunc(rs.getInt("id_funcionario"), rs.getString("nome"),
                             set1.getString("CARGO"),rs.getString("email"),
-                            rs.getString("tlm"),rs.getInt("estado")));
+                            rs.getString("USERNAME"),rs.getInt("estado")));
 
                 }
                 else{
@@ -111,7 +111,7 @@ public class funcionarioController implements Initializable {
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colCargo.setCellValueFactory(new PropertyValueFactory<>("tipo_funcionario"));
         colMail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colTLM.setCellValueFactory(new PropertyValueFactory<>("tlm"));
+        colTLM.setCellValueFactory(new PropertyValueFactory<>("username"));
         colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         table.setItems(oblist);

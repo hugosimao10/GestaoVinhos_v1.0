@@ -6,15 +6,15 @@ public class ModelTableFunc {
     String nome;
     String tipo_funcionario;
     String email;
-    String tlm;
+    String username;
     int estado;
 
-    public ModelTableFunc(int id_funcionario, String nome, String tipo_funcionario, String email, String tlm, int estado) {
+    public ModelTableFunc(int id_funcionario, String nome, String tipo_funcionario, String email, String username, int estado) {
         this.id_funcionario = id_funcionario;
         this.nome = nome;
         this.tipo_funcionario = tipo_funcionario;
         this.email = email;
-        this.tlm = tlm;
+        this.username = username;
         this.estado = estado;
     }
 
@@ -50,12 +50,12 @@ public class ModelTableFunc {
         this.email = email;
     }
 
-    public String getTlm() {
-        return tlm;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTlm(String tlm) {
-        this.tlm = tlm;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getEstado() {
