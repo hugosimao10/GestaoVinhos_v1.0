@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="addControloPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.addControloController">
+   <children>
+      <Text layoutX="149.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Controlo">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="110.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qtd Acúcar" />
+      <Text layoutX="106.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperatura" />
+      <Text layoutX="89.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qualidade do Ar" />
+      <TextField fx:id="qtdAcucar" layoutX="185.0" layoutY="91.0" translateY="10.0" />
+      <PasswordField fx:id="temperatura" layoutX="185.0" layoutY="116.0" translateY="20.0" />
+      <Button fx:id="btnConfirmAddControlo" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAddControloAddClic" text="Adicionar" />
+      <Button fx:id="btnCancelAddControlo" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAddControloCancelarClic" text="Voltar" />
+      <PasswordField fx:id="qualidadeAr" layoutX="185.0" layoutY="171.0" />
+      <DatePicker fx:id="dtControlo" layoutX="185.0" layoutY="206.0" prefHeight="25.0" prefWidth="150.0" />
+      <Text layoutX="149.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data" />
+      <PasswordField fx:id="numVindima" layoutX="185.0" layoutY="239.0" />
+      <Text layoutX="103.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Num Vindima" />
+      <PasswordField fx:id="funcionario" layoutX="185.0" layoutY="275.0" />
+      <Text layoutX="115.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionário" />
+   </children>
+</Pane>
