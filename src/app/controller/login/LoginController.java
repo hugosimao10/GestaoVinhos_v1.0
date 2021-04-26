@@ -39,7 +39,6 @@ public class LoginController {
 
         if(rs.next()){
 
-
             int idLog = rs.getInt("ID_FUNCIONARIO");
 
             PreparedStatement pst2 = conn.prepareStatement("SELECT e.NOME_EMPRESA,f.ID_EMPRESA," +
