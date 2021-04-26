@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.entities.userID;
 import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
@@ -36,10 +37,12 @@ public class selectFuncionarioToEditController {
         Connection conn = Util.criarConexao();
 
         String userProcurar = usernameEditFunc.getText();
+        int conf = userID.getId();
 
-        PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME LIKE ?");
+        PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME LIKE ? AND ID_EMPRESA = ?");
 
         pst.setString(1, userProcurar);
+        pst.setInt(2, conf);
 
         ResultSet rs = pst.executeQuery();
 

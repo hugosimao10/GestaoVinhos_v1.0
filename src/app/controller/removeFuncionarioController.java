@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.entities.userID;
 import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
@@ -38,12 +39,14 @@ public class removeFuncionarioController {
     public void btnRemoverFuncRemoveClic(ActionEvent actionEvent) throws IOException, SQLException {
 
         String user =  usernameRemoveFunc.getText();
+        int conf1 = userID.getId();
 
         Connection conn = Util.criarConexao();
 
-        PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME LIKE ?");
+        PreparedStatement pst = conn.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME LIKE ? AND ID_EMPRESA = ?");
 
         pst.setString(1, user);
+        pst.setInt(2, conf1);
 
         ResultSet rs = pst.executeQuery();
 

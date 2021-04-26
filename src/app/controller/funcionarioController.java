@@ -56,8 +56,6 @@ public class funcionarioController implements Initializable {
         System.out.println("Está na area de listar funcionários!");
 
 
-
-
     }
 
     @Override
