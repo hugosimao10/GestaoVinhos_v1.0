@@ -21,7 +21,8 @@
           <TableColumn fx:id="colLocalizacao" prefWidth="94.39994812011719" text="Localização" />
         </columns>
       </TableView>
-      <Button fx:id="btnAddFuncionario" layoutX="44.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddQuintaClic" text="Adicionar Quinta" />
+      <Button fx:id="btnAddQuinta" layoutX="44.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddQuintaClic" text="Adicionar Quinta" />
       <Button fx:id="btnDeleteQuinta" layoutX="298.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnRemoveQuintaClic" text="Remover Quinta" />
+      <Button fx:id="btnEditQuinta" layoutX="182.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnEditQuintaClic" text="Editar Quinta" />
    </children>
 </Pane>

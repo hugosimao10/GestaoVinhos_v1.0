@@ -12,6 +12,7 @@ public class concluirVindimaController {
     public Button btnConfirmConcluirVindima;
     public Button btnCancelConcluirVindima;
     public CheckBox checkConcluirVindima;
+    public TextField qtdVindimada;
 
     public void btnConcluirVindimaClic(ActionEvent actionEvent) {
     }
