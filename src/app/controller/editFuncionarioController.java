@@ -110,7 +110,6 @@ public class editFuncionarioController {
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
         }
         else {
-
             Connection c1 = Util.criarConexao();
 
             int nportaInt = Integer.parseInt(nPorta);
