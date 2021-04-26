@@ -120,9 +120,9 @@
     <schema id="38" parent="1" name="USER10">
       <ObjectId>104</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-26.11:55:46</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-26.13:57:16</ModifiedTimestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <IntrospectionTimestamp>2021-04-26.11:55:53</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2021-04-26.13:57:22</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="39" parent="1" name="WMSYS">
@@ -49433,7 +49433,7 @@
     <table id="7106" parent="38" name="PLANTACAO">
       <ObjectId>100030</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-12.12:22:41</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-26.13:57:16</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7107" parent="38" name="PLANTACAO_VINDIMA">
@@ -49822,7 +49822,7 @@
     </column>
     <column id="7172" parent="7106" name="AREA_CASTA">
       <Position>2</Position>
-      <DataType>NUMBER(*)|0s</DataType>
+      <DataType>NVARCHAR2(20 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="7173" parent="7106" name="ID_FUNCIONARIO">
