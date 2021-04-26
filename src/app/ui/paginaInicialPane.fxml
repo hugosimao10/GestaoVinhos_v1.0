@@ -103,6 +103,6 @@
       <Text layoutX="98.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ativas" />
       <Text layoutX="288.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bem sucedidos" />
       <Text layoutX="300.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="neste ano" />
-      <Button fx:id="btnLogout" layoutX="373.0" layoutY="361.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="btnLogout" layoutX="373.0" layoutY="361.0" mnemonicParsing="false" onAction="#butLogout" text="Logout" />
    </children>
 </Pane>

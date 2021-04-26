@@ -114,9 +114,17 @@ public class quintaController implements Initializable {
 
     }
 
-    public void btnEditQuintaClic(ActionEvent actionEvent) {
+    public void btnEditQuintaClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/selectQuintaToEditPane.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Editar Quinta");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+        selectQuintaToEditController add = loader.getController();
+        add.iniciar();
 
     }
 }

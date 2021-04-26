@@ -93,8 +93,13 @@ public class DashboardController {
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE VINDIMAS
 
     @FXML
-    public void btnVindimaClic(ActionEvent actionEvent) throws IOException{
+    public void btnVindimaClic(ActionEvent actionEvent) throws IOException, SQLException {
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/vindimasPane.fxml"));
+        Parent root = loader.load();
+        vindimaController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
 
     }
@@ -102,9 +107,13 @@ public class DashboardController {
     // BOTAO QUE LEVA O UTILZIADOR PARA A AREA DE CONTROLOS
 
     @FXML
-    public void btnControloClic(ActionEvent actionEvent) throws IOException{
+    public void btnControloClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/controlosPane.fxml"));
+        Parent root = loader.load();
+        controloController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
     }
 
