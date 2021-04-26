@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.guardaDados.userID;
+import app.entities.userID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

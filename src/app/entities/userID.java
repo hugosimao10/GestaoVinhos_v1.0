@@ -1,4 +1,4 @@
-package app.guardaDados;
+package app.entities;
 
 public class userID {
 

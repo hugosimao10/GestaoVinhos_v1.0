@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.error.msg;
-import app.guardaDados.userID;
+import app.entities.userID;
 import app.util.Util;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
