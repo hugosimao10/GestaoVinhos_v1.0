@@ -8,10 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,6 +53,8 @@ public class addPlantacaoController {
     }
 
     public void btnAddPlantAddClic(ActionEvent actionEvent) {
+
+
 
 
     }

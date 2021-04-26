@@ -24,7 +24,6 @@ public class plantacoesController {
     public TableView tableCastas;
     public TableColumn tabelCastas;
     public Button btnAddCasta;
-    public Button btnRemoveCasta;
 
     public void iniciar() {
         System.out.println("Está na area de listar plantações!");
