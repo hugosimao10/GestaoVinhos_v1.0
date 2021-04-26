@@ -37,7 +37,7 @@ public class selectQuintaToEditController {
         Connection conn = Util.criarConexao();
 
         String quintaPro = numQuinta.getText();
-        int idQuinta = Integer.getInteger(quintaPro);
+        int idQuinta = Integer.parseInt(quintaPro);
         int conf = userID.getId();
 
         PreparedStatement pst = conn.prepareStatement("SELECT * FROM QUINTA WHERE ID_QUINTA = ? AND ID_EMPRESA = ?");
