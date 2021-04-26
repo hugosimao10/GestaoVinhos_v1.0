@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.paginaInicial;
 
 import app.entities.userID;
 import javafx.event.ActionEvent;

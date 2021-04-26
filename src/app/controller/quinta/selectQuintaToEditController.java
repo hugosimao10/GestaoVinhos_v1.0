@@ -1,5 +1,6 @@
-package app.controller;
+package app.controller.quinta;
 
+import app.controller.quinta.editQuintaController;
 import app.entities.userID;
 import app.error.msg;
 import app.util.Util;

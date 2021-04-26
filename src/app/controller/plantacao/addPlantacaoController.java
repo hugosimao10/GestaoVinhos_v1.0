@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.plantacao;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;

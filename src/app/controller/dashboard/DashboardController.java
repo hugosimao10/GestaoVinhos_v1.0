@@ -1,5 +1,11 @@
-package app.controller;
+package app.controller.dashboard;
 
+import app.controller.controlo.controloController;
+import app.controller.funcionario.funcionarioController;
+import app.controller.paginaInicial.paginaInicialController;
+import app.controller.plantacao.plantacoesController;
+import app.controller.quinta.quintaController;
+import app.controller.vindima.vindimaController;
 import app.entities.userID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

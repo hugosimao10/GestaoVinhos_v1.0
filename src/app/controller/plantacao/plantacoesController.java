@@ -1,5 +1,6 @@
-package app.controller;
+package app.controller.plantacao;
 
+import app.controller.controlo.addCastaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

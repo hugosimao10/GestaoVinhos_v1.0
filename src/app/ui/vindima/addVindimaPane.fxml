@@ -9,7 +9,7 @@
 
 <Pane fx:id="vindimasPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="app.controller.addVindimaController">
+      fx:controller="app.controller.vindima.addVindimaController">
     <children>
         <Text layoutX="152.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Vindima">
             <font>

@@ -1,5 +1,6 @@
-package app.controller;
+package app.controller.login;
 
+import app.controller.dashboard.DashboardController;
 import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;

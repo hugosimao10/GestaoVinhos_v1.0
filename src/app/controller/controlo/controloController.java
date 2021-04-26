@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.controlo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

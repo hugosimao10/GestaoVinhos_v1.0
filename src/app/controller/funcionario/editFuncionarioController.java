@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.funcionario;
 
 import app.error.msg;
 import app.entities.userID;

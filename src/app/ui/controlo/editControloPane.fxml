@@ -10,7 +10,7 @@
 
 <Pane fx:id="editControloPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="app.controller.editControloController">
+      fx:controller="app.controller.controlo.editControloController">
     <children>
         <Text layoutX="165.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Controlo">
             <font>

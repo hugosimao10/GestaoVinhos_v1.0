@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.quinta;
 
 import app.error.msg;
 import app.util.Util;

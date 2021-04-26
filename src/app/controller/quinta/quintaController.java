@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.quinta;
 
 import app.entities.Quinta;
 import app.entities.userID;
