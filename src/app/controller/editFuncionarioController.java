@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.error.msg;
-import app.guardaDados.userID;
+import app.entities.userID;
 import app.util.Util;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -123,7 +123,6 @@ public class editFuncionarioController {
             if (s4.next()) {
 
                 int nCargo = s4.getInt("ID");
-
 
                             PreparedStatement pst12 = c1.prepareStatement("SELECT * FROM COD_POSTAL WHERE COD_POSTAL LIKE ?");
                             pst12.setString(1, codpostal);

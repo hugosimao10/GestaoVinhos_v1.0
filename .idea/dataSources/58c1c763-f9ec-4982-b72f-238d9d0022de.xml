@@ -120,9 +120,9 @@
     <schema id="38" parent="1" name="USER10">
       <ObjectId>104</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-24.00:55:53</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-26.11:55:46</ModifiedTimestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <IntrospectionTimestamp>2021-04-24.00:56:02</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2021-04-26.11:55:53</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="39" parent="1" name="WMSYS">
@@ -49451,7 +49451,7 @@
     <table id="7109" parent="38" name="QUINTA">
       <ObjectId>100036</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-01.17:52:30</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-26.11:55:46</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7110" parent="38" name="TIPO_FUNCIONARIO">
@@ -50007,7 +50007,11 @@
       <Position>4</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <index id="7203" parent="7109" name="QUINTA_PK">
+    <column id="7203" parent="7109" name="ATIVA">
+      <Position>5</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="7204" parent="7109" name="QUINTA_PK">
       <ObjectId>100050</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:09</CreatedTimestamp>
       <ModifiedTimestamp>2021-04-01.17:43:09</ModifiedTimestamp>
@@ -50015,14 +50019,14 @@
       <ColNames>ID_QUINTA</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="7204" parent="7109" name="QUINTA_PK">
+    <key id="7205" parent="7109" name="QUINTA_PK">
       <ModifiedTimestamp>2021-04-01.17:43:10</ModifiedTimestamp>
       <ColNames>ID_QUINTA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>QUINTA_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="7205" parent="7109" name="EMPRESA_QUINTA">
+    <foreign-key id="7206" parent="7109" name="EMPRESA_QUINTA">
       <ModifiedTimestamp>2021-04-01.17:48:28</ModifiedTimestamp>
       <ColNames>ID_EMPRESA</ColNames>
       <RefSchemaName>USER10</RefSchemaName>
@@ -50030,17 +50034,17 @@
       <RefKeyName>EMPRESA_PK</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="7206" parent="7110" name="ID">
+    <column id="7207" parent="7110" name="ID">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
       <AutoInc>1</AutoInc>
     </column>
-    <column id="7207" parent="7110" name="CARGO">
+    <column id="7208" parent="7110" name="CARGO">
       <Position>2</Position>
       <DataType>NVARCHAR2(200 char)|0s</DataType>
     </column>
-    <index id="7208" parent="7110" name="TIPO_FUNCIONARIO_PK">
+    <index id="7209" parent="7110" name="TIPO_FUNCIONARIO_PK">
       <ObjectId>104315</ObjectId>
       <CreatedTimestamp>2021-04-23.21:43:31</CreatedTimestamp>
       <ModifiedTimestamp>2021-04-23.21:43:31</ModifiedTimestamp>
@@ -50048,25 +50052,25 @@
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="7209" parent="7110" name="TIPO_FUNCIONARIO_PK">
+    <key id="7210" parent="7110" name="TIPO_FUNCIONARIO_PK">
       <ModifiedTimestamp>2021-04-23.21:43:31</ModifiedTimestamp>
       <ColNames>ID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>TIPO_FUNCIONARIO_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="7210" parent="7111" name="ID_VINDIMA">
+    <column id="7211" parent="7111" name="ID_VINDIMA">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
       <AutoInc>1</AutoInc>
     </column>
-    <column id="7211" parent="7111" name="DATA_INICIO_VINDIMA">
+    <column id="7212" parent="7111" name="DATA_INICIO_VINDIMA">
       <Position>2</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="7212" parent="7111" name="VINDIMA_PK">
+    <index id="7213" parent="7111" name="VINDIMA_PK">
       <ObjectId>100051</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:09</CreatedTimestamp>
       <ModifiedTimestamp>2021-04-01.17:43:09</ModifiedTimestamp>
@@ -50074,32 +50078,32 @@
       <ColNames>ID_VINDIMA</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="7213" parent="7111" name="VINDIMA_PK">
+    <key id="7214" parent="7111" name="VINDIMA_PK">
       <ModifiedTimestamp>2021-04-01.17:43:10</ModifiedTimestamp>
       <ColNames>ID_VINDIMA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>VINDIMA_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="7214" parent="7112" name="TIPOVINHO">
+    <column id="7215" parent="7112" name="TIPOVINHO">
       <Position>1</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="7215" parent="7112" name="QUANTIDADE">
+    <column id="7216" parent="7112" name="QUANTIDADE">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="7216" parent="7113" name="NOME">
+    <column id="7217" parent="7113" name="NOME">
       <Position>1</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="7217" parent="7113" name="CARGO">
+    <column id="7218" parent="7113" name="CARGO">
       <Position>2</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="7218" parent="7113" name="TLM">
+    <column id="7219" parent="7113" name="TLM">
       <Position>3</Position>
       <DataType>NVARCHAR2(20 char)|0s</DataType>
     </column>

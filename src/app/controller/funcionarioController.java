@@ -1,11 +1,9 @@
 package app.controller;
 
 
-import app.guardaDados.ModelTableFunc;
-import app.guardaDados.userID;
+import app.entities.Funcionario;
+import app.entities.userID;
 import app.util.Util;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +18,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -37,22 +34,22 @@ public class funcionarioController implements Initializable {
     public Button btnDeleteFuncionario;
     public Pane funcionariosPane;
     @FXML
-    public TableColumn<ModelTableFunc, Integer> colNum;
+    public TableColumn<Funcionario, Integer> colNum;
     @FXML
-    public TableColumn<ModelTableFunc, String> colNome;
+    public TableColumn<Funcionario, String> colNome;
     @FXML
-    public TableColumn<ModelTableFunc, String> colCargo;
+    public TableColumn<Funcionario, String> colCargo;
     @FXML
-    public TableColumn<ModelTableFunc, String> colMail;
+    public TableColumn<Funcionario, String> colMail;
     @FXML
-    public TableColumn<ModelTableFunc, String> colTLM;
+    public TableColumn<Funcionario, String> colTLM;
     @FXML
-    public TableColumn<ModelTableFunc, Integer> colEstado;
+    public TableColumn<Funcionario, Integer> colEstado;
     @FXML
-    public TableView<ModelTableFunc> table;
+    public TableView<Funcionario> table;
 
     @FXML
-    public ObservableList<ModelTableFunc> oblist = FXCollections.observableArrayList();
+    public ObservableList<Funcionario> oblist = FXCollections.observableArrayList();
 
 
     public void iniciar() throws SQLException {
@@ -90,7 +87,7 @@ public class funcionarioController implements Initializable {
 
                 if(set1.next()){
 
-                    oblist.add(new ModelTableFunc(rs.getInt("id_funcionario"), rs.getString("nome"),
+                    oblist.add(new Funcionario(rs.getInt("id_funcionario"), rs.getString("nome"),
                             set1.getString("CARGO"),rs.getString("email"),
                             rs.getString("USERNAME"),rs.getInt("estado")));
 
