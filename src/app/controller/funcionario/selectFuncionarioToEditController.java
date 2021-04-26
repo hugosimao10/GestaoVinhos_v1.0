@@ -65,7 +65,7 @@ public class selectFuncionarioToEditController {
 
 
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionario/editFuncionarioPane.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/funcionario/editFuncionarioPane.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Editar Funcionario");

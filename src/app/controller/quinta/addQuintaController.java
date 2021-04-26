@@ -57,6 +57,10 @@ public class addQuintaController {
             System.out.println("Quinta adicionada com sucesso");
             msg.alertaInfo("Quinta adicionada com sucesso!", "Info!", "Sucesso!");
 
+            areaQuinta.setText("");
+            localizacaoQuinta.setText("");
+            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
         }
 
 

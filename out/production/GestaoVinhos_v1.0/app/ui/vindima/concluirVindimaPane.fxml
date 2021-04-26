@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="concluirVindimaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.vindima.concluirVindimaController">
+   <children>
+      <Text layoutX="154.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Concluir Vindima">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="108.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Num. Vindima" />
+      <TextField fx:id="numVindima" layoutX="194.0" layoutY="134.0" translateY="10.0" />
+      <Button fx:id="btnConfirmConcluirVindima" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnConcluirVindimaClic" text="Concluir" />
+      <Button fx:id="btnCancelConcluirVindima" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnConcluirVindimaCancelarClic" text="Voltar" />
+      <CheckBox fx:id="checkConcluirVindima" layoutX="139.0" layoutY="216.0" mnemonicParsing="false" text="Confirmo que quero concluir!" />
+      <Text layoutX="108.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qtd Vindimada" />
+      <TextField fx:id="qtdVindimada" layoutX="194.0" layoutY="177.0" />
+   </children>
+</Pane>

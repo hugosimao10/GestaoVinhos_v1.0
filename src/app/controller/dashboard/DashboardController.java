@@ -48,7 +48,7 @@ public class DashboardController {
     @FXML
     private void openPaginaInicial() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/paginaInicial/paginaInicialPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/paginaInicial/paginaInicialPane.fxml"));
         Parent root = loader.load();
         paginaInicialController controller = loader.getController();
         paneToChange.setCenter(root);
@@ -61,7 +61,7 @@ public class DashboardController {
     @FXML
     public void btnQuintasClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quinta/quintasPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/quinta/quintasPane.fxml"));
         Parent root = loader.load();
         quintaController controller = loader.getController();
         paneToChange.setCenter(root);
@@ -75,7 +75,7 @@ public class DashboardController {
     @FXML
     public void btnFuncionarioClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionario/funcionariosPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/funcionario/funcionariosPane.fxml"));
         Parent root = loader.load();
         funcionarioController controller = loader.getController();
         paneToChange.setCenter(root);
@@ -88,7 +88,7 @@ public class DashboardController {
     @FXML
     public void btnPlantacaoClic(ActionEvent actionEvent) throws IOException{
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/plantacao/plantacoesPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/plantacao/plantacoesPane.fxml"));
         Parent root = loader.load();
         plantacoesController controller = loader.getController();
         paneToChange.setCenter(root);
@@ -101,7 +101,7 @@ public class DashboardController {
     @FXML
     public void btnVindimaClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/vindima/vindimasPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/vindima/vindimasPane.fxml"));
         Parent root = loader.load();
         vindimaController controller = loader.getController();
         paneToChange.setCenter(root);
@@ -115,7 +115,7 @@ public class DashboardController {
     @FXML
     public void btnControloClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/controlo/controlosPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/controlo/controlosPane.fxml"));
         Parent root = loader.load();
         controloController controller = loader.getController();
         paneToChange.setCenter(root);
