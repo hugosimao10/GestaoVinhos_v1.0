@@ -62,7 +62,7 @@ public class LoginController {
                     String nomeEmpresa = rs1.getString("NOME_EMPRESA");
                     int idLog1 = rs1.getInt("ID_FUNCIONARIO");
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard/dashboard.fxml"));
                     Parent root = loader.load();
                     Stage stage = new Stage();
                     stage.setTitle("EmpresaVinhos | Dashboard");

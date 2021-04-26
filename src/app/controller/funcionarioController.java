@@ -118,7 +118,7 @@ public class funcionarioController implements Initializable {
     @FXML
     public void btnAddFuncClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/addFuncionarioPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionario/addFuncionarioPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Adicionar Funcionario");
@@ -136,7 +136,7 @@ public class funcionarioController implements Initializable {
     @FXML
     public void btnEditFuncClic(ActionEvent actionEvent)throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/selectFuncionarioToEditPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionario/selectFuncionarioToEditPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Editar Funcionario");
@@ -153,7 +153,7 @@ public class funcionarioController implements Initializable {
     @FXML
     public void btnRemoveFuncClic(ActionEvent actionEvent) throws IOException{
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/removeFuncionarioPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/funcionario/removeFuncionarioPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Remover Funcionario");

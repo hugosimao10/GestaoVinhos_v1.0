@@ -17,22 +17,22 @@
       <Text layoutX="287.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlos bem" />
       <ImageView fx:id="iconQuintas" fitHeight="40.0" fitWidth="45.0" layoutX="14.0" layoutY="102.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fx:id="iconFuncionarios" fitHeight="40.0" fitWidth="45.0" layoutX="14.0" layoutY="147.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fx:id="iconVindimas" fitHeight="40.0" fitWidth="45.0" layoutX="225.0" layoutY="100.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fx:id="iconControlos" fitHeight="40.0" fitWidth="45.0" layoutX="225.0" layoutY="145.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <Text fx:id="numQuintas" layoutX="181.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
@@ -62,22 +62,22 @@
       <Text layoutX="278.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixas produzidas" />
       <ImageView fx:id="iconPlatacoes" fitHeight="40.0" fitWidth="45.0" layoutX="15.0" layoutY="194.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fx:id="iconCastas" fitHeight="40.0" fitWidth="45.0" layoutX="15.0" layoutY="239.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fx:id="iconPercControlos" fitHeight="40.0" fitWidth="45.0" layoutX="226.0" layoutY="192.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <ImageView fx:id="iconCaixas" fitHeight="40.0" fitWidth="45.0" layoutX="226.0" layoutY="237.0">
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../../../img/logo.png" />
          </image>
       </ImageView>
       <Text fx:id="numPlantacoes" layoutX="181.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">

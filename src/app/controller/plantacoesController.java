@@ -31,7 +31,7 @@ public class plantacoesController {
 
     public void btnAddPlantClic(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/addPlantacaoPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/plantacao/addPlantacaoPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Adicionar Plantacao");
@@ -44,7 +44,7 @@ public class plantacoesController {
 
     public void btnConcluirPlantClic(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/concluirPlantacaoPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/plantacao/concluirPlantacaoPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Concluir Plantação");
@@ -57,7 +57,7 @@ public class plantacoesController {
 
     public void btnEditPlantClic(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/selectQuintaToEditPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quinta/selectQuintaToEditPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Editar Plantação");
@@ -70,7 +70,7 @@ public class plantacoesController {
 
     public void btnAddCastaClic(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/addCastaPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/plantacao/addCastaPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Adicionar Casta");

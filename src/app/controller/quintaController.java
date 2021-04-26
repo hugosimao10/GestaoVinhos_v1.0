@@ -88,7 +88,7 @@ public class quintaController implements Initializable {
 
     public void btnAddQuintaClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/addQuintasPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quinta/addQuintasPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Adicionar Quinta");
@@ -102,7 +102,7 @@ public class quintaController implements Initializable {
 
     public void btnRemoveQuintaClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/removeQuintasPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quinta/removeQuintasPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Remover Quinta");
@@ -116,7 +116,7 @@ public class quintaController implements Initializable {
 
     public void btnEditQuintaClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/selectQuintaToEditPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quinta/selectQuintaToEditPane.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Editar Quinta");

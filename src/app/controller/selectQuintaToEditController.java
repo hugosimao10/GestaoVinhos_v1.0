@@ -55,7 +55,7 @@ public class selectQuintaToEditController {
                 String localiz = rs.getString("LOCALIZACAO");
 
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/editQuintaPane.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quinta/editQuintaPane.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Editar Plantação");

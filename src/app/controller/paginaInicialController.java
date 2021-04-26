@@ -47,7 +47,7 @@ public class paginaInicialController {
 
     public void butLogout(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/login/login.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Login");

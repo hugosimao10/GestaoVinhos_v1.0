@@ -15,7 +15,7 @@
             <children>
                 <ImageView id="logo_inicial" fitHeight="150.0" fitWidth="200.0" layoutX="263.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/logo.png" />
+                  <Image url="@../../../img/logo.png" />
                </image></ImageView>
                 <Button id="butEntrar" layoutX="243.0" layoutY="339.0" mnemonicParsing="false" onAction="#butEntrarClic" prefHeight="25.0" prefWidth="115.0" text="Entrar" />
                 <Label layoutX="131.0" layoutY="225.0" text="Utilizador" />
