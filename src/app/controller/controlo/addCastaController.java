@@ -13,7 +13,7 @@ public class addCastaController {
     public Button btnCancelAddCasta;
 
     public void iniciar() {
-        System.out.println("Está na area de adicionar castass!");
+        System.out.println("Está na area de adicionar castas!");
 
 
     }

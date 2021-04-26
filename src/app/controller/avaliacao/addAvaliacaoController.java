@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.avaliacao;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -13,6 +13,12 @@ public class addAvaliacaoController {
     public Button btnConfirmAddAvaliacao;
     public Button btnCancelAddAvaliacao;
     public TextField qualidadeVinho;
+
+    public void iniciar() {
+        System.out.println("Está na area de adicionar avaliação!");
+
+
+    }
 
     public void btnAddAvaliacaoAddClic(ActionEvent actionEvent) {
     }

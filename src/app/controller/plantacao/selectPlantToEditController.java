@@ -38,5 +38,8 @@ public class selectPlantToEditController {
     }
 
     public void butVoltarEditClic(ActionEvent actionEvent) {
+
+        numEditPlant.setText("");
+        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

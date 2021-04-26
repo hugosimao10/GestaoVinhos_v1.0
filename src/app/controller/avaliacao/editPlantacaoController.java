@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.avaliacao;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -14,6 +14,12 @@ public class editPlantacaoController {
     public Button btnCancelEditPlant;
     public ComboBox comboBoxCasta;
     public TextField numQuinta;
+
+    public void iniciar() {
+        System.out.println("Está na area de editar avaliações!");
+
+
+    }
 
     public void btnEditPlantAddClic(ActionEvent actionEvent) {
     }

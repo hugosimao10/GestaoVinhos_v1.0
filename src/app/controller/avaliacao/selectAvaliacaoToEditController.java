@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.avaliacao;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -12,6 +12,11 @@ public class selectAvaliacaoToEditController {
     public Button btnConfirmEditAvaliacao;
     public Button btnCancelEditAvaliacao;
     public CheckBox checkEditAvaliacao;
+    public void iniciar() {
+        System.out.println("Está na area de selecionar avaliacao a editar!");
+
+
+    }
 
     public void butConfirmAvaliacaoEditClic(ActionEvent actionEvent) {
     }
