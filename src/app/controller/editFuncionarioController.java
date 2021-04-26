@@ -44,6 +44,7 @@ public class editFuncionarioController {
         System.out.println("Está na area de editar funcionários!");
 
         guardaIdEdit.setVisible(false);
+        usernameEditFunc.setDisable(true);
 
         String nporta1 = String.valueOf(nPorta);
         String cp1 = String.valueOf(cod_postal);
@@ -123,38 +124,6 @@ public class editFuncionarioController {
 
                 int nCargo = s4.getInt("ID");
 
-                PreparedStatement p5 = c1.prepareStatement("SELECT USERNAME FROM FUNCIONARIO WHERE USERNAME = ?");
-                p5.setString(1, user);
-
-                ResultSet s5 = p5.executeQuery();
-
-                if (s5.next()) {
-                    System.out.println("O username já existe!");
-                    msg.alertaErro("O username já existe!", "Erro!", "Username em uso!");
-
-                } else {
-
-                    PreparedStatement pst10 = c1.prepareStatement("SELECT EMAIL FROM FUNCIONARIO WHERE EMAIL LIKE ?");
-                    pst10.setString(1, email);
-
-                    ResultSet rs10 = pst10.executeQuery();
-
-                    if (rs10.next()) {
-                        System.out.println("Esse email já se encontra registado!");
-                        msg.alertaErro("O email já existe!", "Erro!", "Email em uso!");
-                    } else {
-
-
-                        PreparedStatement pst11 = c1.prepareStatement("SELECT TLM FROM FUNCIONARIO WHERE TLM LIKE ?");
-                        pst11.setString(1, tlm);
-
-                        ResultSet rs11 = pst11.executeQuery();
-
-                        if (rs11.next()) {
-                            System.out.println("Esse número telefónico já se encontra registado!");
-                            msg.alertaErro("O Número telefónico já existe!", "Erro!", "Número telefónico em uso!");
-
-                        } else {
 
                             PreparedStatement pst12 = c1.prepareStatement("SELECT * FROM COD_POSTAL WHERE COD_POSTAL LIKE ?");
                             pst12.setString(1, codpostal);
@@ -229,9 +198,7 @@ public class editFuncionarioController {
 
                             }
 
-                        }
-                    }
-                }
+
             } else {
                 System.out.println("ID do cargo não encontrado!");
             }

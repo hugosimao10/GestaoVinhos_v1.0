@@ -106,7 +106,6 @@ public class funcionarioController implements Initializable {
             throwables.printStackTrace();
         }
 
-
         colNum.setCellValueFactory(new PropertyValueFactory<>("id_funcionario"));
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colCargo.setCellValueFactory(new PropertyValueFactory<>("tipo_funcionario"));
@@ -115,7 +114,6 @@ public class funcionarioController implements Initializable {
         colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         table.setItems(oblist);
-
 
     }
 
