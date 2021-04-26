@@ -53,9 +53,13 @@ public class DashboardController {
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE QUINTAS
 
     @FXML
-    public void btnQuintasClic(ActionEvent actionEvent) throws IOException{
+    public void btnQuintasClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/quintasPane.fxml"));
+        Parent root = loader.load();
+        quintaController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
 
     }
