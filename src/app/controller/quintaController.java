@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.entities.Funcionario;
 import app.entities.Quinta;
 import app.entities.userID;
 import app.util.Util;
@@ -37,11 +36,13 @@ public class quintaController implements Initializable {
     public TableColumn<Quinta, String> colArea;
     @FXML
     public TableColumn<Quinta, String> colLocalizacao;
-    public Button btnAddFuncionario;
+    public Button btnAddQuinta;
     public Button btnDeleteQuinta;
+    public Button btnEditQuinta;
 
     @FXML
     public ObservableList<Quinta> oblist1 = FXCollections.observableArrayList();
+
 
     public void iniciar() throws SQLException {
         System.out.println("Está na area de listar quintas!");
@@ -113,4 +114,9 @@ public class quintaController implements Initializable {
 
     }
 
+    public void btnEditQuintaClic(ActionEvent actionEvent) {
+
+
+
+    }
 }
