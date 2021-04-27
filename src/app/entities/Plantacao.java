@@ -4,18 +4,26 @@ public class Plantacao {
 
     int id_plantacao;
     String area_casta;
-    int id_funcionario;
+    String nome;
     int id_quinta;
-    int id_casta;
+    String tipo_casta;
     int estado;
 
-    public Plantacao(int id_plantacao, String area_casta, int id_funcionario, int id_quinta, int id_casta, int estado) {
+    public Plantacao(int id_plantacao, String area_casta, String nome, int id_quinta, String tipo_casta, int estado) {
         this.id_plantacao = id_plantacao;
         this.area_casta = area_casta;
-        this.id_funcionario = id_funcionario;
+        this.nome = nome;
         this.id_quinta = id_quinta;
-        this.id_casta = id_casta;
+        this.tipo_casta = tipo_casta;
         this.estado = estado;
+    }
+
+    public Plantacao(int id_plantacao, String area_casta, String nome, int id_quinta, String tipo_casta) {
+        this.id_plantacao = id_plantacao;
+        this.area_casta = area_casta;
+        this.nome = nome;
+        this.id_quinta = id_quinta;
+        this.tipo_casta = tipo_casta;
     }
 
     public int getId_plantacao() {
@@ -34,12 +42,12 @@ public class Plantacao {
         this.area_casta = area_casta;
     }
 
-    public int getId_funcionario() {
-        return id_funcionario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getId_quinta() {
@@ -50,12 +58,12 @@ public class Plantacao {
         this.id_quinta = id_quinta;
     }
 
-    public int getId_casta() {
-        return id_casta;
+    public String getTipo_casta() {
+        return tipo_casta;
     }
 
-    public void setId_casta(int id_casta) {
-        this.id_casta = id_casta;
+    public void setTipo_casta(String tipo_casta) {
+        this.tipo_casta = tipo_casta;
     }
 
     public int getEstado() {

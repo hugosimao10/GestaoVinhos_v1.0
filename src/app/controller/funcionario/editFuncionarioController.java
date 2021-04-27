@@ -151,8 +151,8 @@ public class editFuncionarioController {
 
                                 pst.executeQuery();
 
-                                System.out.println("Funcionário adicionado com sucesso!");
-                                msg.alertaInfo("Funcionário adicionado com sucesso!", "Info!", "Sucesso!");
+                                System.out.println("Funcionário alterado com sucesso!");
+                                msg.alertaInfo("Funcionário alterado com sucesso!", "Info!", "Sucesso!");
 
 
                             } else {
