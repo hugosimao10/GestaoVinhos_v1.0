@@ -83,6 +83,7 @@ public class avaliacoesController implements Initializable {
         colQtdProduzida.setCellValueFactory(new PropertyValueFactory<>("qtd_produzida"));
         colQldVinho.setCellValueFactory(new PropertyValueFactory<>("qualidade_vinho"));
         colEmbalamento.setCellValueFactory(new PropertyValueFactory<>("id_produto_final"));
+
         table.setItems(oblist1);
 
 
