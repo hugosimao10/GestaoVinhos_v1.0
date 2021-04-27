@@ -15,7 +15,7 @@
         <Text layoutX="106.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número Plantação" />
         <TextField fx:id="usernameFunc" layoutX="211.0" layoutY="144.0" translateY="10.0" />
         <TextField fx:id="numPlant" layoutX="211.0" layoutY="109.0" translateY="80.0" />
-        <Button fx:id="btnConfirmEditVindima" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditVindimaClic" text="Adicionar" />
+        <Button fx:id="btnConfirmEditVindima" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditVindimaClic" text="Editar" />
         <Button fx:id="btnCancelEditVindima" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditVindimaCancelarClic" text="Voltar" />
         <DatePicker fx:id="dtIniVindima" layoutX="211.0" layoutY="118.0" prefHeight="25.0" prefWidth="149.0" />
         <Text layoutX="149.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Início" />
@@ -23,5 +23,6 @@
         <Text layoutX="155.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Fim" />
         <Text layoutX="126.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qtd Vindimada" />
         <TextField fx:id="qtdVindimada" layoutX="211.0" layoutY="257.0" />
+      <Text fx:id="guardaIdEditVindima" layoutX="48.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
     </children>
 </Pane>

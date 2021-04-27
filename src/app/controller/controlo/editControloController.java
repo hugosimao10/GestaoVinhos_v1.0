@@ -7,6 +7,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 import java.sql.SQLException;
 
@@ -20,6 +21,7 @@ public class editControloController {
     public TextField numVindima;
     public TextField funcionario;
     public Pane editControloPane;
+    public Text guardaIdEditControlo;
 
     public void iniciar() throws SQLException {
         System.out.println("Está na area de editar Controlos!");

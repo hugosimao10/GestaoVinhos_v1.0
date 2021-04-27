@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="editAvaliacaoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.avaliacao.editAvaliacaoController">
+<Pane fx:id="editAvaliacaoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.avaliacao.editAvaliacaoController">
    <children>
       <Text layoutX="162.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Avaliação">
          <font>
@@ -21,5 +21,6 @@
       <Button fx:id="btnConfirmEditAvaliacao" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditAvaliacaoAddClic" text="Adicionar" />
       <Button fx:id="btnCancelEditAvaliacao" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditAvaliacaoCancelarClic" text="Voltar" />
       <TextField fx:id="qualidadeVinho" layoutX="207.0" layoutY="223.0" />
+      <Text fx:id="guardaIdEditAvaliacao" layoutX="72.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </Pane>

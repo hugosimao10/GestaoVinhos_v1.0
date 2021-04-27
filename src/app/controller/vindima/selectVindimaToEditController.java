@@ -1,6 +1,5 @@
 package app.controller.vindima;
 
-import app.controller.plantacao.editPlantacaoController;
 import app.entities.userID;
 import app.error.msg;
 import app.util.Util;
@@ -53,8 +52,11 @@ public class selectVindimaToEditController {
 
 
                 int idEdit = rs.getInt("ID_PLANT_VINDIMA");
-                Date dataInic = rs.getDate("DATA_INICIO_VINDIMA");
-                Date dataFim = rs.getDate("DATA_FIM_VINDIMA");
+                LocalDate dataInic = rs.getDate("DATA_INICIO_VINDIMA").toLocalDate();
+                LocalDate dataFim = rs.getDate("DATA_FIM_VINDIMA").toLocalDate();
+                if(dataFim.equals("")){
+                    dataFim = null;
+                }
                 int num_func = rs.getInt("ID_FUNCIONARIO");
                 int nPla = rs.getInt("ID_PLANTACAO");
                 int qtdV = rs.getInt("QTD_VINDIMADA");

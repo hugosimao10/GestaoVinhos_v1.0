@@ -56,10 +56,11 @@ public class addVindimaController {
                 if(s1.next()) {
                     int idDataIni = s1.getInt("ID_VINDIMA");
 
-                    PreparedStatement p7 = c1.prepareStatement("INSERT INTO PLANTACAO_VINDIMA(ID_VINDIMA, ID_PLANTACAO, ID_FUNCIONARIO) VALUES (?,?,?)");
+                    PreparedStatement p7 = c1.prepareStatement("INSERT INTO PLANTACAO_VINDIMA(ID_VINDIMA, ID_PLANTACAO, ID_FUNCIONARIO, DATA_FIM_VINDIMA) VALUES (?,?,?,?)");
                     p7.setInt(1,idDataIni);
                     p7.setInt(2, idPlanInt);
                     p7.setInt(3, idFuncInt);
+                    p7.setDate(4, Date.valueOf(LocalDate.of(2021, 10, 10)));
 
                     p7.executeQuery();
 
