@@ -1,6 +1,7 @@
 package app.controller.avaliacao;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -24,5 +25,11 @@ public class addAvaliacaoController {
     }
 
     public void btnAddAvaliacaoCancelarClic(ActionEvent actionEvent) {
+
+        numControlo.setText("");
+        qtdProduzida.setText("");
+        qualidadeVinho.setText("");
+
+        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

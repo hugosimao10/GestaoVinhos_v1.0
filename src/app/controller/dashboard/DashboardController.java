@@ -1,6 +1,8 @@
 package app.controller.dashboard;
 
+import app.controller.avaliacao.avaliacoesController;
 import app.controller.controlo.controloController;
+import app.controller.embalamento.embalamentoController;
 import app.controller.funcionario.funcionarioController;
 import app.controller.paginaInicial.paginaInicialController;
 import app.controller.plantacao.plantacoesController;
@@ -128,16 +130,24 @@ public class DashboardController {
     @FXML
     public void btnAvaliacoesClic(ActionEvent actionEvent) throws IOException{
 
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/avaliacao/avaliacoesPane.fxml"));
+        Parent root = loader.load();
+        avaliacoesController controller= loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
     }
 
     // BOTAO QUE LEVA O UTILZIADOR PARA A AREA DE EMBALAMENTOS
 
     @FXML
-    public void btnEmbalamentosClic(ActionEvent actionEvent) throws IOException{
+    public void btnEmbalamentosClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/embalamento/embalamentoPane.fxml"));
+        Parent root = loader.load();
+        embalamentoController controller = loader.getController();
+        paneToChange.setCenter(root);
+        controller.iniciar();
 
     }
 }

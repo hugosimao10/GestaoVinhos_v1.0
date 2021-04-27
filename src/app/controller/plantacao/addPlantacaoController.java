@@ -90,8 +90,8 @@ public class addPlantacaoController {
 
                 p4.executeQuery();
 
-                System.out.println("Plantacao adicionado com sucesso!");
-                msg.alertaInfo("Plantacao adicionado com sucesso!", "Info!", "Sucesso!");
+                System.out.println("Plantacao adicionada com sucesso!");
+                msg.alertaInfo("Plantacao adicionada com sucesso!", "Info!", "Sucesso!");
 
                 areaCasta.setText("");
                 numFunc.setText("");
