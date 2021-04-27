@@ -14,7 +14,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TableView fx:id="table" layoutX="2.0" layoutY="76.0" prefHeight="248.0" prefWidth="450.0">
+      <TableView fx:id="table" layoutX="2.0" layoutY="76.0" prefHeight="248.0" prefWidth="443.0">
         <columns>
             <TableColumn fx:id="colNum" prefWidth="37.600032806396484" text="Num" />
           <TableColumn fx:id="colDtIni" prefWidth="83.0" text="Data Início" />
