@@ -48,7 +48,7 @@ public class DashboardController {
     // BOTAO QUE APRESENTA A PAGINA INICIAL AO UTILIZADOR
 
     @FXML
-    private void openPaginaInicial() throws IOException {
+    private void openPaginaInicial() throws IOException, SQLException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/paginaInicial/paginaInicialPane.fxml"));
         Parent root = loader.load();

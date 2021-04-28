@@ -14,9 +14,9 @@
         <TableView fx:id="table" layoutX="34.0" layoutY="76.0" prefHeight="248.0" prefWidth="395.0">
             <columns>
                 <TableColumn fx:id="colNumAv" prefWidth="41.60003662109375" text="Num" />
-                <TableColumn fx:id="colQtdProduzida" prefWidth="96.0" text="Qtd Produzida" />
-                <TableColumn fx:id="colQldVinho" prefWidth="105.0" text="Qualidade Vinho" />
-            <TableColumn fx:id="colEmbalamento" prefWidth="150.0" text="Embalamento Associado" />
+                <TableColumn fx:id="colQtdProduzida" prefWidth="110.0" text="Qtd Produzida (L)" />
+                <TableColumn fx:id="colQldVinho" prefWidth="101.0" text="Qualidade Vinho" />
+            <TableColumn fx:id="colEmbalamento" prefWidth="140.0" text="Numero Embalamento" />
             </columns>
         </TableView>
         <Button fx:id="btnAddAvaliacao" layoutX="44.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddAvaliacaoClic" text="Adicionar Avaliação" />
