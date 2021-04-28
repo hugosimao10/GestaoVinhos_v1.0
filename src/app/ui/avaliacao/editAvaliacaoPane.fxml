@@ -18,9 +18,11 @@
       <Text layoutX="94.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qualidade do Vinho" />
       <TextField fx:id="numControlo" layoutX="207.0" layoutY="143.0" translateY="10.0" />
       <TextField fx:id="qtdProduzida" layoutX="207.0" layoutY="168.0" translateY="20.0" />
-      <Button fx:id="btnConfirmEditAvaliacao" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditAvaliacaoAddClic" text="Adicionar" />
+      <Button fx:id="btnConfirmEditAvaliacao" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditAvaliacaoAddClic" prefHeight="25.0" prefWidth="65.0" text="Editar" />
       <Button fx:id="btnCancelEditAvaliacao" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditAvaliacaoCancelarClic" text="Voltar" />
       <TextField fx:id="qualidadeVinho" layoutX="207.0" layoutY="223.0" />
       <Text fx:id="guardaIdEditAvaliacao" layoutX="72.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="367.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Litros" />
+      <Text layoutX="367.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 &lt;-&gt; 5" />
    </children>
 </Pane>

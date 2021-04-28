@@ -6,6 +6,15 @@ public class userID {
     private static int idUser;
     private static String username;
     private static String nomeEmpresa;
+    private static int cargoPermissao;
+
+    public static int getCargoPermissao() {
+        return cargoPermissao;
+    }
+
+    public static void setCargoPermissao(int cargoPermissao) {
+        userID.cargoPermissao = cargoPermissao;
+    }
 
     public static int getId() {
         return id;

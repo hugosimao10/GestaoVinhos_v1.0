@@ -9,6 +9,7 @@ import app.controller.plantacao.plantacoesController;
 import app.controller.quinta.quintaController;
 import app.controller.vindima.vindimaController;
 import app.entities.userID;
+import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DashboardController {
@@ -32,7 +36,7 @@ public class DashboardController {
 
     // FUNCAO QUE ATIVA O BOTAO DA PAGINA INICIAL
 
-    public void iniciar(int idEmpresa, int idLog1,String username, String nomeEmpresa) throws IOException {
+    public void iniciar(int idEmpresa, int idLog1,String username, String nomeEmpresa, int cargoPerm) throws IOException, SQLException {
 
     // PASSAR O ID DA EMPRESA PARA UMA VARIAVEL GLOBAL
 
@@ -40,6 +44,37 @@ public class DashboardController {
         userID.setIdUser(idLog1);
         userID.setUsername(username);
         userID.setNomeEmpresa(nomeEmpresa);
+        userID.setCargoPermissao(cargoPerm);
+
+        System.out.println(cargoPerm);
+
+        if(cargoPerm == 21){
+            btnQuintas.setDisable(true);
+            btnFuncionarios.setDisable(true);
+            btnControlos.setDisable(true);
+            btnAvaliacoes.setDisable(true);
+            btnEmbalamentos.setDisable(true);
+
+        }
+        else if(cargoPerm == 22){
+
+            btnQuintas.setDisable(true);
+            btnFuncionarios.setDisable(true);
+            btnPlantacoes.setDisable(true);
+            btnVindimas.setDisable(true);
+            btnEmbalamentos.setDisable(true);
+
+        } else if(cargoPerm == 23) {
+
+            btnQuintas.setDisable(true);
+            btnFuncionarios.setDisable(true);
+            btnPlantacoes.setDisable(true);
+            btnVindimas.setDisable(true);
+            btnControlos.setDisable(true);
+            btnEmbalamentos.setDisable(true);
+        }
+
+
 
         btnPaginaInicial.fire();
 

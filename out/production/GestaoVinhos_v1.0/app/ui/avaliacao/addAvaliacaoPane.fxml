@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="addAvaliacaoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.avaliacao.addAvaliacaoController">
+<Pane fx:id="addAvaliacaoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.avaliacao.addAvaliacaoController">
    <children>
       <Text layoutX="147.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Avaliação">
          <font>
@@ -22,5 +19,7 @@
       <Button fx:id="btnConfirmAddAvaliacao" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAddAvaliacaoAddClic" text="Adicionar" />
       <Button fx:id="btnCancelAddAvaliacao" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAddAvaliacaoCancelarClic" text="Voltar" />
       <TextField fx:id="qualidadeVinho" layoutX="207.0" layoutY="223.0" />
+      <Text layoutX="367.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Litros" />
+      <Text layoutX="367.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 &lt;-&gt; 5" />
    </children>
 </Pane>
