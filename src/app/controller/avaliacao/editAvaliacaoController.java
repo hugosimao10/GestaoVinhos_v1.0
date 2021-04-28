@@ -70,7 +70,7 @@ public class editAvaliacaoController {
                         p6.setInt(3, bb);
                         p6.executeQuery();
 
-                        System.out.println("Avaliacao alterada com sucesso, com resultado positivo");
+                        System.out.println("Avaliacao alterada com sucesso");
                         msg.alertaInfo("Avaliacao alterada com sucesso!", "Info!", "Avaliação alterada!");
 
                         numControlo.setText("");

@@ -1,6 +1,5 @@
 package app.controller.avaliacao;
 
-import app.controller.controlo.editControloController;
 import app.entities.userID;
 import app.error.msg;
 import app.util.Util;

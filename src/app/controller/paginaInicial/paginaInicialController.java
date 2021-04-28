@@ -38,6 +38,7 @@ public class paginaInicialController {
     public Button btnLogout;
     public Text bemVindoEmpresa;
     public Text bemVindoUser;
+    public Text percContrloSuccess;
 
     public void iniciar() throws SQLException {
         System.out.println("Está na página Inicial!");
@@ -78,25 +79,112 @@ public class paginaInicialController {
 
         // TOTAL PLANTAÇOES
 
+        PreparedStatement pst2 = c.prepareStatement("SELECT p.*, f.* FROM PLANTACAO p, FUNCIONARIO f WHERE f.ID_EMPRESA = ? AND f.ID_FUNCIONARIO = p.ID_FUNCIONARIO AND p.ESTADO = 1");
+        pst2.setInt(1, empresaLog);
+        ResultSet S3 = pst2.executeQuery();
+
+        int n = 0;
+
+        while (S3.next()){
+
+            ++n;
+
+        }
+        numPlantacoes.setText(String.valueOf(n));
+
 
         // TOTAL DE CASTAS
+
+        PreparedStatement pst3 = c.prepareStatement("SELECT COUNT(*) AS totalcasta FROM CASTA");
+        ResultSet S4 = pst3.executeQuery();
+
+        while (S4.next()){
+
+            numCastas.setText(S4.getString("totalcasta"));
+
+        }
 
 
         // NUMERO VINDIMAS ATIVAS
 
+        PreparedStatement pst4 = c.prepareStatement("SELECT pv.*, f.* FROM PLANTACAO_VINDIMA pv, FUNCIONARIO f WHERE f.ID_EMPRESA = ? AND f.ID_FUNCIONARIO = pv.ID_FUNCIONARIO");
+        pst4.setInt(1, empresaLog);
+        ResultSet ss = pst4.executeQuery();
+
+        int n1 = 0;
+
+        while (ss.next()){
+
+            ++n1;
+
+        }
+        numVindimasAtivas.setText(String.valueOf(n));
+
 
         // CONTROLOS BEM SUCEDIDOS
+
+        PreparedStatement pst5 = c.prepareStatement("SELECT c.*, f.* FROM CONTROLO c, FUNCIONARIO f WHERE f.ID_EMPRESA = ? AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND c.RESULTADO = 1");
+        pst5.setInt(1, empresaLog);
+        ResultSet as = pst5.executeQuery();
+
+        int n44 = 0;
+
+        while (as.next()){
+
+            ++n44;
+
+        }
+        numControlos.setText(String.valueOf(n));
 
 
         // PERCENTAGEM DE CONTROLOS BEM SUCEDIDOS
 
+        PreparedStatement pst10 = c.prepareStatement("SELECT c.*, f.* FROM CONTROLO c, FUNCIONARIO f WHERE f.ID_EMPRESA = ? AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND c.RESULTADO = 1");
+        pst10.setInt(1, empresaLog);
+        ResultSet as1 = pst10.executeQuery();
+
+        int n30 = 0;
+
+        while (as1.next()){
+
+            ++n30;
+
+        }
+
+        PreparedStatement pst11 = c.prepareStatement("SELECT c.*, f.* FROM CONTROLO c, FUNCIONARIO f WHERE f.ID_EMPRESA = ? AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO");
+        pst11.setInt(1, empresaLog);
+        ResultSet as12 = pst11.executeQuery();
+
+        int num = 0;
+
+        while(as12.next()){
+
+            ++num;
+        }
+
+        float perc = (n30 * 100)/num;
+
+        percContrloSuccess.setText(String.valueOf(perc));
+
 
         // CAIXAS PRODUZIDAS NESTE ANO
 
+        PreparedStatement pst44 = c.prepareStatement("SELECT f.*, c.*, a.*, e.* FROM FUNCIONARIO f, CONTROLO c, AVALIACAO a, PRODUTOFINAL e " +
+                "WHERE e.ID_PRODUTO_FINAL = a.ID_PRODUTO_FINAL AND a.ID_AVALIACAO = c.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND " +
+                "f.ID_EMPRESA = ?");
+        pst44.setInt(1, empresaLog);
+
+        ResultSet caixas = pst44.executeQuery();
+
+        int totalcaixa = 0;
+
+        while(caixas.next()){
+            int recebe = caixas.getInt("QTD_CAIXAS");
+            totalcaixa+=recebe;
+        }
 
 
-
-
+        numCaixas.setText(String.valueOf(totalcaixa));
     }
 
     public void butLogout(ActionEvent actionEvent) throws IOException {
