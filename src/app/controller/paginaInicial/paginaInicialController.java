@@ -162,10 +162,16 @@ public class paginaInicialController {
             ++num;
         }
 
-        float perc = (n30 * 100)/num;
+        if(num ==0){
+            percContrloSuccess.setText("0");
 
-        percContrloSuccess.setText(String.valueOf(perc));
+        }
+        else {
+            float perc = (n30 * 100) / num;
 
+
+            percContrloSuccess.setText(String.valueOf(perc));
+        }
 
         // CAIXAS PRODUZIDAS NESTE ANO
 

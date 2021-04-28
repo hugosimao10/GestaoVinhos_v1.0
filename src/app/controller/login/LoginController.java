@@ -39,6 +39,8 @@ public class LoginController {
 
         if(rs.next()){
 
+            int cargoPerm = rs.getInt("TIPO_FUNCIONARIO");
+
             int idLog = rs.getInt("ID_FUNCIONARIO");
 
             PreparedStatement pst2 = conn.prepareStatement("SELECT e.NOME_EMPRESA,f.ID_EMPRESA," +
@@ -54,24 +56,116 @@ public class LoginController {
             if(rs1.next()){
 
                 if (rs1.getInt("ESTADO") != 0) {
-                    System.out.println("Login com sucesso!");
 
-                    // VER NOME DA EMPRESA
-                    int empresa = rs1.getInt("ID_EMPRESA");
-                    String username = rs.getString("USERNAME");
-                    String nomeEmpresa = rs1.getString("NOME_EMPRESA");
-                    int idLog1 = rs1.getInt("ID_FUNCIONARIO");
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/dashboard/dashboard.fxml"));
-                    Parent root = loader.load();
-                    Stage stage = new Stage();
-                    stage.setTitle("EmpresaVinhos | Dashboard");
-                    stage.setScene(new Scene(root));
-                    stage.setResizable(false);
-                    stage.show();
-                    DashboardController dashboard = loader.getController();
-                    dashboard.iniciar(empresa, idLog1, username, nomeEmpresa);
-                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                        if(cargoPerm == 21){
+
+                            System.out.println("Login com sucesso!");
+
+                            // VER NOME DA EMPRESA
+                            int empresa = rs1.getInt("ID_EMPRESA");
+                            String username = rs.getString("USERNAME");
+                            String nomeEmpresa = rs1.getString("NOME_EMPRESA");
+                            int idLog1 = rs1.getInt("ID_FUNCIONARIO");
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/dashboard/dashboard.fxml"));
+                            Parent root = loader.load();
+                            Stage stage = new Stage();
+                            stage.setTitle("EmpresaVinhos | Dashboard");
+                            stage.setScene(new Scene(root));
+                            stage.setResizable(false);
+                            stage.show();
+                            DashboardController dashboard = loader.getController();
+                            dashboard.iniciar(empresa, idLog1, username, nomeEmpresa, cargoPerm);
+                            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+
+                        }
+                        else if(cargoPerm == 22){
+
+
+                            System.out.println("Login com sucesso!");
+
+                            // VER NOME DA EMPRESA
+                            int empresa = rs1.getInt("ID_EMPRESA");
+                            String username = rs.getString("USERNAME");
+                            String nomeEmpresa = rs1.getString("NOME_EMPRESA");
+                            int idLog1 = rs1.getInt("ID_FUNCIONARIO");
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/dashboard/dashboard.fxml"));
+                            Parent root = loader.load();
+                            Stage stage = new Stage();
+                            stage.setTitle("EmpresaVinhos | Dashboard");
+                            stage.setScene(new Scene(root));
+                            stage.setResizable(false);
+                            stage.show();
+                            DashboardController dashboard = loader.getController();
+                            dashboard.iniciar(empresa, idLog1, username, nomeEmpresa, cargoPerm);
+                            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+
+                        }
+                        else if(cargoPerm == 23){
+
+
+                            System.out.println("Login com sucesso!");
+
+                            // VER NOME DA EMPRESA
+                            int empresa = rs1.getInt("ID_EMPRESA");
+                            String username = rs.getString("USERNAME");
+                            String nomeEmpresa = rs1.getString("NOME_EMPRESA");
+                            int idLog1 = rs1.getInt("ID_FUNCIONARIO");
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/dashboard/dashboard.fxml"));
+                            Parent root = loader.load();
+                            Stage stage = new Stage();
+                            stage.setTitle("EmpresaVinhos | Dashboard");
+                            stage.setScene(new Scene(root));
+                            stage.setResizable(false);
+                            stage.show();
+                            DashboardController dashboard = loader.getController();
+                            dashboard.iniciar(empresa, idLog1, username, nomeEmpresa, cargoPerm);
+                            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+                        }
+                        else if(cargoPerm == 1){
+
+                            System.out.println("Login com sucesso!");
+
+                            // VER NOME DA EMPRESA
+                            int empresa = rs1.getInt("ID_EMPRESA");
+                            String username = rs.getString("USERNAME");
+                            String nomeEmpresa = rs1.getString("NOME_EMPRESA");
+                            int idLog1 = rs1.getInt("ID_FUNCIONARIO");
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/dashboard/dashboard.fxml"));
+                            Parent root = loader.load();
+                            Stage stage = new Stage();
+                            stage.setTitle("EmpresaVinhos | Dashboard");
+                            stage.setScene(new Scene(root));
+                            stage.setResizable(false);
+                            stage.show();
+                            DashboardController dashboard = loader.getController();
+                            dashboard.iniciar(empresa, idLog1, username, nomeEmpresa, cargoPerm);
+                            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+
+
+
+                        }
+                        else{
+                            System.out.println("Utilizador sem cargo associado para login");
+                        }
+
+
+
+
+
+
+
+
+
+
                 }
                 else{
                     System.out.println("O utilizador não tem permissão para entrar na aplicação!");
