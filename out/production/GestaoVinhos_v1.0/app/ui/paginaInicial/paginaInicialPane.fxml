@@ -15,26 +15,6 @@
       <Text layoutX="286.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vindimas ativas" />
       <Text layoutX="60.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de Funcionários" />
       <Text layoutX="287.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlos bem" />
-      <ImageView fx:id="iconQuintas" fitHeight="40.0" fitWidth="45.0" layoutX="14.0" layoutY="102.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="iconFuncionarios" fitHeight="40.0" fitWidth="45.0" layoutX="14.0" layoutY="147.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="iconVindimas" fitHeight="40.0" fitWidth="45.0" layoutX="225.0" layoutY="100.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="iconControlos" fitHeight="40.0" fitWidth="45.0" layoutX="225.0" layoutY="145.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
       <Text fx:id="numQuintas" layoutX="181.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
@@ -60,26 +40,6 @@
       <Text layoutX="296.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\% controlos" />
       <Text layoutX="75.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total de castas" />
       <Text layoutX="278.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixas produzidas" />
-      <ImageView fx:id="iconPlatacoes" fitHeight="40.0" fitWidth="45.0" layoutX="15.0" layoutY="194.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="iconCastas" fitHeight="40.0" fitWidth="45.0" layoutX="15.0" layoutY="239.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="iconPercControlos" fitHeight="40.0" fitWidth="45.0" layoutX="226.0" layoutY="192.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="iconCaixas" fitHeight="40.0" fitWidth="45.0" layoutX="226.0" layoutY="237.0">
-         <image>
-            <Image url="@../../../img/logo.png" />
-         </image>
-      </ImageView>
       <Text fx:id="numPlantacoes" layoutX="181.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>
             <Font size="18.0" />
@@ -104,5 +64,45 @@
       <Text layoutX="288.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bem sucedidos" />
       <Text layoutX="300.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="neste ano" />
       <Button fx:id="btnLogout" layoutX="373.0" layoutY="361.0" mnemonicParsing="false" onAction="#butLogout" text="Logout" />
+      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="16.0" layoutY="91.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/farm.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="139.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/farmer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="52.0" layoutX="17.0" layoutY="185.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/vinhas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="16.0" layoutY="229.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/grape.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="226.0" layoutY="94.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/vindima.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="228.0" layoutY="138.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/sucess.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="228.0" layoutY="185.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/%25.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="228.0" layoutY="229.0" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../src/img/box.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
