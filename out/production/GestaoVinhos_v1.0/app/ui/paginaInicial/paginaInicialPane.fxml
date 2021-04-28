@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.paginaInicialController">
+<Pane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.paginaInicial.paginaInicialController">
    <children>
       <Text fx:id="bemVindoEmpresa" layoutX="75.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa" />
       <Text fx:id="bemVindoUser" layoutX="257.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo," />

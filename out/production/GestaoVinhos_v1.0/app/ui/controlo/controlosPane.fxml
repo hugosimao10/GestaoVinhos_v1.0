@@ -7,28 +7,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="controlosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="app.controller.controloController">
+<Pane fx:id="controlosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.controlo.controloController">
     <children>
         <Text layoutX="184.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlos">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Text>
         <TableView fx:id="table" layoutX="8.0" layoutY="76.0" prefHeight="248.0" prefWidth="430.0">
             <columns>
-                <TableColumn fx:id="colNum" prefWidth="41.60003662109375" text="Num"/>
-                <TableColumn fx:id="colAcucar" prefWidth="76.79999160766602" text="Qtd Açúcar"/>
-                <TableColumn fx:id="colTemperatura" prefWidth="56.800048828125" text="Temp."/>
-                <TableColumn fx:id="colData" prefWidth="90.40000915527344" text="Data"/>
-                <TableColumn fx:id="colVindima" prefWidth="85.5999755859375" text="Num Vindima"/>
-                <TableColumn fx:id="colFunc" prefWidth="74.4000244140625" text="Funcionário"/>
+                <TableColumn fx:id="colNum" prefWidth="41.60003662109375" text="Num" />
+                <TableColumn fx:id="colAcucar" prefWidth="76.79999160766602" text="Qtd Açúcar" />
+                <TableColumn fx:id="colTemperatura" prefWidth="56.800048828125" text="Temp." />
+                <TableColumn fx:id="colVindima" prefWidth="42.0" text="Ar" />
+                <TableColumn fx:id="colData" prefWidth="106.0" text="Data" />
+                <TableColumn fx:id="colFunc" prefWidth="81.0" text="Funcionário" />
+            <TableColumn fx:id="Colresult" prefWidth="24.0" text="X" />
             </columns>
         </TableView>
-        <Button fx:id="btnAddControlo" layoutX="44.0" layoutY="343.0" mnemonicParsing="false"
-                onAction="#btnAddControloClic" text="Adicionar Controlo"/>
-        <Button fx:id="btnEditControlo" layoutX="306.0" layoutY="343.0" mnemonicParsing="false"
-                onAction="#btnEditControloClic" text="Editar Controlo"/>
+        <Button fx:id="btnAddControlo" layoutX="44.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddControloClic" text="Adicionar Controlo" />
+        <Button fx:id="btnEditControlo" layoutX="306.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnEditControloClic" text="Editar Controlo" />
     </children>
 </Pane>

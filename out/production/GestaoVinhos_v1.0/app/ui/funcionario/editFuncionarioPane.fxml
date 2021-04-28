@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="funcionariosEditPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.editFuncionarioController">
+<Pane fx:id="funcionariosEditPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.funcionario.editFuncionarioController">
    <children>
       <Text fx:id="editFuncLabel" layoutX="153.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Funcionário">
          <font>

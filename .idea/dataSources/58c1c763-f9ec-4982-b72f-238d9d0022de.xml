@@ -120,9 +120,9 @@
     <schema id="38" parent="1" name="USER10">
       <ObjectId>104</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-26.13:57:16</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-27.22:04:29</ModifiedTimestamp>
       <IntrospectionVersion>200820</IntrospectionVersion>
-      <IntrospectionTimestamp>2021-04-26.13:57:22</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2021-04-27.22:04:30</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="39" parent="1" name="WMSYS">
@@ -49397,7 +49397,7 @@
     <table id="7100" parent="38" name="AVALIACAO">
       <ObjectId>100020</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-01.17:52:10</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-27.22:01:02</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7101" parent="38" name="CASTA">
@@ -49415,7 +49415,7 @@
     <table id="7103" parent="38" name="CONTROLO">
       <ObjectId>100026</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-01.17:51:52</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-27.22:04:29</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7104" parent="38" name="EMPRESA">
@@ -49439,13 +49439,13 @@
     <table id="7107" parent="38" name="PLANTACAO_VINDIMA">
       <ObjectId>100032</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-01.17:52:21</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-27.15:40:44</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7108" parent="38" name="PRODUTOFINAL">
       <ObjectId>100034</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:07</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-12.12:15:12</ModifiedTimestamp>
+      <ModifiedTimestamp>2021-04-27.19:54:58</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="7109" parent="38" name="QUINTA">
@@ -49492,12 +49492,10 @@
     <column id="7115" parent="7100" name="QTD_PRODUZIDA">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="7116" parent="7100" name="QUALIDADE_VINHO">
       <Position>3</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="7117" parent="7100" name="ID_PRODUTO_FINAL">
       <Position>4</Position>
@@ -49614,11 +49612,16 @@
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="7136" parent="7103" name="ID_AVALIACAO">
+    <column id="7136" parent="7103" name="RESULTADO">
       <Position>8</Position>
       <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="7137" parent="7103" name="CONTROLOPROD_PK">
+    <column id="7137" parent="7103" name="ID_AVALIACAO">
+      <Position>9</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+    </column>
+    <index id="7138" parent="7103" name="CONTROLOPROD_PK">
       <ObjectId>100045</ObjectId>
       <CreatedTimestamp>2021-04-01.17:43:08</CreatedTimestamp>
       <ModifiedTimestamp>2021-04-01.17:43:08</ModifiedTimestamp>
@@ -49626,14 +49629,14 @@
       <ColNames>ID_CONTROLO</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="7138" parent="7103" name="CONTROLOPROD_PK">
+    <key id="7139" parent="7103" name="CONTROLOPROD_PK">
       <ModifiedTimestamp>2021-04-01.17:43:09</ModifiedTimestamp>
       <ColNames>ID_CONTROLO</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>CONTROLOPROD_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="7139" parent="7103" name="CONTROLO_VINDIMA">
+    <foreign-key id="7140" parent="7103" name="CONTROLO_VINDIMA">
       <ModifiedTimestamp>2021-04-01.17:43:10</ModifiedTimestamp>
       <ColNames>ID_PLANT_VINDIMA</ColNames>
       <RefSchemaName>USER10</RefSchemaName>
@@ -49641,7 +49644,7 @@
       <RefKeyName>PLANTACAO_VINDIMA_PK</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="7140" parent="7103" name="CONTROLO_FUNCIONARIO">
+    <foreign-key id="7141" parent="7103" name="CONTROLO_FUNCIONARIO">
       <ModifiedTimestamp>2021-04-01.17:43:10</ModifiedTimestamp>
       <ColNames>ID_FUNCIONARIO</ColNames>
       <RefSchemaName>USER10</RefSchemaName>
@@ -49649,23 +49652,14 @@
       <RefKeyName>FUNCIONARIO_PK</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="7141" parent="7103" name="CONTROLO_AVALIACAO">
-      <ModifiedTimestamp>2021-04-01.17:43:10</ModifiedTimestamp>
+    <foreign-key id="7142" parent="7103" name="CONTROLO___FK_AVA">
+      <ModifiedTimestamp>2021-04-27.22:04:29</ModifiedTimestamp>
       <ColNames>ID_AVALIACAO</ColNames>
       <RefSchemaName>USER10</RefSchemaName>
       <RefTableName>AVALIACAO</RefTableName>
       <RefKeyName>AVALIACAO_PK</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <trigger id="7142" parent="7103" name="TRIGGER_CONTROLOACUCAR">
-      <ObjectId>100053</ObjectId>
-      <SourceTextLength>38</SourceTextLength>
-      <CreatedTimestamp>2021-04-01.17:43:09</CreatedTimestamp>
-      <ModifiedTimestamp>2021-04-01.17:48:27</ModifiedTimestamp>
-      <Events>IUD</Events>
-      <Turn>before-row</Turn>
-      <Condition>NEW.qtd_acucar &lt; 20</Condition>
-    </trigger>
     <column id="7143" parent="7104" name="ID_EMPRESA">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
@@ -49893,12 +49887,10 @@
     <column id="7183" parent="7107" name="QTD_VINDIMADA">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="7184" parent="7107" name="DATA_FIM_VINDIMA">
       <Position>3</Position>
       <DataType>DATE|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="7185" parent="7107" name="ID_VINDIMA">
       <Position>4</Position>
@@ -49967,10 +49959,9 @@
       <DataType>VARCHAR2(50 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="7196" parent="7108" name="DATA_PROD_FINALIZADO">
+    <column id="7196" parent="7108" name="DATA_EMB">
       <Position>4</Position>
       <DataType>DATE|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <index id="7197" parent="7108" name="PRODUTOFINAL_PK">
       <ObjectId>100049</ObjectId>

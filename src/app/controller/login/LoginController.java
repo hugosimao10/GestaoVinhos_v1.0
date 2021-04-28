@@ -39,7 +39,6 @@ public class LoginController {
 
         if(rs.next()){
 
-
             int idLog = rs.getInt("ID_FUNCIONARIO");
 
             PreparedStatement pst2 = conn.prepareStatement("SELECT e.NOME_EMPRESA,f.ID_EMPRESA," +
@@ -63,7 +62,7 @@ public class LoginController {
                     String nomeEmpresa = rs1.getString("NOME_EMPRESA");
                     int idLog1 = rs1.getInt("ID_FUNCIONARIO");
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/dashboard/dashboard.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/dashboard/dashboard.fxml"));
                     Parent root = loader.load();
                     Stage stage = new Stage();
                     stage.setTitle("EmpresaVinhos | Dashboard");
