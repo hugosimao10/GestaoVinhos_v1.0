@@ -11,8 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,9 +48,9 @@ public class selectFuncionarioToEditController {
 
         ResultSet rs = pst.executeQuery();
 
-        if(rs.next()){
+        if (rs.next()) {
 
-            if(checkEditFunc.isSelected()){
+            if (checkEditFunc.isSelected()) {
 
                 int idUserEdit = rs.getInt("ID_FUNCIONARIO");
                 String cargo = rs.getString("TIPO_FUNCIONARIO");
@@ -64,7 +66,6 @@ public class selectFuncionarioToEditController {
                 int estado = rs.getInt("ESTADO");
 
 
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/funcionario/editFuncionarioPane.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();
@@ -72,21 +73,19 @@ public class selectFuncionarioToEditController {
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
                 stage.show();
+                stage.getIcons().add(new Image("/img/logo.png"));
                 editFuncionarioController edit = loader.getController();
                 edit.iniciar(idUserEdit, cargo, nome, email, tlm, nPorta, rua, cod_postal, empresa, pw, user, estado);
 
                 ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
-            }
-            else{
+            } else {
                 System.out.println("Selecione a checbox para confirmar!");
                 msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
 
             }
 
 
-
-        }
-        else {
+        } else {
             System.out.println("O funcionário a procurar não foi encontrado!");
             msg.alertaErro("O funcionário a procurar não foi encontrado!", "Erro!", "O user a procurar não foi encontrado!");
 

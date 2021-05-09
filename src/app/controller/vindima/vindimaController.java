@@ -1,9 +1,7 @@
 package app.controller.vindima;
 
-import app.entities.Plantacao;
 import app.entities.Vindima;
 import app.entities.userID;
-import app.error.msg;
 import app.util.Util;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,10 +18,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class vindimaController implements Initializable {
@@ -70,15 +70,14 @@ public class vindimaController implements Initializable {
 
             while (rs2.next()) {
 
-                    oblist4.add(new Vindima(rs2.getInt("id_plant_vindima"), rs2.getInt("qtd_vindimada"),
-                            rs2.getDate("data_fim_vindima"), rs2.getDate("DATA_INICIO_VINDIMA"),
-                            rs2.getInt("id_plantacao"), rs2.getInt("id_funcionario")));
+                oblist4.add(new Vindima(rs2.getInt("id_plant_vindima"), rs2.getInt("qtd_vindimada"),
+                        rs2.getDate("data_fim_vindima"), rs2.getDate("DATA_INICIO_VINDIMA"),
+                        rs2.getInt("id_plantacao"), rs2.getInt("id_funcionario")));
 
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
 
 
         colNum.setCellValueFactory(new PropertyValueFactory<>("id_plant_vindima"));

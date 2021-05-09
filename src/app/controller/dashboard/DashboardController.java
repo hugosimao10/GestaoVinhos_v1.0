@@ -9,7 +9,6 @@ import app.controller.plantacao.plantacoesController;
 import app.controller.quinta.quintaController;
 import app.controller.vindima.vindimaController;
 import app.entities.userID;
-import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,9 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DashboardController {
@@ -36,9 +32,9 @@ public class DashboardController {
 
     // FUNCAO QUE ATIVA O BOTAO DA PAGINA INICIAL
 
-    public void iniciar(int idEmpresa, int idLog1,String username, String nomeEmpresa, int cargoPerm) throws IOException, SQLException {
+    public void iniciar(int idEmpresa, int idLog1, String username, String nomeEmpresa, int cargoPerm) throws IOException, SQLException {
 
-    // PASSAR O ID DA EMPRESA PARA UMA VARIAVEL GLOBAL
+        // PASSAR O ID DA EMPRESA PARA UMA VARIAVEL GLOBAL
 
         userID.setId(idEmpresa);
         userID.setIdUser(idLog1);
@@ -48,15 +44,14 @@ public class DashboardController {
 
         System.out.println(cargoPerm);
 
-        if(cargoPerm == 21){
+        if (cargoPerm == 21) {
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
             btnControlos.setDisable(true);
             btnAvaliacoes.setDisable(true);
             btnEmbalamentos.setDisable(true);
 
-        }
-        else if(cargoPerm == 22){
+        } else if (cargoPerm == 22) {
 
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
@@ -64,7 +59,7 @@ public class DashboardController {
             btnVindimas.setDisable(true);
             btnEmbalamentos.setDisable(true);
 
-        } else if(cargoPerm == 23) {
+        } else if (cargoPerm == 23) {
 
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
@@ -73,7 +68,6 @@ public class DashboardController {
             btnControlos.setDisable(true);
             btnEmbalamentos.setDisable(true);
         }
-
 
 
         btnPaginaInicial.fire();
@@ -104,7 +98,6 @@ public class DashboardController {
         paneToChange.setCenter(root);
         controller.iniciar();
 
-
     }
 
     //BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE FUNCIONARIOS
@@ -123,7 +116,7 @@ public class DashboardController {
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE PLANTACOES
 
     @FXML
-    public void btnPlantacaoClic(ActionEvent actionEvent) throws IOException{
+    public void btnPlantacaoClic(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/plantacao/plantacoesPane.fxml"));
         Parent root = loader.load();
@@ -163,11 +156,11 @@ public class DashboardController {
     // BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE AVALIACOES
 
     @FXML
-    public void btnAvaliacoesClic(ActionEvent actionEvent) throws IOException{
+    public void btnAvaliacoesClic(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/avaliacao/avaliacoesPane.fxml"));
         Parent root = loader.load();
-        avaliacoesController controller= loader.getController();
+        avaliacoesController controller = loader.getController();
         paneToChange.setCenter(root);
         controller.iniciar();
 

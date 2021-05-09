@@ -1,7 +1,7 @@
 package app.controller.funcionario;
 
-import app.error.msg;
 import app.entities.userID;
+import app.error.msg;
 import app.util.Util;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,12 +9,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class addFuncionarioController {
-    public ComboBox dropdownTipoFunc;
+    public ComboBox<String> dropdownTipoFunc;
     public TextField usernameFunc;
     public PasswordField pwdFunc;
     public TextField nomeFunc;
@@ -33,6 +40,13 @@ public class addFuncionarioController {
     public void iniciar() throws SQLException {
         System.out.println("Está na area de adicionar funcionários!");
 
+        Pattern pattern = Pattern.compile("^[0-9]*$");
+        TextFormatter formatterPorta = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return pattern.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+        portaFunc.setTextFormatter(formatterPorta);
+
+
         Connection c = Util.criarConexao();
 
         PreparedStatement p = c.prepareStatement("SELECT * FROM TIPO_FUNCIONARIO");
@@ -42,7 +56,7 @@ public class addFuncionarioController {
 
         tiposFunc = FXCollections.observableArrayList();
 
-        while(r.next()){
+        while (r.next()) {
 
             int idTF = r.getInt("ID");
             String cargo = r.getString("CARGO");
@@ -72,12 +86,18 @@ public class addFuncionarioController {
         String nome = nomeFunc.getText();
         String codpostal = cpFunc.getText();
 
-        if(user.isEmpty() || email.isEmpty() || tlm.isEmpty() || nPorta.isEmpty() || rua.isEmpty() || pass.isEmpty() || nome.isEmpty() || codpostal.isEmpty()){
+        if (user.isEmpty() || email.isEmpty() || tlm.isEmpty() || nPorta.isEmpty() || rua.isEmpty() || pass.isEmpty() || nome.isEmpty() || codpostal.isEmpty()) {
 
             System.out.println("Não podem ficar campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
-        }
-        else {
+
+        } else if (pass.length() < 6) {
+            msg.alertaAviso("Password deve ter mais que 6 caracteres!", "Aviso!", "Password demasiado pequena!");
+        } else if (!Pattern.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", email)) {
+            msg.alertaAviso("Deve introduzir um email válido!", "Aviso!", "Email inválido!");
+        } else if (!Pattern.matches("[0-9]{4}-[0-9]{3}", codpostal)) {
+            msg.alertaAviso("Deve introduzir um código postal válido!", "Aviso!", "Código postal inválido!");
+        } else {
 
             Connection c1 = Util.criarConexao();
 
@@ -132,29 +152,12 @@ public class addFuncionarioController {
 
                             if (rs12.next()) {
 
-                                int codPostExiste = rs12.getInt("ID_CODPOSTAL");
-
-                                PreparedStatement pst = c1.prepareStatement("INSERT INTO FUNCIONARIO(NOME, EMAIL, TLM, NPORTA," +
-                                        "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO, TIPO_FUNCIONARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-
-
-                                pst.setString(1, nome);
-                                pst.setString(2, email);
-                                pst.setString(3, tlm);
-                                pst.setInt(4, nportaInt);
-                                pst.setString(5, rua);
-                                pst.setInt(6, codPostExiste);
-                                pst.setInt(7, idEmpresaLogada);
-                                pst.setString(8, pass);
-                                pst.setString(9, user);
-                                pst.setInt(10, estado);
-                                pst.setInt(11, nCargo);
-
-                                pst.executeQuery();
+                                resultSet(user, email, tlm, estado, idEmpresaLogada, rua, pass, nome, c1, nportaInt, nCargo, rs12);
 
                                 System.out.println("Funcionário adicionado com sucesso!");
                                 msg.alertaInfo("Funcionário adicionado com sucesso!", "Info!", "Sucesso!");
 
+                                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
                             } else {
 
@@ -166,31 +169,15 @@ public class addFuncionarioController {
                                 pst16.setString(1, codpostal);
                                 ResultSet rs16 = pst16.executeQuery();
 
-                                if(rs16.next()) {
-                                    int codPostExiste1 = rs16.getInt("ID_CODPOSTAL");
-
-                                    PreparedStatement pst20 = c1.prepareStatement("INSERT INTO FUNCIONARIO(NOME, EMAIL, TLM, NPORTA," +
-                                            "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO, TIPO_FUNCIONARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-
-
-                                    pst20.setString(1, nome);
-                                    pst20.setString(2, email);
-                                    pst20.setString(3, tlm);
-                                    pst20.setInt(4, nportaInt);
-                                    pst20.setString(5, rua);
-                                    pst20.setInt(6, codPostExiste1);
-                                    pst20.setInt(7, idEmpresaLogada);
-                                    pst20.setString(8, pass);
-                                    pst20.setString(9, user);
-                                    pst20.setInt(10, estado);
-                                    pst20.setInt(11, nCargo);
-
-                                    pst20.executeQuery();
+                                if (rs16.next()) {
+                                    resultSet(user, email, tlm, estado, idEmpresaLogada, rua, pass, nome, c1, nportaInt, nCargo, rs16);
 
                                     System.out.println("Funcionário adicionado com sucesso! (Novo código postal adicionado!)");
                                     msg.alertaInfo("Funcionário adicionado com sucesso! (Novo código postal adicionado!)", "Info!", "Sucesso!");
-                                }
-                                else{
+
+                                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+                                } else {
                                     System.out.println("Não adicionou o novo código postal com sucesso!");
                                 }
 
@@ -206,9 +193,35 @@ public class addFuncionarioController {
 
     }
 
+    private void resultSet(String user, String email, String tlm, int estado, int idEmpresaLogada, String rua, String pass, String nome, Connection c1, int nportaInt, int nCargo, ResultSet rs16) throws SQLException {
+        int codPostExiste1 = rs16.getInt("ID_CODPOSTAL");
+
+        PreparedStatement pst20 = c1.prepareStatement("INSERT INTO FUNCIONARIO(NOME, EMAIL, TLM, NPORTA," +
+                "RUA, COD_POSTAL, ID_EMPRESA, PW, USERNAME, ESTADO, TIPO_FUNCIONARIO) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+
+
+        preparedStatement(user, email, tlm, estado, idEmpresaLogada, rua, pass, nome, nportaInt, nCargo, codPostExiste1, pst20);
+
+        pst20.executeQuery();
+    }
+
+    static void preparedStatement(String user, String email, String tlm, int estado, int idEmpresaLogada, String rua, String pass, String nome, int nportaInt, int nCargo, int codPostExiste1, PreparedStatement pst20) throws SQLException {
+        pst20.setString(1, nome);
+        pst20.setString(2, email);
+        pst20.setString(3, tlm);
+        pst20.setInt(4, nportaInt);
+        pst20.setString(5, rua);
+        pst20.setInt(6, codPostExiste1);
+        pst20.setInt(7, idEmpresaLogada);
+        pst20.setString(8, pass);
+        pst20.setString(9, user);
+        pst20.setInt(10, estado);
+        pst20.setInt(11, nCargo);
+    }
+
     // BOTAO PARA CANCELAR
     @FXML
-    public void btnAddFuncCancelarClic(ActionEvent actionEvent)throws IOException {
+    public void btnAddFuncCancelarClic(ActionEvent actionEvent) throws IOException {
 
         dropdownTipoFunc.cancelEdit();
         usernameFunc.setText("");
@@ -222,5 +235,12 @@ public class addFuncionarioController {
 
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
+    }
+
+    @FXML
+    public void buttonPressed(KeyEvent e) {
+        if (e.getCode().toString().equals("ENTER")) {
+            btnConfirmAddFunc.fire();
+        }
     }
 }

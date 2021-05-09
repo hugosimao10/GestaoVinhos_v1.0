@@ -2,10 +2,10 @@ package app.entities;
 
 public class Avaliacao {
 
-        int id_avaliacao;
-        int qtd_produzida;
-        String qualidade_vinho;
-        int id_produto_final;
+    int id_avaliacao;
+    int qtd_produzida;
+    String qualidade_vinho;
+    int id_produto_final;
 
     public Avaliacao(int id_avaliacao, int qtd_produzida, String qualidade_vinho, int id_produto_final) {
         this.id_avaliacao = id_avaliacao;

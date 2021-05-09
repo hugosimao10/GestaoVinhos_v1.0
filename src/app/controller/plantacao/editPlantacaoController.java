@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -17,6 +18,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class editPlantacaoController {
     public Pane editPlantacoesPane;
@@ -31,7 +34,22 @@ public class editPlantacaoController {
     @FXML
     private ObservableList<String> castas;
 
-    public void iniciar(int idEdit, String area_casta, String num_func, int nQui, String idcasta) throws SQLException {
+    public void iniciar(int idEdit, String area_casta, String username, int nQui, String idcasta) throws SQLException {
+
+        Pattern pattern = Pattern.compile("\\d*|\\d+\\.\\d*");
+        TextFormatter formatter = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return pattern.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+
+        areaCasta.setTextFormatter(formatter);
+
+        Pattern patternInt = Pattern.compile("^[0-9]*$");
+        TextFormatter formatterQuinta = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return patternInt.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+        numQuinta.setTextFormatter(formatterQuinta);
+
+
         System.out.println("Está na area de editar avaliações!");
 
         guardaIdPlant.setVisible(false);
@@ -48,7 +66,7 @@ public class editPlantacaoController {
 
         castas = FXCollections.observableArrayList();
 
-        while(set1.next()){
+        while (set1.next()) {
 
             String cargo1 = set1.getString("TIPO_CASTA");
             castas.add(cargo1);
@@ -58,7 +76,7 @@ public class editPlantacaoController {
 
         comboBoxCasta.setItems(castas);
         areaCasta.setText(area_casta);
-        usernameFunc.setText(num_func);
+        usernameFunc.setText(username);
         String nQuinStr = String.valueOf(nQui);
         numQuinta.setText(nQuinStr);
 
@@ -76,42 +94,58 @@ public class editPlantacaoController {
         String novaQui = numQuinta.getText();
         String castaEsc = comboBoxCasta.getValue().toString();
 
-        if(novaArea.isEmpty() || novoFunc.isEmpty() || novaQui.isEmpty()){
+        if (novaArea.isEmpty() || novoFunc.isEmpty() || novaQui.isEmpty()) {
 
             System.out.println("Não podem ficar campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
-        }
-        else {
+        } else {
 
             PreparedStatement pst1 = c1.prepareStatement("SELECT * FROM CASTA WHERE TIPO_CASTA = ?");
             pst1.setString(1, castaEsc);
 
             ResultSet rr = pst1.executeQuery();
 
-            if(rr.next()){
+            PreparedStatement p6 = c1.prepareStatement("SELECT * FROM QUINTA WHERE ID_QUINTA = ?");
+            p6.setString(1, novaQui);
 
-                int a = rr.getInt("ID_CASTA");
-            int novoF = Integer.parseInt(novoFunc);
-            int novaQ = Integer.parseInt(novaQui);
+            ResultSet s2 = p6.executeQuery();
 
+            PreparedStatement p7 = c1.prepareStatement("SELECT * FROM FUNCIONARIO WHERE USERNAME = ?");
+            p7.setString(1, novoFunc);
 
+            ResultSet s3 = p7.executeQuery();
 
-            PreparedStatement pst = c1.prepareStatement("UPDATE PLANTACAO SET AREA_CASTA = ?, ID_FUNCIONARIO= ?, " +
-                    "ID_QUINTA= ?, ID_CASTA= ? WHERE ID_PLANTACAO = ?");
-            pst.setString(1,novaArea);
-            pst.setInt(2,novoF);
-            pst.setInt(3,novaQ);
-            pst.setInt(4,a);
-            pst.setInt(5,idEdit);
+            if (rr.next()) {
+                if (s3.next()) {
+                    if (s2.next()) {
 
-            pst.executeQuery();
-
-                System.out.println("Plantação alterada com sucesso!");
-                msg.alertaInfo("Plantação alterada com sucesso!", "Info!", "Sucesso!");
+                        int a = rr.getInt("ID_CASTA");
+                        int novoF = s3.getInt("ID_FUNCIONARIO");
+                        int novaQ = Integer.parseInt(novaQui);
 
 
-            }
-            else{
+                        PreparedStatement pst = c1.prepareStatement("UPDATE PLANTACAO SET AREA_CASTA = ?, ID_FUNCIONARIO= ?, " +
+                                "ID_QUINTA= ?, ID_CASTA= ? WHERE ID_PLANTACAO = ?");
+                        pst.setString(1, novaArea);
+                        pst.setInt(2, novoF);
+                        pst.setInt(3, novaQ);
+                        pst.setInt(4, a);
+                        pst.setInt(5, idEdit);
+
+                        pst.executeQuery();
+
+                        System.out.println("Plantação alterada com sucesso!");
+                        msg.alertaInfo("Plantação alterada com sucesso!", "Info!", "Sucesso!");
+
+                        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+                    } else {
+                        msg.alertaErro("Quinta não encontrada!", "Erro!", "Quinta inexistente!");
+                    }
+                } else {
+                    msg.alertaErro("Funcionário não encontrado!", "Erro!", "Funcionário inexistente!");
+                }
+            } else {
                 System.out.println("A casta relacionada não foi encontrada!");
             }
 

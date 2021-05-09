@@ -23,7 +23,7 @@ public class editAvaliacaoController {
     public TextField qualidadeVinho;
     public Text guardaIdEditAvaliacao;
 
-    public void iniciar(int idEdit, int idContr,int qtdProd,String qualVinho) {
+    public void iniciar(int idEdit, int idContr, int qtdProd, String qualVinho) {
         System.out.println("Está na area de editar avaliação!");
 
         numControlo.setText(String.valueOf(idContr));
@@ -40,19 +40,18 @@ public class editAvaliacaoController {
         String b = qtdProduzida.getText();
         String c = qualidadeVinho.getText();
 
-        if(a.isEmpty() || b.isEmpty() || c.isEmpty()){
+        if (a.isEmpty() || b.isEmpty() || c.isEmpty()) {
             System.out.println("Não podem ficar campos em branco");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else{
+        } else {
 
             int newContr = Integer.parseInt(a);
             int newQtdPr = Integer.parseInt(b);
             int newQualVinho = Integer.parseInt(c);
 
             Connection c1 = Util.criarConexao();
-            if(newQualVinho > 2 && newQualVinho <=5){
+            if (newQualVinho > 2 && newQualVinho <= 5) {
 
 
                 PreparedStatement p4 = c1.prepareStatement("SELECT c.*, a.* FROM CONTROLO c, AVALIACAO a WHERE c.ID_CONTROLO = ? AND c.RESULTADO = 1");
@@ -62,45 +61,39 @@ public class editAvaliacaoController {
                 String aa = guardaIdEditAvaliacao.getText();
                 int bb = Integer.parseInt(aa);
 
-                if(sss.next()){
+                if (sss.next()) {
 
-                        PreparedStatement p6 = c1.prepareStatement("UPDATE AVALIACAO SET QTD_PRODUZIDA = ?, QUALIDADE_VINHO = ? WHERE ID_AVALIACAO = ?");
-                        p6.setInt(1,newQtdPr);
-                        p6.setString(2,c);
-                        p6.setInt(3, bb);
-                        p6.executeQuery();
+                    PreparedStatement p6 = c1.prepareStatement("UPDATE AVALIACAO SET QTD_PRODUZIDA = ?, QUALIDADE_VINHO = ? WHERE ID_AVALIACAO = ?");
+                    p6.setInt(1, newQtdPr);
+                    p6.setString(2, c);
+                    p6.setInt(3, bb);
+                    p6.executeQuery();
 
-                        System.out.println("Avaliacao alterada com sucesso");
-                        msg.alertaInfo("Avaliacao alterada com sucesso!", "Info!", "Avaliação alterada!");
+                    System.out.println("Avaliacao alterada com sucesso");
+                    msg.alertaInfo("Avaliacao alterada com sucesso!", "Info!", "Avaliação alterada!");
 
-                        numControlo.setText("");
-                        qtdProduzida.setText("");
-                        qualidadeVinho.setText("");
+                    numControlo.setText("");
+                    qtdProduzida.setText("");
+                    qualidadeVinho.setText("");
 
-                        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
 
-
-                }
-                else{
+                } else {
                     System.out.println("O controlo inserido não existe OU o resultado é negativo!");
                     msg.alertaAviso("O controlo inserido não poder ser utilizado!", "Erro!", "Numero do controlo inexistente OU resutlado negativo!");
 
                 }
 
 
-
-            }
-            else{
+            } else {
                 System.out.println("O vinho não tem a qualidade minima desejada!");
                 msg.alertaAviso("O vinho não tem a qualidade mínima desejada!", "Aviso!", "Qualidade fraca!");
 
             }
 
 
-
         }
-
 
 
     }

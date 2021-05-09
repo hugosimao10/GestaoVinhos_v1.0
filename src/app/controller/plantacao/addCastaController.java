@@ -29,12 +29,11 @@ public class addCastaController {
 
         String castaNova = nomeCasta.getText();
 
-        if(castaNova.isEmpty()){
+        if (castaNova.isEmpty()) {
             System.out.println("Não podem ficar campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else {
+        } else {
 
             Connection con = Util.criarConexao();
 
@@ -54,10 +53,12 @@ public class addCastaController {
                 p.setString(1, castaNova);
                 p.executeQuery();
 
-                System.out.println("Plantacao adicionado com sucesso!");
-                msg.alertaInfo("Plantacao adicionado com sucesso!", "Info!", "Sucesso!");
+                System.out.println("Casta adicionada com sucesso!");
+                msg.alertaInfo("Casta adicionada com sucesso!", "Info!", "Sucesso!");
 
                 nomeCasta.setText("");
+
+                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
             }
         }
     }

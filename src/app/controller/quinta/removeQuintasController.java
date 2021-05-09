@@ -4,16 +4,21 @@ import app.entities.userID;
 import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class removeQuintasController {
     public Pane quintasRemovePane;
@@ -25,24 +30,30 @@ public class removeQuintasController {
     public void iniciar() throws SQLException {
         System.out.println("Está na area de remover quintas!");
 
+        Pattern pattern = Pattern.compile("^[0-9]*$");
+        TextFormatter formatter = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return pattern.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+
+        numRemoveQuinta.setTextFormatter(formatter);
+
     }
 
     public void btnRemoverFuncRemoveClic(ActionEvent actionEvent) throws SQLException {
 
-        String idQui =  numRemoveQuinta.getText();
+        String idQui = numRemoveQuinta.getText();
 
 
         // VER SE O CAMPO ESTA VAZIO
 
-        if(idQui.isEmpty()){
+        if (idQui.isEmpty()) {
             System.out.println("Por favor, preencha o número da Quinta!");
-                msg.alertaAviso("Por favor insira o número da quinta que pretende remover!", "Aviso!", "Campo não pode ficar vazio!");
-        }
-        else{
+            msg.alertaAviso("Por favor insira o número da quinta que pretende remover!", "Aviso!", "Campo não pode ficar vazio!");
+        } else {
 
             // VER SE A CHECKBOX ESTÁ SELECIONADA
 
-            if(checkRemoveQuinta.isSelected()){
+            if (checkRemoveQuinta.isSelected()) {
 
                 int i = Integer.parseInt(idQui);
                 int a = userID.getId();
@@ -58,31 +69,27 @@ public class removeQuintasController {
 
                 // VER SE FOI ENCONTRADO O ID, E SE FOI ENCONTRADO, ENTAO PASSA O CAMPO ATIVO A 0 (QUINTA NÃO FAZ MAIS PARTE DA EMPRESA)
 
-                if(rs.next()){
+                if (rs.next()) {
 
                     PreparedStatement pst1 = conn.prepareStatement("UPDATE QUINTA SET ATIVA = 0 WHERE ID_QUINTA = ?");
-                    pst1.setInt(1,i);
+                    pst1.setInt(1, i);
                     pst1.executeQuery();
                     System.out.println("A quinta foi desativada com sucesso!");
                     msg.alertaInfo("A quinta foi desativada com sucesso!", "Sucesso!", "Quinta desativada!");
                     numRemoveQuinta.setText("");
 
-                }
-                else{
+                } else {
                     System.out.println("A quinta nao foi encontrada!");
                     msg.alertaErro("A quinta não foi encontrado!", "Erro!", "Quinta não existe!");
                 }
 
-            }
-            else{
+            } else {
                 System.out.println("Por favor, selecione a checkbox para confirmar a remoção da quinta!");
                 msg.alertaAviso("Por favor, selecione a checkbox para confirmar a remoção da quinta!)", "Aviso!", "Confirme a checkbox!");
             }
 
 
-
         }
-
 
 
     }
@@ -93,5 +100,12 @@ public class removeQuintasController {
 
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
+    }
+
+    @FXML
+    public void buttonPressed(KeyEvent e) {
+        if (e.getCode().toString().equals("ENTER")) {
+            btnConfirmRemoveFunc.fire();
+        }
     }
 }

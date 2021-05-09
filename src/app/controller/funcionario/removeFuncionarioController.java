@@ -5,15 +5,11 @@ import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -38,7 +34,7 @@ public class removeFuncionarioController {
     @FXML
     public void btnRemoverFuncRemoveClic(ActionEvent actionEvent) throws IOException, SQLException {
 
-        String user =  usernameRemoveFunc.getText();
+        String user = usernameRemoveFunc.getText();
         int conf1 = userID.getId();
 
         Connection conn = Util.criarConexao();
@@ -52,52 +48,48 @@ public class removeFuncionarioController {
 
         // VER SE O USERNAME ESTA VAZIO
 
-        if(user.isEmpty()){
+        if (user.isEmpty()) {
             System.out.println("Por favor, preencha o funcionário!");
             msg.alertaAviso("Por favor insira o funcionário que pretende remover!", "Aviso!", "Funcionário não pode estar vazio!");
-        }
-        else{
+        } else {
 
             // VER SE A CHECKBOX ESTÁ SELECIONADA
 
-            if(checkRemoveFunc.isSelected()){
+            if (checkRemoveFunc.isSelected()) {
 
-            // VER SE FOI ENCONTRADO O USERNAME, E SE FOI ENCONTRADO, ENTAO PASSA O ESTADO A 0 (NÃO TRABALHA MAIS NA EMPRESA)
+                // VER SE FOI ENCONTRADO O USERNAME, E SE FOI ENCONTRADO, ENTAO PASSA O ESTADO A 0 (NÃO TRABALHA MAIS NA EMPRESA)
 
-            if(rs.next()){
+                if (rs.next()) {
 
 
+                    PreparedStatement pst1 = conn.prepareStatement("UPDATE FUNCIONARIO SET ESTADO = 0 WHERE USERNAME = ?");
+                    pst1.setString(1, user);
+                    pst1.executeQuery();
+                    System.out.println("O user foi removido com sucesso!");
+                    msg.alertaInfo("O funcionário foi removido com sucesso!", "Sucesso!", "Funcionário encontrado!");
+                    usernameRemoveFunc.setText("");
 
-                PreparedStatement pst1 = conn.prepareStatement("UPDATE FUNCIONARIO SET ESTADO = 0 WHERE USERNAME = ?");
-                pst1.setString(1,user);
-                pst1.executeQuery();
-                System.out.println("O user foi removido com sucesso!");
-                msg.alertaInfo("O funcionário foi removido com sucesso!", "Sucesso!", "Funcionário encontrado!");
-                usernameRemoveFunc.setText("");
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
-            }
-            else{
-                System.out.println("O funcionário nao foi encontrado!");
-                msg.alertaErro("O funcionário não foi encontrado!", "Erro!", "Funcionário não existe!");
-            }
+                } else {
+                    System.out.println("O funcionário nao foi encontrado!");
+                    msg.alertaErro("O funcionário não foi encontrado!", "Erro!", "Funcionário não existe!");
+                }
 
-            }
-            else{
+            } else {
                 System.out.println("Por favor, selecione a checkbox para confirmar que pretende remover!");
                 msg.alertaAviso("Por favor selecione a checkbox!", "Aviso!", "Confirme que pretende remover!");
             }
 
 
-
         }
-
 
 
     }
 
     // BOTAO DE CANCELAR NA PANE DE REMOVER FUNCIONARIO
     @FXML
-    public void btnRemoveFuncCancelarClic(ActionEvent actionEvent)throws IOException {
+    public void btnRemoveFuncCancelarClic(ActionEvent actionEvent) throws IOException {
 
         usernameRemoveFunc.setText("");
 

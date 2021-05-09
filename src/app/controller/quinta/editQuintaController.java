@@ -3,9 +3,11 @@ package app.controller.quinta;
 import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -21,7 +23,7 @@ public class editQuintaController {
     public Button btnCancelEditQuinta;
     public Text guardaEditQuinta;
 
-    public void iniciar(int idEditQuinta, String area_quinta,String localiz) throws SQLException {
+    public void iniciar(int idEditQuinta, String area_quinta, String localiz) throws SQLException {
 
         System.out.println("Está na area de editar Quintas!");
 
@@ -40,13 +42,12 @@ public class editQuintaController {
         String areaNova = areaQuinta.getText();
         String localNovo = localizacaoQuinta.getText();
 
-        if(areaNova.isEmpty() || localNovo.isEmpty()){
+        if (areaNova.isEmpty() || localNovo.isEmpty()) {
 
             System.out.println("Não pode haver campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else{
+        } else {
 
             Connection c1 = Util.criarConexao();
             String b = guardaEditQuinta.getText();
@@ -76,4 +77,12 @@ public class editQuintaController {
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
     }
+
+    @FXML
+    public void buttonPressed(KeyEvent e) {
+        if (e.getCode().toString().equals("ENTER")) {
+            btnConfirmEditQuinta.fire();
+        }
+    }
+
 }

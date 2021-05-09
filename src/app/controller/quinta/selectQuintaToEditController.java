@@ -1,10 +1,10 @@
 package app.controller.quinta;
 
-import app.controller.quinta.editQuintaController;
 import app.entities.userID;
 import app.error.msg;
 import app.util.Util;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -20,6 +23,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class selectQuintaToEditController {
     public Pane quintaSelectEditPane;
@@ -31,48 +36,61 @@ public class selectQuintaToEditController {
     public void iniciar() throws SQLException {
         System.out.println("Está na area de inserir numero da quinta a editar!");
 
+        Pattern pattern = Pattern.compile("^[0-9]*$");
+        TextFormatter formatter = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return pattern.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+
+        numQuinta.setTextFormatter(formatter);
     }
 
     public void butConfirmQuintaEditClic(ActionEvent actionEvent) throws SQLException, IOException {
 
         Connection conn = Util.criarConexao();
 
-        String quintaPro = numQuinta.getText();
-        int idQuinta = Integer.parseInt(quintaPro);
-        int conf = userID.getId();
+        if (numQuinta.getText().isEmpty()) {
+            msg.alertaAviso("Insira um número de quinta para continuar!", "Aviso!", "Insira número de quinta!");
+        } else {
 
-        PreparedStatement pst = conn.prepareStatement("SELECT * FROM QUINTA WHERE ID_QUINTA = ? AND ID_EMPRESA = ?");
-        pst.setInt(1, idQuinta);
-        pst.setInt(2, conf);
+            String quintaPro = numQuinta.getText();
+            int idQuinta = Integer.parseInt(quintaPro);
+            int conf = userID.getId();
 
-        ResultSet rs = pst.executeQuery();
+            PreparedStatement pst = conn.prepareStatement("SELECT * FROM QUINTA WHERE ID_QUINTA = ? AND ID_EMPRESA = ?");
+            pst.setInt(1, idQuinta);
+            pst.setInt(2, conf);
 
-        if (rs.next()) {
+            ResultSet rs = pst.executeQuery();
 
-            if (checkEditQuinta.isSelected()) {
+            if (rs.next()) {
 
-                int idEditQuinta = rs.getInt("ID_QUINTA");
-                String area_quinta = rs.getString("AREA_QUINTA");
-                String localiz = rs.getString("LOCALIZACAO");
+                if (checkEditQuinta.isSelected()) {
+
+                    int idEditQuinta = rs.getInt("ID_QUINTA");
+                    String area_quinta = rs.getString("AREA_QUINTA");
+                    String localiz = rs.getString("LOCALIZACAO");
 
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/quinta/editQuintaPane.fxml"));
-                Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Editar Plantação");
-                stage.setScene(new Scene(root));
-                stage.setResizable(false);
-                stage.show();
-                editQuintaController edit = loader.getController();
-                edit.iniciar(idEditQuinta, area_quinta, localiz);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/quinta/editQuintaPane.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Editar Plantação");
+                    stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    stage.show();
+                    stage.getIcons().add(new Image("/img/logo.png"));
+                    editQuintaController edit = loader.getController();
+                    edit.iniciar(idEditQuinta, area_quinta, localiz);
 
-                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                } else {
+                    System.out.println("Selecione a checbox para confirmar!");
+                    msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
+                }
+
             } else {
-                System.out.println("Selecione a checbox para confirmar!");
-                msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
-
+                msg.alertaErro("Insira um número de quinta válido!", "Aviso!", "Quinta inexistente!");
             }
-
         }
     }
 
@@ -83,6 +101,13 @@ public class selectQuintaToEditController {
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
 
+    }
+
+    @FXML
+    public void buttonPressed(KeyEvent e) {
+        if (e.getCode().toString().equals("ENTER")) {
+            btnConfirmEditFunc.fire();
         }
+    }
 
 }

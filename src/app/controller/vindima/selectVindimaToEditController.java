@@ -15,7 +15,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class selectVindimaToEditController {
@@ -46,15 +49,15 @@ public class selectVindimaToEditController {
 
         ResultSet rs = pst.executeQuery();
 
-        if(rs.next()) {
+        if (rs.next()) {
 
-            if(checkEditVindima.isSelected()) {
+            if (checkEditVindima.isSelected()) {
 
 
                 int idEdit = rs.getInt("ID_PLANT_VINDIMA");
                 LocalDate dataInic = rs.getDate("DATA_INICIO_VINDIMA").toLocalDate();
                 LocalDate dataFim = rs.getDate("DATA_FIM_VINDIMA").toLocalDate();
-                if(dataFim.equals("")){
+                if (dataFim.equals("")) {
                     dataFim = null;
                 }
                 int num_func = rs.getInt("ID_FUNCIONARIO");
@@ -70,12 +73,11 @@ public class selectVindimaToEditController {
                 stage.setResizable(false);
                 stage.show();
                 editVindimaController edit = loader.getController();
-                edit.iniciar(idEdit, dataInic, dataFim,num_func, nPla, qtdV);
+                edit.iniciar(idEdit, dataInic, dataFim, num_func, nPla, qtdV);
 
                 ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
-            }
-            else{
+            } else {
 
                 System.out.println("Por favor, selecione a checkbox!");
                 msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
@@ -83,8 +85,7 @@ public class selectVindimaToEditController {
             }
 
 
-        }
-        else{
+        } else {
             System.out.println("QUERY nao tem resultado, selectVindimaEditController!");
         }
 

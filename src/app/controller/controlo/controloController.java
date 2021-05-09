@@ -1,7 +1,6 @@
 package app.controller.controlo;
 
 import app.entities.Controlo;
-import app.entities.Quinta;
 import app.entities.userID;
 import app.util.Util;
 import javafx.collections.FXCollections;
@@ -72,7 +71,7 @@ public class controloController implements Initializable {
 
             ResultSet rs = pst.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 oblist1.add(new Controlo(rs.getInt("id_controlo"), rs.getInt("qtd_acucar"),
                         rs.getInt("temperatura"), rs.getInt("qualidade_ar"),
@@ -94,8 +93,6 @@ public class controloController implements Initializable {
         Colresult.setCellValueFactory(new PropertyValueFactory<>("resultado"));
 
         table.setItems(oblist1);
-
-
 
 
     }

@@ -19,7 +19,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class selectAvaliacaoToEditController {
     public Pane avaliacaoSelectEditPane;
@@ -27,6 +26,7 @@ public class selectAvaliacaoToEditController {
     public Button btnConfirmEditAvaliacao;
     public Button btnCancelEditAvaliacao;
     public CheckBox checkEditAvaliacao;
+
     public void iniciar() {
         System.out.println("Está na area de selecionar avaliacao a editar!");
 
@@ -57,7 +57,6 @@ public class selectAvaliacaoToEditController {
                 String qualVinho = rs.getString("QUALIDADE_VINHO");
 
 
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/avaliacao/editAvaliacaoPane.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();
@@ -75,12 +74,10 @@ public class selectAvaliacaoToEditController {
 
             }
 
-        }
-        else{
+        } else {
             System.out.println("Avaliação nao encontrada!");
             msg.alertaErro("Avaliação nao encontrada!", "Erro!", "ID não existe!");
         }
-
 
 
     }

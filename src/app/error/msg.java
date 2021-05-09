@@ -1,6 +1,7 @@
 package app.error;
 
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class msg {
@@ -13,6 +14,7 @@ public class msg {
         alert.setHeaderText(headerMessage);
         alert.setContentText(infoMessage);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("img/logo.png"));
         alert.showAndWait();
     }
 
@@ -24,6 +26,7 @@ public class msg {
         alert.setHeaderText(headerMessage);
         alert.setContentText(infoMessage);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("img/logo.png"));
         alert.showAndWait();
     }
 
@@ -35,6 +38,7 @@ public class msg {
         alert.setHeaderText(headerMessage);
         alert.setContentText(infoMessage);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("img/logo.png"));
         alert.showAndWait();
     }
 }

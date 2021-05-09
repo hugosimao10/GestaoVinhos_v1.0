@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -54,13 +53,12 @@ public class editControloController {
         String funNovo = funcionario.getText();
 
 
-        if(acucarNovo.isEmpty() || tempNova.isEmpty() || arNovo.isEmpty() || numVinNova.isEmpty() || funNovo.isEmpty()){
+        if (acucarNovo.isEmpty() || tempNova.isEmpty() || arNovo.isEmpty() || numVinNova.isEmpty() || funNovo.isEmpty()) {
 
             System.out.println("Não pode haver campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else {
+        } else {
 
             Connection c1 = Util.criarConexao();
             String b = guardaIdEditControlo.getText();
@@ -93,8 +91,7 @@ public class editControloController {
                 msg.alertaInfo("Controlo alterada com sucesso, resultado positivo!", "Info!", "Sucesso!");
 
 
-        }
-        else{
+            } else {
 
                 int resultado = 0;
 

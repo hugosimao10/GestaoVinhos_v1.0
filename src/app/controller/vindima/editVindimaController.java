@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -50,12 +49,11 @@ public class editVindimaController {
         LocalDate dataI = dtIniVindima.getValue();
         LocalDate dataF = dtFimVindima.getValue();
 
-        if(a.isEmpty() || b.isEmpty() || c.isEmpty()){
+        if (a.isEmpty() || b.isEmpty() || c.isEmpty()) {
             System.out.println("Não pode haver campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else{
+        } else {
 
             Connection c2 = Util.criarConexao();
             String aa = guardaIdEditVindima.getText();
@@ -65,7 +63,7 @@ public class editVindimaController {
             pst2.setDate(1, Date.valueOf(dataI));
             ResultSet s1 = pst2.executeQuery();
 
-            if(s1.next()){
+            if (s1.next()) {
 
                 PreparedStatement pst = c2.prepareStatement("UPDATE PLANTACAO_VINDIMA SET QTD_VINDIMADA = ?, DATA_FIM_VINDIMA= ?," +
                         "ID_VINDIMA = ?, ID_PLANTACAO = ?, ID_FUNCIONARIO = ?" +
@@ -84,9 +82,7 @@ public class editVindimaController {
                 msg.alertaInfo("Vindima alterada com sucesso!", "Info!", "Sucesso!");
 
 
-
-            }
-            else{
+            } else {
 
 
                 PreparedStatement p9 = c2.prepareStatement("INSERT INTO VINDIMA(DATA_INICIO_VINDIMA) VALUES (?)");
@@ -98,7 +94,7 @@ public class editVindimaController {
 
                 ResultSet s = p5.executeQuery();
 
-                if(s.next()){
+                if (s.next()) {
 
                     int a1 = s.getInt("ID_VINDIMA");
 
@@ -117,14 +113,11 @@ public class editVindimaController {
 
                     System.out.println("Vindima alterada com sucesso, com data inicio!");
                     msg.alertaInfo("Vindima alterada com sucesso, com nova data de inicio!", "Info!", "Sucesso!");
-                }
-                else{
+                } else {
                     System.out.println("Erro a criar o novo ID da nova data de inicio de vindima. editVindimaCotnroller!");
                 }
 
             }
-
-
 
 
         }

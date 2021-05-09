@@ -16,16 +16,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-
-import java.io.IOException;
-import java.sql.*;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class funcionarioController implements Initializable {
@@ -70,11 +70,11 @@ public class funcionarioController implements Initializable {
             pst = conn.prepareStatement("SELECT ID_FUNCIONARIO, NOME, TIPO_FUNCIONARIO, EMAIL, USERNAME, ESTADO, ID_EMPRESA " +
                     "FROM FUNCIONARIO WHERE ID_EMPRESA LIKE ?");
 
-                     pst.setInt(1, funcEmpresa);
+            pst.setInt(1, funcEmpresa);
 
             ResultSet rs = pst.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 int nCargo = rs.getInt("TIPO_FUNCIONARIO");
 
@@ -83,14 +83,13 @@ public class funcionarioController implements Initializable {
 
                 ResultSet set1 = p4.executeQuery();
 
-                if(set1.next()){
+                if (set1.next()) {
 
                     oblist.add(new Funcionario(rs.getInt("id_funcionario"), rs.getString("nome"),
-                            set1.getString("CARGO"),rs.getString("email"),
-                            rs.getString("USERNAME"),rs.getInt("estado")));
+                            set1.getString("CARGO"), rs.getString("email"),
+                            rs.getString("USERNAME"), rs.getInt("estado")));
 
-                }
-                else{
+                } else {
                     System.out.println("Erro ao atribuir cargo relacionado!");
                 }
 
@@ -125,6 +124,7 @@ public class funcionarioController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         addFuncionarioController add = loader.getController();
         add.iniciar();
 
@@ -134,7 +134,7 @@ public class funcionarioController implements Initializable {
     // BOTAO PARA EDITAR FUNCIONARIO
 
     @FXML
-    public void btnEditFuncClic(ActionEvent actionEvent)throws IOException {
+    public void btnEditFuncClic(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/funcionario/selectFuncionarioToEditPane.fxml"));
         Parent root = loader.load();
@@ -143,6 +143,7 @@ public class funcionarioController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         selectFuncionarioToEditController edit = loader.getController();
         edit.iniciar();
 
@@ -151,7 +152,7 @@ public class funcionarioController implements Initializable {
     // BOTAO PARA REMOVER FUNCIONARIO
 
     @FXML
-    public void btnRemoveFuncClic(ActionEvent actionEvent) throws IOException{
+    public void btnRemoveFuncClic(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/funcionario/removeFuncionarioPane.fxml"));
         Parent root = loader.load();
@@ -160,9 +161,9 @@ public class funcionarioController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         removeFuncionarioController rem = loader.getController();
         rem.iniciar();
-
 
 
     }

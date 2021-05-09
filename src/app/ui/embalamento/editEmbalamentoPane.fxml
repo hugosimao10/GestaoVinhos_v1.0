@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
-
-<Pane fx:id="editEmbalamentoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.embalamento.editEmbalamentoController">
-   <children>
-      <Text layoutX="145.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Embalamento">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="113.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Avaliação" />
-      <Text layoutX="83.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixas Produzidas" />
-      <TextField fx:id="idAvaliacao" layoutX="193.0" layoutY="145.0" translateY="10.0" />
-      <TextField fx:id="qtdCaixas" layoutX="193.0" layoutY="107.0" translateY="80.0" />
-      <Button fx:id="btnConfirmEditEmbalamento" layoutX="363.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditEmbalamentoAddClic" text="Editar" />
-      <Button fx:id="btnCancelEditEmbalamento" layoutX="35.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnEditEmbalamentoCancelarClic" text="Voltar" />
-      <Text layoutX="108.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Vinho" />
-      <TextField fx:id="tipoVinho" layoutX="193.0" layoutY="220.0" />
-      <Text fx:id="guardaIdEditEmbalamento" layoutX="59.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <DatePicker fx:id="datePickerEmbalamento" layoutX="193.0" layoutY="255.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="145.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data" />
-   </children>
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editEmbalamentoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1"
+      fx:controller="app.controller.embalamento.editEmbalamentoController">
+    <children>
+        <Text layoutX="145.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Embalamento">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Text>
+        <Text layoutX="113.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Avaliação"/>
+        <Text layoutX="83.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caixas Produzidas"/>
+        <TextField fx:id="idAvaliacao" layoutX="193.0" layoutY="145.0" translateY="10.0"/>
+        <TextField fx:id="qtdCaixas" layoutX="193.0" layoutY="107.0" translateY="80.0"/>
+        <Button fx:id="btnConfirmEditEmbalamento" layoutX="363.0" layoutY="364.0" mnemonicParsing="false"
+                onAction="#btnEditEmbalamentoAddClic" text="Editar"/>
+        <Button fx:id="btnCancelEditEmbalamento" layoutX="35.0" layoutY="364.0" mnemonicParsing="false"
+                onAction="#btnEditEmbalamentoCancelarClic" text="Voltar"/>
+        <Text layoutX="108.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Vinho"/>
+        <TextField fx:id="tipoVinho" layoutX="193.0" layoutY="220.0"/>
+        <Text fx:id="guardaIdEditEmbalamento" layoutX="59.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Text"/>
+        <DatePicker fx:id="datePickerEmbalamento" layoutX="193.0" layoutY="255.0" prefHeight="25.0" prefWidth="149.0"/>
+        <Text layoutX="145.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data"/>
+    </children>
 </Pane>

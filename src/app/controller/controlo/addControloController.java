@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -42,12 +41,11 @@ public class addControloController {
         String g = String.valueOf(dtControlo.getValue());
 
 
-        if(a.isEmpty() || b.isEmpty() || c.isEmpty() || d.isEmpty() || e.isEmpty() || g.isEmpty()){
+        if (a.isEmpty() || b.isEmpty() || c.isEmpty() || d.isEmpty() || e.isEmpty() || g.isEmpty()) {
 
             System.out.println("Não podem ficar campos em branco");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
-        }
-        else{
+        } else {
             LocalDate dataIn = dtControlo.getValue();
             int qtdAcuc = Integer.parseInt(a);
             int temp = Integer.parseInt(b);
@@ -55,7 +53,7 @@ public class addControloController {
             int numVin = Integer.parseInt(d);
             int func = Integer.parseInt(e);
 
-            if(qtdAcuc > 2 && qtdAcuc < 8 && temp > 14 && temp < 26 && qualAr > 2 && qualAr <=5){
+            if (qtdAcuc > 2 && qtdAcuc < 8 && temp > 14 && temp < 26 && qualAr > 2 && qualAr <= 5) {
 
                 Connection c1 = Util.criarConexao();
                 int resultado = 1;
@@ -82,8 +80,7 @@ public class addControloController {
                 funcionario.setText("");
                 dtControlo.getEditor().clear();
                 ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
-            }
-            else{
+            } else {
 
                 Connection c1 = Util.criarConexao();
                 int resultado = 0;
@@ -112,12 +109,7 @@ public class addControloController {
                 ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
 
-
             }
-
-
-
-
 
 
         }

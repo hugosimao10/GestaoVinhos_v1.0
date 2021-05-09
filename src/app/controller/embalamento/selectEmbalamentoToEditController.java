@@ -60,7 +60,6 @@ public class selectEmbalamentoToEditController {
                 LocalDate data1 = rs.getDate("DATA_EMB").toLocalDate();
 
 
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/embalamento/editEmbalamentoPane.fxml"));
                 Parent root = loader.load();
                 Stage stage = new Stage();
@@ -78,13 +77,10 @@ public class selectEmbalamentoToEditController {
 
             }
 
-        }
-        else{
+        } else {
             System.out.println("Embalamento nao encontrado!");
             msg.alertaErro("Embalamento nao encontrado!", "Erro!", "ID não existe!");
         }
-
-
 
 
     }

@@ -1,8 +1,6 @@
 package app.controller.avaliacao;
 
 import app.entities.Avaliacao;
-import app.entities.Embalamento;
-import app.entities.Quinta;
 import app.entities.userID;
 import app.util.Util;
 import javafx.collections.FXCollections;
@@ -62,16 +60,16 @@ public class avaliacoesController implements Initializable {
         try {
             pst = conn.prepareStatement("SELECT a.*, c.*, f.*, e.* " +
                     "FROM AVALIACAO a, CONTROLO c, FUNCIONARIO f, PRODUTOFINAL e WHERE a.ID_AVALIACAO = c.ID_AVALIACAO AND " +
-                            "c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND a.ID_PRODUTO_FINAL = e.ID_PRODUTO_FINAL AND f.ID_EMPRESA = ?");
+                    "c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND a.ID_PRODUTO_FINAL = e.ID_PRODUTO_FINAL AND f.ID_EMPRESA = ?");
 
             pst.setInt(1, nIdEmpresa);
 
             ResultSet rs = pst.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 oblist1.add(new Avaliacao(rs.getInt("id_avaliacao"), rs.getInt("qtd_produzida"),
-                        rs.getString("qualidade_vinho"),rs.getInt("id_produto_final")));
+                        rs.getString("qualidade_vinho"), rs.getInt("id_produto_final")));
 
             }
 
@@ -85,7 +83,6 @@ public class avaliacoesController implements Initializable {
         colEmbalamento.setCellValueFactory(new PropertyValueFactory<>("id_produto_final"));
 
         table.setItems(oblist1);
-
 
 
     }

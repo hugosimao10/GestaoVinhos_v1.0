@@ -1,7 +1,6 @@
 package app.controller.embalamento;
 
 import app.entities.Embalamento;
-import app.entities.Quinta;
 import app.entities.userID;
 import app.util.Util;
 import javafx.collections.FXCollections;
@@ -70,7 +69,7 @@ public class embalamentoController implements Initializable {
 
             ResultSet rs = pst.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 oblist1.add(new Embalamento(rs.getInt("ID_PRODUTO_FINAL"), rs.getInt("QTD_CAIXAS"),
                         rs.getString("TIPO_VINHO"), rs.getDate("DATA_EMB")));

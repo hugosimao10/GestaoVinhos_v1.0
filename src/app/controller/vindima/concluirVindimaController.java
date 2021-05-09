@@ -31,23 +31,22 @@ public class concluirVindimaController {
 
     public void btnConcluirVindimaClic(ActionEvent actionEvent) throws SQLException {
 
-        String numVind =  numVindima.getText();
+        String numVind = numVindima.getText();
         int numVindInt = Integer.parseInt(numVind);
-        String QtdVindimada =  qtdVindimada.getText();
+        String QtdVindimada = qtdVindimada.getText();
         int qtdVinInt = Integer.parseInt(QtdVindimada);
 
 
         // VER SE O CAMPO ESTA VAZIO
 
-        if(numVind.isEmpty() || QtdVindimada.isEmpty()){
+        if (numVind.isEmpty() || QtdVindimada.isEmpty()) {
             System.out.println("Não pode haver campos vazios!");
             msg.alertaAviso("Não pode haver campos vazios!", "Aviso!", "Campo não pode ficar vazio!");
-        }
-        else{
+        } else {
 
             // VER SE A CHECKBOX ESTÁ SELECIONADA
 
-            if(checkConcluirVindima.isSelected()){
+            if (checkConcluirVindima.isSelected()) {
 
                 int a = userID.getId();
 
@@ -62,29 +61,26 @@ public class concluirVindimaController {
 
                 // VER SE FOI ENCONTRADO O ID, E SE FOI ENCONTRADO, ENTAO PASSA O CAMPO ATIVO A 0 (QUINTA NÃO FAZ MAIS PARTE DA EMPRESA)
 
-                if(rs.next()){
+                if (rs.next()) {
 
                     PreparedStatement pst1 = conn.prepareStatement("UPDATE PLANTACAO_VINDIMA SET QTD_VINDIMADA = ? WHERE ID_PLANT_VINDIMA = ?");
-                    pst1.setInt(1,qtdVinInt);
-                    pst1.setInt(2,numVindInt);
+                    pst1.setInt(1, qtdVinInt);
+                    pst1.setInt(2, numVindInt);
                     pst1.executeQuery();
                     System.out.println("A vindima foi finalizada com sucesso!");
                     msg.alertaInfo("A vindima foi finalizada com sucesso!", "Sucesso!", "Vindima finalizada!");
                     numVindima.setText("");
                     qtdVindimada.setText("");
 
-                }
-                else{
+                } else {
                     System.out.println("A vindima nao foi encontrada!");
                     msg.alertaErro("A vindima não foi encontrado!", "Erro!", "Vindima não existe!");
                 }
 
-            }
-            else{
+            } else {
                 System.out.println("Por favor, selecione a checkbox para confirmar a remoção da vindima!");
                 msg.alertaAviso("Por favor, selecione a checkbox para confirmar a remoção da vindima!)", "Aviso!", "Confirme a checkbox!");
             }
-
 
 
         }

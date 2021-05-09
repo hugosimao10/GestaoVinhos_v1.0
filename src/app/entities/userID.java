@@ -36,15 +36,15 @@ public class userID {
         return nomeEmpresa;
     }
 
+    public static void setNomeEmpresa(String nomeEmpresa) {
+        userID.nomeEmpresa = nomeEmpresa;
+    }
+
     public static int getIdUser() {
         return idUser;
     }
 
     public static void setIdUser(int idUser) {
         userID.idUser = idUser;
-    }
-
-    public static void setNomeEmpresa(String nomeEmpresa) {
-        userID.nomeEmpresa = nomeEmpresa;
     }
 }

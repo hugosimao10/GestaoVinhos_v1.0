@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -76,7 +77,7 @@ public class plantacoesController implements Initializable {
 
             ResultSet rs = pst.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 oblist2.add(new Casta(rs.getInt("id_casta"), rs.getString("tipo_casta")));
 
@@ -103,7 +104,7 @@ public class plantacoesController implements Initializable {
             pst1.setInt(1, log);
             ResultSet rs2 = pst1.executeQuery();
 
-            while (rs2.next()){
+            while (rs2.next()) {
 
                 oblist3.add(new Plantacao(rs2.getInt("id_plantacao"), rs2.getString("area_casta"),
                         rs2.getString("nome"), rs2.getInt("id_quinta"),
@@ -114,7 +115,6 @@ public class plantacoesController implements Initializable {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
 
 
         colNum.setCellValueFactory(new PropertyValueFactory<>("id_plantacao"));
@@ -137,6 +137,7 @@ public class plantacoesController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         addPlantacaoController add = loader.getController();
         add.iniciar();
     }
@@ -149,6 +150,7 @@ public class plantacoesController implements Initializable {
         stage.setTitle("Concluir Plantação");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.show();
         concluirPlantacaoController c = loader.getController();
         c.iniciar();
@@ -162,6 +164,7 @@ public class plantacoesController implements Initializable {
         stage.setTitle("Editar Plantação");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.show();
         selectPlantToEditController c = loader.getController();
         c.iniciar();
@@ -174,6 +177,7 @@ public class plantacoesController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Adicionar Casta");
         stage.setScene(new Scene(root));
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.setResizable(false);
         stage.show();
         addCastaController add = loader.getController();

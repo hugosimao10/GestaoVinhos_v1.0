@@ -43,6 +43,7 @@ public class paginaInicialController {
     public void iniciar() throws SQLException {
         System.out.println("Está na página Inicial!");
 
+        //ADICIONAR USERNAME E NOME DA EMPRESA AO ECRÃ INICIAL
         bemVindoEmpresa.setText(userID.getNomeEmpresa());
         bemVindoUser.setText("Bem-vindo, " + userID.getUsername());
         int empresaLog = userID.getId();
@@ -50,15 +51,13 @@ public class paginaInicialController {
         Connection c = Util.criarConexao();
 
         // NUM TOTAL QUINTAS
-
         PreparedStatement pst = c.prepareStatement("SELECT COUNT(*) AS TOTALQUINTA FROM QUINTA WHERE ID_EMPRESA = ?");
         pst.setInt(1, empresaLog);
         ResultSet s = pst.executeQuery();
 
-        if(s.next()){
+        if (s.next()) {
             numQuintas.setText(s.getString("TOTALQUINTA"));
-        }
-        else{
+        } else {
             System.out.println("Não foram encontradas quintas nesta empresa");
             numQuintas.setText("0");
         }
@@ -69,10 +68,9 @@ public class paginaInicialController {
         pst1.setInt(1, empresaLog);
         ResultSet s2 = pst1.executeQuery();
 
-        if(s2.next()){
+        if (s2.next()) {
             numFuncionarios.setText(s2.getString("TOTALFUNC"));
-        }
-        else{
+        } else {
             System.out.println("Não foram encontrados funcionários nesta empresa");
             numFuncionarios.setText("0");
         }
@@ -85,7 +83,7 @@ public class paginaInicialController {
 
         int n = 0;
 
-        while (S3.next()){
+        while (S3.next()) {
 
             ++n;
 
@@ -98,7 +96,7 @@ public class paginaInicialController {
         PreparedStatement pst3 = c.prepareStatement("SELECT COUNT(*) AS totalcasta FROM CASTA");
         ResultSet S4 = pst3.executeQuery();
 
-        while (S4.next()){
+        while (S4.next()) {
 
             numCastas.setText(S4.getString("totalcasta"));
 
@@ -113,7 +111,7 @@ public class paginaInicialController {
 
         int n1 = 0;
 
-        while (ss.next()){
+        while (ss.next()) {
 
             ++n1;
 
@@ -129,7 +127,7 @@ public class paginaInicialController {
 
         int n44 = 0;
 
-        while (as.next()){
+        while (as.next()) {
 
             ++n44;
 
@@ -145,7 +143,7 @@ public class paginaInicialController {
 
         int n30 = 0;
 
-        while (as1.next()){
+        while (as1.next()) {
 
             ++n30;
 
@@ -157,16 +155,15 @@ public class paginaInicialController {
 
         int num = 0;
 
-        while(as12.next()){
+        while (as12.next()) {
 
             ++num;
         }
 
-        if(num ==0){
+        if (num == 0) {
             percContrloSuccess.setText("0");
 
-        }
-        else {
+        } else {
             float perc = (n30 * 100) / num;
 
 
@@ -184,9 +181,9 @@ public class paginaInicialController {
 
         int totalcaixa = 0;
 
-        while(caixas.next()){
+        while (caixas.next()) {
             int recebe = caixas.getInt("QTD_CAIXAS");
-            totalcaixa+=recebe;
+            totalcaixa += recebe;
         }
 
 

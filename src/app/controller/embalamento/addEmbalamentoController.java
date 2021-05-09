@@ -35,13 +35,12 @@ public class addEmbalamentoController {
         LocalDate dataVinho = datePickerEmbalamento.getValue();
 
 
-        if(idAva.isEmpty() || qtdCai.isEmpty() || tpVinho.isEmpty()){
+        if (idAva.isEmpty() || qtdCai.isEmpty() || tpVinho.isEmpty()) {
 
             System.out.println("Não podem ficar campos em branco");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else{
+        } else {
 
             int idAvaInt = Integer.parseInt(idAva);
             int qtdCaiInt = Integer.parseInt(qtdCai);
@@ -49,58 +48,54 @@ public class addEmbalamentoController {
 
             Connection c1 = Util.criarConexao();
 
-                PreparedStatement p4 = c1.prepareStatement("SELECT a.*, e.* FROM AVALIACAO a, PRODUTOFINAL e WHERE a.ID_AVALIACAO = ?");
-                p4.setInt(1, idAvaInt);
+            PreparedStatement p4 = c1.prepareStatement("SELECT a.*, e.* FROM AVALIACAO a, PRODUTOFINAL e WHERE a.ID_AVALIACAO = ?");
+            p4.setInt(1, idAvaInt);
 
-                ResultSet sss = p4.executeQuery();
+            ResultSet sss = p4.executeQuery();
 
-                if(sss.next()){
-                    PreparedStatement p5 = c1.prepareStatement("INSERT INTO PRODUTOFINAL(QTD_CAIXAS, TIPO_VINHO, DATA_EMB) VALUES (?,?,?)");
-                    p5.setInt(1, qtdCaiInt);
-                    p5.setString(2, tpVinho);
-                    p5.setDate(3, Date.valueOf(dataVinho));
-                    p5.executeQuery();
-
-
-                    PreparedStatement p8 = c1.prepareStatement("SELECT * FROM PRODUTOFINAL WHERE QTD_CAIXAS = ? AND TIPO_VINHO = ?");
-                    p8.setInt(1, qtdCaiInt);
-                    p8.setString(2, tpVinho);
-
-                    ResultSet s1 = p8.executeQuery();
-
-                    if (s1.next()) {
-
-                        PreparedStatement p6 = c1.prepareStatement("UPDATE AVALIACAO SET ID_PRODUTO_FINAL = ? WHERE ID_AVALIACAO = ?");
-                        p6.setInt(1,s1.getInt("ID_PRODUTO_FINAL"));
-                        p6.setInt(2,idAvaInt);
-                        p6.executeQuery();
-
-                        System.out.println("Embalamento finalizado!");
-                        msg.alertaInfo("Embalamento finalizado com sucesso!", "Info!", "Embalamento bem sucedido!");
-
-                        idAvaliacao.setText("");
-                        qtdCaixas.setText("");
-                        tipoVinho.setText("");
-
-                        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
-
-                    }
-                    else{
-                        System.out.println("ID AVALIACAO ASSOCIADO NAO ENCONTRADO (78, addAvaliacao)");
-                    }
+            if (sss.next()) {
+                PreparedStatement p5 = c1.prepareStatement("INSERT INTO PRODUTOFINAL(QTD_CAIXAS, TIPO_VINHO, DATA_EMB) VALUES (?,?,?)");
+                p5.setInt(1, qtdCaiInt);
+                p5.setString(2, tpVinho);
+                p5.setDate(3, Date.valueOf(dataVinho));
+                p5.executeQuery();
 
 
-                }
-                else{
-                    System.out.println("A avaliação inserida não existe!");
-                    msg.alertaAviso("A avaliação inserida não existe!", "Erro!", "Avaliação inexistente");
+                PreparedStatement p8 = c1.prepareStatement("SELECT * FROM PRODUTOFINAL WHERE QTD_CAIXAS = ? AND TIPO_VINHO = ?");
+                p8.setInt(1, qtdCaiInt);
+                p8.setString(2, tpVinho);
 
+                ResultSet s1 = p8.executeQuery();
+
+                if (s1.next()) {
+
+                    PreparedStatement p6 = c1.prepareStatement("UPDATE AVALIACAO SET ID_PRODUTO_FINAL = ? WHERE ID_AVALIACAO = ?");
+                    p6.setInt(1, s1.getInt("ID_PRODUTO_FINAL"));
+                    p6.setInt(2, idAvaInt);
+                    p6.executeQuery();
+
+                    System.out.println("Embalamento finalizado!");
+                    msg.alertaInfo("Embalamento finalizado com sucesso!", "Info!", "Embalamento bem sucedido!");
+
+                    idAvaliacao.setText("");
+                    qtdCaixas.setText("");
+                    tipoVinho.setText("");
+
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+                } else {
+                    System.out.println("ID AVALIACAO ASSOCIADO NAO ENCONTRADO (78, addAvaliacao)");
                 }
 
+
+            } else {
+                System.out.println("A avaliação inserida não existe!");
+                msg.alertaAviso("A avaliação inserida não existe!", "Erro!", "Avaliação inexistente");
+
+            }
 
 
         }
-
 
 
     }

@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<Pane fx:id="embalamentosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.embalamento.embalamentoController">
-   <children>
-      <Text layoutX="166.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Embalamentos">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TableView fx:id="table" layoutX="5.0" layoutY="76.0" prefHeight="248.0" prefWidth="438.0">
-        <columns>
-            <TableColumn fx:id="colNum" prefWidth="56.0" text="Num" />
-          <TableColumn fx:id="colQtdCaixas" prefWidth="119.0" text="Qtd Caixas" />
-          <TableColumn fx:id="colTipoVinho" prefWidth="126.0" text="Tipo Vinho" />
-            <TableColumn fx:id="colData" prefWidth="136.0" text="Data" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnAddEmbalamento" layoutX="23.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAddEmbalamentoClic" text="Adicionar Embalamento" />
-      <Button fx:id="btnEditEmbalamento" layoutX="304.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnEditEmbalamentoClic" text="Editar Embalamento" />
-   </children>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="embalamentosPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1"
+      fx:controller="app.controller.embalamento.embalamentoController">
+    <children>
+        <Text layoutX="166.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Embalamentos">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Text>
+        <TableView fx:id="table" layoutX="5.0" layoutY="76.0" prefHeight="248.0" prefWidth="438.0">
+            <columns>
+                <TableColumn fx:id="colNum" prefWidth="56.0" text="Num"/>
+                <TableColumn fx:id="colQtdCaixas" prefWidth="119.0" text="Qtd Caixas"/>
+                <TableColumn fx:id="colTipoVinho" prefWidth="126.0" text="Tipo Vinho"/>
+                <TableColumn fx:id="colData" prefWidth="136.0" text="Data"/>
+            </columns>
+        </TableView>
+        <Button fx:id="btnAddEmbalamento" layoutX="23.0" layoutY="343.0" mnemonicParsing="false"
+                onAction="#btnAddEmbalamentoClic" text="Adicionar Embalamento"/>
+        <Button fx:id="btnEditEmbalamento" layoutX="304.0" layoutY="343.0" mnemonicParsing="false"
+                onAction="#btnEditEmbalamentoClic" text="Editar Embalamento"/>
+    </children>
 </Pane>

@@ -6,11 +6,13 @@ import app.util.Util;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class addAvaliacaoController {
     public Pane addAvaliacaoPane;
@@ -33,20 +35,19 @@ public class addAvaliacaoController {
         String qualVinho = qualidadeVinho.getText();
         int idEmpresa = userID.getId();
 
-        if(idContr.isEmpty() || qtdPr.isEmpty() || qualVinho.isEmpty()){
+        if (idContr.isEmpty() || qtdPr.isEmpty() || qualVinho.isEmpty()) {
 
             System.out.println("Não podem ficar campos em branco");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
-        }
-        else{
+        } else {
 
             int idContrInt = Integer.parseInt(idContr);
             int qtdProdInt = Integer.parseInt(qtdPr);
             int qualVinhoInt = Integer.parseInt(qualVinho);
 
             Connection c1 = Util.criarConexao();
-            if(qualVinhoInt > 2 && qualVinhoInt <=5){
+            if (qualVinhoInt > 2 && qualVinhoInt <= 5) {
 
 
                 PreparedStatement p4 = c1.prepareStatement("SELECT c.*, a.* FROM CONTROLO c, AVALIACAO a WHERE c.ID_CONTROLO = ? AND c.RESULTADO = 1");
@@ -54,24 +55,24 @@ public class addAvaliacaoController {
 
                 ResultSet sss = p4.executeQuery();
 
-                if(sss.next()){
-                        PreparedStatement p5 = c1.prepareStatement("INSERT INTO AVALIACAO(QTD_PRODUZIDA, QUALIDADE_VINHO) VALUES (?,?)");
-                        p5.setInt(1, qtdProdInt);
-                        p5.setString(2, qualVinho);
-                        p5.executeQuery();
+                if (sss.next()) {
+                    PreparedStatement p5 = c1.prepareStatement("INSERT INTO AVALIACAO(QTD_PRODUZIDA, QUALIDADE_VINHO) VALUES (?,?)");
+                    p5.setInt(1, qtdProdInt);
+                    p5.setString(2, qualVinho);
+                    p5.executeQuery();
 
 
-                        PreparedStatement p8 = c1.prepareStatement("SELECT * FROM AVALIACAO WHERE QTD_PRODUZIDA = ? AND QUALIDADE_VINHO = ?");
-                        p8.setInt(1, qtdProdInt);
-                        p8.setString(2, qualVinho);
+                    PreparedStatement p8 = c1.prepareStatement("SELECT * FROM AVALIACAO WHERE QTD_PRODUZIDA = ? AND QUALIDADE_VINHO = ?");
+                    p8.setInt(1, qtdProdInt);
+                    p8.setString(2, qualVinho);
 
-                        ResultSet s1 = p8.executeQuery();
+                    ResultSet s1 = p8.executeQuery();
 
                     if (s1.next()) {
 
                         PreparedStatement p6 = c1.prepareStatement("UPDATE CONTROLO SET ID_AVALIACAO = ? WHERE ID_CONTROLO = ?");
-                        p6.setInt(1,s1.getInt("ID_AVALIACAO"));
-                        p6.setInt(2,idContrInt);
+                        p6.setInt(1, s1.getInt("ID_AVALIACAO"));
+                        p6.setInt(2, idContrInt);
                         p6.executeQuery();
 
                         System.out.println("Avaliacao adicionada com sucesso, com resultado positivo");
@@ -83,23 +84,19 @@ public class addAvaliacaoController {
 
                         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
-                    }
-                    else{
+                    } else {
                         System.out.println("ID AVALIACAO ASSOCIADO NAO ENCONTRADO (78, addAvaliacao)");
                     }
 
 
-                }
-                else{
+                } else {
                     System.out.println("O controlo inserido não existe OU o resultado é negativo!");
                     msg.alertaAviso("O controlo inserido não poder ser utilizado!", "Erro!", "Numero do controlo inexistente OU resutlado negativo!");
 
                 }
 
 
-
-            }
-            else{
+            } else {
                 System.out.println("O vinho não tem a qualidade minima desejada!");
                 msg.alertaAviso("O vinho não tem a qualidade mínima desejada!", "Aviso!", "Qualidade fraca!");
 
