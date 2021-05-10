@@ -46,7 +46,7 @@ public class addVindimaController {
         String idDoFunc = idFUnc.getText();
         String idPlant = numPlant.getText();
 
-        if (idDoFunc.isEmpty() || idPlant.isEmpty()) {
+        if (dataIni == null || idDoFunc.isEmpty() || idPlant.isEmpty()) {
             System.out.println("Não podem ficar campos vazios!");
             msg.alertaAviso("Não podem ficar campos vazios!", "Aviso!", "Campos vazios!");
 
@@ -86,7 +86,7 @@ public class addVindimaController {
                             p7.setInt(1, idDataIni);
                             p7.setInt(2, idPlanInt);
                             p7.setInt(3, idFuncInt);
-                            p7.setDate(4, Date.valueOf(LocalDate.of(2021, 10, 10)));
+                            p7.setDate(4, null);
 
                             p7.executeQuery();
 

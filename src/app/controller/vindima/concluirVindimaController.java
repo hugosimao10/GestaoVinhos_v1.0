@@ -8,12 +8,15 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.Pane;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class concluirVindimaController {
     public Pane concluirVindimaPane;
@@ -26,15 +29,25 @@ public class concluirVindimaController {
     public void iniciar() throws SQLException {
         System.out.println("Está na area de concluir Vindimas!");
 
+        Pattern pattern = Pattern.compile("^[0-9]*$");
+        TextFormatter formatter = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return pattern.matcher(change.getControlNewText()).matches() ? change : null;
+        });
 
+        numVindima.setTextFormatter(formatter);
+
+        Pattern patternQtd = Pattern.compile("\\d*|\\d+\\.\\d*");
+        TextFormatter formatterQtdVindimada = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return patternQtd.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+
+        qtdVindimada.setTextFormatter(formatterQtdVindimada);
     }
 
     public void btnConcluirVindimaClic(ActionEvent actionEvent) throws SQLException {
 
         String numVind = numVindima.getText();
-        int numVindInt = Integer.parseInt(numVind);
         String QtdVindimada = qtdVindimada.getText();
-        int qtdVinInt = Integer.parseInt(QtdVindimada);
 
 
         // VER SE O CAMPO ESTA VAZIO
@@ -44,48 +57,55 @@ public class concluirVindimaController {
             msg.alertaAviso("Não pode haver campos vazios!", "Aviso!", "Campo não pode ficar vazio!");
         } else {
 
-            // VER SE A CHECKBOX ESTÁ SELECIONADA
+            int numVindInt = Integer.parseInt(numVind);
+            int qtdVinInt = Integer.parseInt(QtdVindimada);
+            if (qtdVinInt <= 0) {
+                msg.alertaAviso("A quantidade vindimada deve ser superior a 0!", "Aviso!", "Quantidade vindimada inválida!");
+            } else {
 
-            if (checkConcluirVindima.isSelected()) {
 
-                int a = userID.getId();
+                // VER SE A CHECKBOX ESTÁ SELECIONADA
 
-                Connection conn = Util.criarConexao();
+                if (checkConcluirVindima.isSelected()) {
 
-                PreparedStatement pst = conn.prepareStatement("SELECT p.*, f.* FROM PLANTACAO_VINDIMA p, FUNCIONARIO f WHERE p.ID_PLANT_VINDIMA = ? AND f.ID_FUNCIONARIO = p.ID_FUNCIONARIO AND f.ID_EMPRESA = ?");
+                    int a = userID.getId();
 
-                pst.setInt(1, numVindInt);
-                pst.setInt(2, a);
+                    Connection conn = Util.criarConexao();
 
-                ResultSet rs = pst.executeQuery();
+                    PreparedStatement pst = conn.prepareStatement("SELECT p.*, f.* FROM PLANTACAO_VINDIMA p, FUNCIONARIO f WHERE p.ID_PLANT_VINDIMA = ? AND f.ID_FUNCIONARIO = p.ID_FUNCIONARIO AND f.ID_EMPRESA = ?");
 
-                // VER SE FOI ENCONTRADO O ID, E SE FOI ENCONTRADO, ENTAO PASSA O CAMPO ATIVO A 0 (QUINTA NÃO FAZ MAIS PARTE DA EMPRESA)
+                    pst.setInt(1, numVindInt);
+                    pst.setInt(2, a);
 
-                if (rs.next()) {
+                    ResultSet rs = pst.executeQuery();
 
-                    PreparedStatement pst1 = conn.prepareStatement("UPDATE PLANTACAO_VINDIMA SET QTD_VINDIMADA = ? WHERE ID_PLANT_VINDIMA = ?");
-                    pst1.setInt(1, qtdVinInt);
-                    pst1.setInt(2, numVindInt);
-                    pst1.executeQuery();
-                    System.out.println("A vindima foi finalizada com sucesso!");
-                    msg.alertaInfo("A vindima foi finalizada com sucesso!", "Sucesso!", "Vindima finalizada!");
-                    numVindima.setText("");
-                    qtdVindimada.setText("");
+                    // VER SE FOI ENCONTRADO O ID, E SE FOI ENCONTRADO, ENTAO PASSA O CAMPO ATIVO A 0 (QUINTA NÃO FAZ MAIS PARTE DA EMPRESA)
+
+                    if (rs.next()) {
+
+                        PreparedStatement pst1 = conn.prepareStatement("UPDATE PLANTACAO_VINDIMA SET QTD_VINDIMADA = ? WHERE ID_PLANT_VINDIMA = ?");
+                        pst1.setInt(1, qtdVinInt);
+                        pst1.setInt(2, numVindInt);
+                        pst1.executeQuery();
+                        System.out.println("A vindima foi finalizada com sucesso!");
+                        msg.alertaInfo("A vindima foi finalizada com sucesso!", "Sucesso!", "Vindima finalizada!");
+                        numVindima.setText("");
+                        qtdVindimada.setText("");
+
+                        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+                    } else {
+                        System.out.println("A vindima nao foi encontrada!");
+                        msg.alertaErro("A vindima não foi encontrado!", "Erro!", "Vindima não existe!");
+
+                    }
 
                 } else {
-                    System.out.println("A vindima nao foi encontrada!");
-                    msg.alertaErro("A vindima não foi encontrado!", "Erro!", "Vindima não existe!");
+                    System.out.println("Por favor, selecione a checkbox para confirmar a remoção da vindima!");
+                    msg.alertaAviso("Por favor, selecione a checkbox para confirmar a remoção da vindima!)", "Aviso!", "Confirme a checkbox!");
                 }
-
-            } else {
-                System.out.println("Por favor, selecione a checkbox para confirmar a remoção da vindima!");
-                msg.alertaAviso("Por favor, selecione a checkbox para confirmar a remoção da vindima!)", "Aviso!", "Confirme a checkbox!");
             }
-
-
         }
-
-
     }
 
     public void btnConcluirVindimaCancelarClic(ActionEvent actionEvent) {

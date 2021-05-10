@@ -84,7 +84,7 @@ public class selectQuintaToEditController {
 
                     ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
                 } else {
-                    System.out.println("Selecione a checbox para confirmar!");
+                    System.out.println("Selecione a checkbox para confirmar!");
                     msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
                 }
 

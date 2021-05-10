@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -102,6 +103,7 @@ public class vindimaController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         addVindimaController add = loader.getController();
         add.iniciar();
 
@@ -116,6 +118,7 @@ public class vindimaController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         concluirVindimaController add = loader.getController();
         add.iniciar();
 
@@ -130,6 +133,7 @@ public class vindimaController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         selectVindimaToEditController add = loader.getController();
         add.iniciar();
 

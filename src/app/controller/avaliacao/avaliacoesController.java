@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -95,6 +96,7 @@ public class avaliacoesController implements Initializable {
         stage.setTitle("Adicionar Avaliações");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.show();
         addAvaliacaoController add = loader.getController();
         add.iniciar();
@@ -108,6 +110,7 @@ public class avaliacoesController implements Initializable {
         stage.setTitle("Editar Avaliações");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.show();
         selectAvaliacaoToEditController add = loader.getController();
         add.iniciar();
