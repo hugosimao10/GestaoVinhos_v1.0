@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -20,6 +22,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class selectEmbalamentoToEditController {
     public Pane embalSelectEditPane;
@@ -31,6 +35,11 @@ public class selectEmbalamentoToEditController {
     public void iniciar() throws SQLException {
         System.out.println("Está na area de selecionar embalamento para editar!");
 
+        Pattern patternInt = Pattern.compile("^[0-9]*$");
+        TextFormatter formaterEmbalamento = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return patternInt.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+        numEmbalamento.setTextFormatter(formaterEmbalamento);
 
     }
 
@@ -40,49 +49,54 @@ public class selectEmbalamentoToEditController {
         Connection conn = Util.criarConexao();
 
         String id1 = numEmbalamento.getText();
-        int id = Integer.parseInt(id1);
-        int conf = userID.getId();
 
-        PreparedStatement pst = conn.prepareStatement("SELECT c.*, f.*, a.*, e.* FROM CONTROLO c, FUNCIONARIO f, AVALIACAO a, PRODUTOFINAL e WHERE e.ID_PRODUTO_FINAL = ? AND c.ID_AVALIACAO = a.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND f.ID_EMPRESA = ? AND a.ID_PRODUTO_FINAL = e.ID_PRODUTO_FINAL");
-        pst.setInt(1, id);
-        pst.setInt(2, conf);
+        if (!id1.isEmpty()) {
+            int id = Integer.parseInt(id1);
+            int conf = userID.getId();
 
-        ResultSet rs = pst.executeQuery();
+            PreparedStatement pst = conn.prepareStatement("SELECT c.*, f.*, a.*, e.* FROM CONTROLO c, FUNCIONARIO f, AVALIACAO a, PRODUTOFINAL e WHERE e.ID_PRODUTO_FINAL = ? AND c.ID_AVALIACAO = a.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND f.ID_EMPRESA = ? AND a.ID_PRODUTO_FINAL = e.ID_PRODUTO_FINAL");
+            pst.setInt(1, id);
+            pst.setInt(2, conf);
 
-        if (rs.next()) {
+            ResultSet rs = pst.executeQuery();
 
-            if (checkEditEmbalamento.isSelected()) {
+            if (rs.next()) {
 
-                int idEdit = rs.getInt("ID_PRODUTO_FINAL");
-                int qtdCaixasEdit = rs.getInt("QTD_CAIXAS");
-                int idAva = rs.getInt("ID_CONTROLO");
-                String tipoVinhoEdit = rs.getString("TIPO_VINHO");
-                LocalDate data1 = rs.getDate("DATA_EMB").toLocalDate();
+                if (checkEditEmbalamento.isSelected()) {
+
+                    int idEdit = rs.getInt("ID_PRODUTO_FINAL");
+                    int qtdCaixasEdit = rs.getInt("QTD_CAIXAS");
+                    int idAva = rs.getInt("ID_AVALIACAO");
+                    String tipoVinhoEdit = rs.getString("TIPO_VINHO");
+                    LocalDate data1 = rs.getDate("DATA_EMB").toLocalDate();
 
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/embalamento/editEmbalamentoPane.fxml"));
-                Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Editar Embalamento");
-                stage.setScene(new Scene(root));
-                stage.setResizable(false);
-                stage.show();
-                editEmbalamentoController edit = loader.getController();
-                edit.iniciar(idEdit, qtdCaixasEdit, idAva, tipoVinhoEdit, data1);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/embalamento/editEmbalamentoPane.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Editar Embalamento");
+                    stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    stage.show();
+                    stage.getIcons().add(new Image("/img/logo.png"));
+                    editEmbalamentoController edit = loader.getController();
+                    edit.iniciar(idEdit, qtdCaixasEdit, idAva, tipoVinhoEdit, data1);
 
-                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                } else {
+                    System.out.println("Selecione a checbox para confirmar!");
+                    msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
+
+                }
+
             } else {
-                System.out.println("Selecione a checbox para confirmar!");
-                msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
-
+                System.out.println("Embalamento nao encontrado!");
+                msg.alertaErro("Embalamento nao encontrado!", "Erro!", "ID não existe!");
             }
-
         } else {
-            System.out.println("Embalamento nao encontrado!");
-            msg.alertaErro("Embalamento nao encontrado!", "Erro!", "ID não existe!");
+            System.out.println("Id embalamento não pode ser vazio!");
+            msg.alertaErro("Número de embalamento não pode estar vazio!", "Erro!", "ID vazio!");
         }
-
-
     }
 
     public void btnVoltarEditEmbalamento(ActionEvent actionEvent) {

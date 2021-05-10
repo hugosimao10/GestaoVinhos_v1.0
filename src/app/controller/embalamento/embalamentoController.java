@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -62,7 +63,7 @@ public class embalamentoController implements Initializable {
         PreparedStatement pst = null;
         try {
             pst = conn.prepareStatement("SELECT e.*, a.*, c.*, f.* " +
-                    "FROM PRODUTOFINAL e, AVALIACAO a, CONTROLO c, FUNCIONARIO F WHERE e.ID_PRODUTO_FINAL = a.ID_PRODUTO_FINAL AND " +
+                    "FROM PRODUTOFINAL e, AVALIACAO a, CONTROLO c, FUNCIONARIO f WHERE e.ID_PRODUTO_FINAL = a.ID_PRODUTO_FINAL AND " +
                     "a.ID_AVALIACAO = c.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND f.ID_EMPRESA = ?");
 
             pst.setInt(1, nIdEmpresa);
@@ -99,6 +100,7 @@ public class embalamentoController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         addEmbalamentoController add = loader.getController();
         add.iniciar();
     }
@@ -111,6 +113,7 @@ public class embalamentoController implements Initializable {
         stage.setTitle("Editar Embalamentos");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.show();
         selectEmbalamentoToEditController add = loader.getController();
         add.iniciar();

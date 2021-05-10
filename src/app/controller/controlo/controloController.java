@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -106,6 +107,7 @@ public class controloController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         addControloController add = loader.getController();
         add.iniciar();
 
@@ -120,6 +122,7 @@ public class controloController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        stage.getIcons().add(new Image("/img/logo.png"));
         selectControloToEditController add = loader.getController();
         add.iniciar();
 

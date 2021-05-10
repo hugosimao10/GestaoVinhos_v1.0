@@ -12,7 +12,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +28,7 @@ public class editPlantacaoController {
     public Button btnCancelEditPlant;
     public ComboBox comboBoxCasta;
     public TextField numQuinta;
-    public Text guardaIdPlant;
+    public int guardaIdPlant;
 
     @FXML
     private ObservableList<String> castas;
@@ -52,9 +51,8 @@ public class editPlantacaoController {
 
         System.out.println("Está na area de editar avaliações!");
 
-        guardaIdPlant.setVisible(false);
-        String a = String.valueOf(idEdit);
-        guardaIdPlant.setText(a);
+        guardaIdPlant = idEdit;
+
 
         int i = Integer.parseInt(idcasta);
 
@@ -84,8 +82,7 @@ public class editPlantacaoController {
 
     public void btnEditPlantAddClic(ActionEvent actionEvent) throws SQLException {
 
-        String r = guardaIdPlant.getText();
-        int idEdit = Integer.parseInt(r);
+        int idEdit = guardaIdPlant;
 
         Connection c1 = Util.criarConexao();
 

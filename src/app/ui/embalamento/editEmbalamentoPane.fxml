@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editEmbalamentoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editEmbalamentoPane" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1"
       fx:controller="app.controller.embalamento.editEmbalamentoController">
     <children>
@@ -22,8 +23,6 @@
                 onAction="#btnEditEmbalamentoCancelarClic" text="Voltar"/>
         <Text layoutX="108.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Vinho"/>
         <TextField fx:id="tipoVinho" layoutX="193.0" layoutY="220.0"/>
-        <Text fx:id="guardaIdEditEmbalamento" layoutX="59.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Text"/>
         <DatePicker fx:id="datePickerEmbalamento" layoutX="193.0" layoutY="255.0" prefHeight="25.0" prefWidth="149.0"/>
         <Text layoutX="145.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data"/>
     </children>

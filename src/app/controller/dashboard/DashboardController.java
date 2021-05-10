@@ -44,29 +44,26 @@ public class DashboardController {
 
         System.out.println(cargoPerm);
 
-        if (cargoPerm == 21) {
+        if (cargoPerm == 2) {
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
             btnControlos.setDisable(true);
             btnAvaliacoes.setDisable(true);
             btnEmbalamentos.setDisable(true);
 
-        } else if (cargoPerm == 22) {
+        } else if (cargoPerm == 3) {
+
+            btnQuintas.setDisable(true);
+            btnFuncionarios.setDisable(true);
+            btnPlantacoes.setDisable(true);
+            btnEmbalamentos.setDisable(true);
+
+        } else if (cargoPerm == 4) {
 
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
             btnPlantacoes.setDisable(true);
             btnVindimas.setDisable(true);
-            btnEmbalamentos.setDisable(true);
-
-        } else if (cargoPerm == 23) {
-
-            btnQuintas.setDisable(true);
-            btnFuncionarios.setDisable(true);
-            btnPlantacoes.setDisable(true);
-            btnVindimas.setDisable(true);
-            btnControlos.setDisable(true);
-            btnEmbalamentos.setDisable(true);
         }
 
 
@@ -97,7 +94,6 @@ public class DashboardController {
         quintaController controller = loader.getController();
         paneToChange.setCenter(root);
         controller.iniciar();
-
     }
 
     //BOTAO QUE LEVA O UTILIZADOR PARA A AREA DE FUNCIONARIOS

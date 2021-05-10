@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editControloPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editControloPane" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1"
       fx:controller="app.controller.controlo.editControloController">
     <children>
@@ -28,8 +29,6 @@
         <Text layoutX="103.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Num Vindima"/>
         <TextField fx:id="funcionario" layoutX="185.0" layoutY="275.0"/>
         <Text layoutX="115.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionário"/>
-        <Text fx:id="guardaIdEditControlo" layoutX="48.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Text"/>
         <Text layoutX="343.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gramas por litro"/>
         <Text layoutX="343.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Graus celsius"/>
         <Text layoutX="343.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 &lt;-&gt; 5"/>

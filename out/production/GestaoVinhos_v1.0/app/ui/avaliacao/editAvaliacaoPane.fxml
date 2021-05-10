@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editAvaliacaoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+<Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="editAvaliacaoPane" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/15.0.1"
       fx:controller="app.controller.avaliacao.editAvaliacaoController">
     <children>
@@ -22,8 +23,6 @@
         <Button fx:id="btnCancelEditAvaliacao" layoutX="35.0" layoutY="364.0" mnemonicParsing="false"
                 onAction="#btnEditAvaliacaoCancelarClic" text="Voltar"/>
         <TextField fx:id="qualidadeVinho" layoutX="207.0" layoutY="223.0"/>
-        <Text fx:id="guardaIdEditAvaliacao" layoutX="72.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Text"/>
         <Text layoutX="367.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Litros"/>
         <Text layoutX="367.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 &lt;-&gt; 5"/>
     </children>
