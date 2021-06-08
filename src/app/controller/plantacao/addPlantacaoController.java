@@ -1,5 +1,6 @@
 package app.controller.plantacao;
 
+import app.entities.userID;
 import app.error.msg;
 import app.util.Util;
 import javafx.collections.FXCollections;
@@ -99,8 +100,11 @@ public class addPlantacaoController {
 
             ResultSet s = p5.executeQuery();
 
-            PreparedStatement p6 = c1.prepareStatement("SELECT * FROM QUINTA WHERE ID_QUINTA = ?");
+            int numEmpresa = userID.getId();
+
+            PreparedStatement p6 = c1.prepareStatement("SELECT q.*, f.* FROM QUINTA q, FUNCIONARIO f WHERE q.ID_QUINTA = ? AND  f.ID_EMPRESA = ? AND q.ID_EMPRESA = f.ID_EMPRESA");
             p6.setInt(1, a1);
+            p6.setInt(2, numEmpresa);
 
             ResultSet s2 = p6.executeQuery();
 
