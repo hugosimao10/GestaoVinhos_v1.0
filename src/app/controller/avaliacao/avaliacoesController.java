@@ -59,9 +59,7 @@ public class avaliacoesController implements Initializable {
 
         PreparedStatement pst = null;
         try {
-            pst = conn.prepareStatement("SELECT a.*, c.*, f.*, e.* " +
-                    "FROM AVALIACAO a, CONTROLO c, FUNCIONARIO f, PRODUTOFINAL e WHERE a.ID_AVALIACAO = c.ID_AVALIACAO AND " +
-                    "c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND a.ID_PRODUTO_FINAL = e.ID_PRODUTO_FINAL AND f.ID_EMPRESA = ?");
+            pst = conn.prepareStatement("SELECT a.*, c.*, f.* FROM AVALIACAO a, CONTROLO c, FUNCIONARIO f WHERE a.ID_AVALIACAO = c.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND f.ID_EMPRESA = ?");
 
             pst.setInt(1, nIdEmpresa);
 

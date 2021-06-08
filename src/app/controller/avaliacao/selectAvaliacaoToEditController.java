@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -19,6 +21,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class selectAvaliacaoToEditController {
     public Pane avaliacaoSelectEditPane;
@@ -30,7 +34,11 @@ public class selectAvaliacaoToEditController {
     public void iniciar() {
         System.out.println("Está na area de selecionar avaliacao a editar!");
 
-
+        Pattern pattern = Pattern.compile("^[0-9]*$");
+        TextFormatter formatterAvaliacao = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
+            return pattern.matcher(change.getControlNewText()).matches() ? change : null;
+        });
+        numEditAvaliacao.setTextFormatter(formatterAvaliacao);
     }
 
     public void butConfirmAvaliacaoEditClic(ActionEvent actionEvent) throws IOException, SQLException {
@@ -38,45 +46,50 @@ public class selectAvaliacaoToEditController {
         Connection conn = Util.criarConexao();
 
         String id1 = numEditAvaliacao.getText();
-        int id = Integer.parseInt(id1);
         int conf = userID.getId();
 
-        PreparedStatement pst = conn.prepareStatement("SELECT c.*, f.*, a.* FROM CONTROLO c, FUNCIONARIO f, AVALIACAO a WHERE a.ID_AVALIACAO = ? AND c.ID_AVALIACAO = a.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND f.ID_EMPRESA = ?");
-        pst.setInt(1, id);
-        pst.setInt(2, conf);
+        if (!id1.isEmpty()) {
+            int id = Integer.parseInt(id1);
+            PreparedStatement pst = conn.prepareStatement("SELECT c.*, f.*, a.* FROM CONTROLO c, FUNCIONARIO f, AVALIACAO a WHERE a.ID_AVALIACAO = ? AND c.ID_AVALIACAO = a.ID_AVALIACAO AND c.ID_FUNCIONARIO = f.ID_FUNCIONARIO AND f.ID_EMPRESA = ?");
+            pst.setInt(1, id);
+            pst.setInt(2, conf);
 
-        ResultSet rs = pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
 
-        if (rs.next()) {
+            if (rs.next()) {
 
-            if (checkEditAvaliacao.isSelected()) {
+                if (checkEditAvaliacao.isSelected()) {
 
-                int idEdit = rs.getInt("ID_AVALIACAO");
-                int qtdProd = rs.getInt("QTD_PRODUZIDA");
-                int idContr = rs.getInt("ID_CONTROLO");
-                String qualVinho = rs.getString("QUALIDADE_VINHO");
+                    int idEdit = rs.getInt("ID_AVALIACAO");
+                    int qtdProd = rs.getInt("QTD_PRODUZIDA");
+                    int idContr = rs.getInt("ID_CONTROLO");
+                    String qualVinho = rs.getString("QUALIDADE_VINHO");
 
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/avaliacao/editAvaliacaoPane.fxml"));
-                Parent root = loader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Editar Avaliação");
-                stage.setScene(new Scene(root));
-                stage.setResizable(false);
-                stage.show();
-                editAvaliacaoController edit = loader.getController();
-                edit.iniciar(idEdit, idContr, qtdProd, qualVinho);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/ui/avaliacao/editAvaliacaoPane.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Editar Avaliação");
+                    stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    stage.getIcons().add(new Image("/img/logo.png"));
+                    stage.show();
+                    editAvaliacaoController edit = loader.getController();
+                    edit.iniciar(idEdit, idContr, qtdProd, qualVinho);
 
-                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+                } else {
+                    System.out.println("Selecione a checbox para confirmar!");
+                    msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
+                }
+
             } else {
-                System.out.println("Selecione a checbox para confirmar!");
-                msg.alertaAviso("Selecione a checkbox para confirmar!", "Aviso!", "Selecione a checkbox!");
-
+                System.out.println("Avaliação nao encontrada!");
+                msg.alertaErro("Avaliação nao encontrada!", "Erro!", "ID não existe!");
             }
-
         } else {
-            System.out.println("Avaliação nao encontrada!");
-            msg.alertaErro("Avaliação nao encontrada!", "Erro!", "ID não existe!");
+            System.out.println("Campo número de avaliaçõa vazio!");
+            msg.alertaAviso("Deve inserir um número de avaliação para editar!", "Aviso!", "Insira uma avaliação!");
         }
 
 

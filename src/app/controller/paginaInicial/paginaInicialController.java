@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -197,6 +198,7 @@ public class paginaInicialController {
         Stage stage = new Stage();
         stage.setTitle("Login");
         stage.setScene(new Scene(root));
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.setResizable(false);
         stage.show();
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();

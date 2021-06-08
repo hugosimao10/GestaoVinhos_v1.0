@@ -67,7 +67,6 @@ public class addAvaliacaoController {
             int idContrInt = Integer.parseInt(idContr);
             double qtdProdInt = Double.parseDouble(qtdPr);
             int qualVinhoInt = Integer.parseInt(qualVinho);
-            ;
 
             Connection c1 = Util.criarConexao();
             if (qualVinhoInt > 2 && qualVinhoInt <= 5) {
@@ -122,8 +121,6 @@ public class addAvaliacaoController {
                 System.out.println("O vinho não tem a qualidade minima desejada!");
                 msg.alertaAviso("O vinho não tem a qualidade mínima desejada!", "Aviso!", "Qualidade fraca!");
             }
-
-
         }
 
 
