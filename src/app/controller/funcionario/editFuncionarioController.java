@@ -41,7 +41,7 @@ public class editFuncionarioController {
     @FXML
     private ObservableList<String> tiposFunc;
 
-    public void iniciar(int idUserEdit, String cargo, String nome, String email, String tlm, int nPorta, String rua, int cod_postal, int empresa, String pw, String user, int estado) throws SQLException {
+    public void iniciar(int idUserEdit, String cargo, String nome, String email, String tlm, int nPorta, String rua, String cod_postal, int empresa, String pw, String user, int estado) throws SQLException {
         System.out.println("Está na area de editar funcionários!");
 
         guardaIdEdit.setVisible(false);

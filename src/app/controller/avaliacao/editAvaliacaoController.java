@@ -53,7 +53,7 @@ public class editAvaliacaoController {
         } else {
 
             int newContr = Integer.parseInt(a);
-            double newQtdPr = Double.parseDouble(b);
+            int newQtdPr = Integer.parseInt(b);
             int newQualVinho = Integer.parseInt(c);
 
             Connection c1 = Util.criarConexao();
@@ -69,7 +69,7 @@ public class editAvaliacaoController {
                 if (sss.next()) {
 
                     PreparedStatement p6 = c1.prepareStatement("UPDATE AVALIACAO SET QTD_PRODUZIDA = ?, QUALIDADE_VINHO = ? WHERE ID_AVALIACAO = ?");
-                    p6.setDouble(1, newQtdPr);
+                    p6.setInt(1, newQtdPr);
                     p6.setString(2, c);
                     p6.setInt(3, bb);
                     p6.executeQuery();

@@ -77,7 +77,7 @@ public class removeQuintasController {
                     System.out.println("A quinta foi desativada com sucesso!");
                     msg.alertaInfo("A quinta foi desativada com sucesso!", "Sucesso!", "Quinta desativada!");
                     numRemoveQuinta.setText("");
-
+                    ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
                 } else {
                     System.out.println("A quinta nao foi encontrada!");
                     msg.alertaErro("A quinta não foi encontrado!", "Erro!", "Quinta não existe!");

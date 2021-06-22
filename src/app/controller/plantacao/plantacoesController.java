@@ -100,14 +100,14 @@ public class plantacoesController implements Initializable {
         PreparedStatement pst1 = null;
         try {
             pst1 = conn.prepareStatement("SELECT p.id_plantacao, p.area_casta, p.id_funcionario, p.id_quinta," +
-                    " p.id_casta, p.estado, f.id_funcionario, f.nome, f.id_empresa, c.id_casta, c.tipo_casta FROM PLANTACAO p, FUNCIONARIO f, CASTA c WHERE f.ID_FUNCIONARIO = p.ID_FUNCIONARIO AND f.ID_EMPRESA = ? AND p.ID_CASTA = c.ID_CASTA");
+                    " p.id_casta, p.estado, f.id_funcionario, f.username, f.id_empresa, c.id_casta, c.tipo_casta FROM PLANTACAO p, FUNCIONARIO f, CASTA c WHERE f.ID_FUNCIONARIO = p.ID_FUNCIONARIO AND f.ID_EMPRESA = ? AND p.ID_CASTA = c.ID_CASTA");
             pst1.setInt(1, log);
             ResultSet rs2 = pst1.executeQuery();
 
             while (rs2.next()) {
 
                 oblist3.add(new Plantacao(rs2.getInt("id_plantacao"), rs2.getString("area_casta"),
-                        rs2.getString("nome"), rs2.getInt("id_quinta"),
+                        rs2.getString("username"), rs2.getInt("id_quinta"),
                         rs2.getString("tipo_casta"), rs2.getInt("estado")));
 
             }
@@ -119,7 +119,7 @@ public class plantacoesController implements Initializable {
 
         colNum.setCellValueFactory(new PropertyValueFactory<>("id_plantacao"));
         colAreaCastaPlant.setCellValueFactory(new PropertyValueFactory<>("area_casta"));
-        ColFunc.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        ColFunc.setCellValueFactory(new PropertyValueFactory<>("username"));
         colNumQuinta.setCellValueFactory(new PropertyValueFactory<>("id_quinta"));
         colNumCastaPlant.setCellValueFactory(new PropertyValueFactory<>("tipo_casta"));
         colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
