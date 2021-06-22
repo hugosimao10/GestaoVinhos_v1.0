@@ -68,7 +68,7 @@ public class LoginController {
                 if (rs1.getInt("ESTADO") != 0) {
 
 
-                    if (cargoPerm == 2 || cargoPerm == 3 || cargoPerm == 4 || cargoPerm == 1) {
+                    if (cargoPerm == 21 || cargoPerm == 22 || cargoPerm == 23 || cargoPerm == 1) {
 
                         System.out.println("Login com sucesso!");
 

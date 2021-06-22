@@ -41,8 +41,6 @@ public class embalamentoController implements Initializable {
     public TableColumn colData;
     public Button btnAddEmbalamento;
     public Button btnEditEmbalamento;
-    @FXML
-    public TableColumn numAvaEmbalamento;
 
     @FXML
     public ObservableList<Embalamento> oblist1 = FXCollections.observableArrayList();

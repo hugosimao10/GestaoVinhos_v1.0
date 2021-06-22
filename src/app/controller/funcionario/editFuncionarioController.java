@@ -174,6 +174,7 @@ public class editFuncionarioController {
                         pst20.executeQuery();
 
                         System.out.println("Funcionário adicionado com sucesso! (Novo código postal adicionado!)");
+                        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
                         msg.alertaInfo("Funcionário adicionado com sucesso! (Novo código postal adicionado!)", "Info!", "Sucesso!");
                     } else {
                         System.out.println("Não adicionou o novo código postal com sucesso!");

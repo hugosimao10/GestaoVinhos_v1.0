@@ -24,6 +24,5 @@
                 onAction="#btnEditPlantCancelarClic" text="Voltar"/>
         <ComboBox fx:id="comboBoxCasta" layoutX="178.0" layoutY="240.0" prefWidth="150.0"/>
         <TextField fx:id="numQuinta" layoutX="179.0" layoutY="205.0"/>
-        <Text fx:id="guardaIdPlant" layoutX="35.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"/>
     </children>
 </Pane>

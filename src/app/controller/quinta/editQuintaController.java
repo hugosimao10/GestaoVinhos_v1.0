@@ -63,6 +63,7 @@ public class editQuintaController {
 
             System.out.println("Quinta alterada com sucesso!");
             msg.alertaInfo("Quinta alterada com sucesso!", "Info!", "Sucesso!");
+            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 
         }
 

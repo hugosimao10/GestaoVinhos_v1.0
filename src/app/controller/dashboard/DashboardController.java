@@ -44,21 +44,21 @@ public class DashboardController {
 
         System.out.println(cargoPerm);
 
-        if (cargoPerm == 2) {
+        if (cargoPerm == 21) {
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
             btnControlos.setDisable(true);
             btnAvaliacoes.setDisable(true);
             btnEmbalamentos.setDisable(true);
 
-        } else if (cargoPerm == 3) {
+        } else if (cargoPerm == 22) {
 
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
             btnPlantacoes.setDisable(true);
             btnEmbalamentos.setDisable(true);
 
-        } else if (cargoPerm == 4) {
+        } else if (cargoPerm == 23) {
 
             btnQuintas.setDisable(true);
             btnFuncionarios.setDisable(true);
