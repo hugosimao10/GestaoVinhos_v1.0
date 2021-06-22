@@ -83,17 +83,14 @@ public class addAvaliacaoController {
                     p5.setString(2, qualVinho);
                     p5.executeQuery();
 
-
-                    PreparedStatement p8 = c1.prepareStatement("SELECT * FROM AVALIACAO WHERE QTD_PRODUZIDA = ? AND QUALIDADE_VINHO = ?");
-                    p8.setDouble(1, qtdProdInt);
-                    p8.setString(2, qualVinho);
+                    PreparedStatement p8 = c1.prepareStatement("SELECT max(ID_AVALIACAO) AS idMax FROM AVALIACAO");
 
                     ResultSet s1 = p8.executeQuery();
 
                     if (s1.next()) {
 
                         PreparedStatement p6 = c1.prepareStatement("UPDATE CONTROLO SET ID_AVALIACAO = ? WHERE ID_CONTROLO = ?");
-                        p6.setInt(1, s1.getInt("ID_AVALIACAO"));
+                        p6.setInt(1, s1.getInt("idMax"));
                         p6.setInt(2, idContrInt);
                         p6.executeQuery();
 
