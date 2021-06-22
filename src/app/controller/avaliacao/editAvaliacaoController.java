@@ -31,6 +31,7 @@ public class editAvaliacaoController {
         numControlo.setText(String.valueOf(idContr));
         qtdProduzida.setText(String.valueOf(qtdProd));
         qualidadeVinho.setText(qualVinho);
+        guardaIdEditAvaliacao = idEdit;
 
         Pattern patternQtd = Pattern.compile("\\d*|\\d+\\.\\d*");
         TextFormatter formatterQtdProduzida = new TextFormatter((UnaryOperator<TextFormatter.Change>) change -> {
@@ -53,7 +54,7 @@ public class editAvaliacaoController {
         } else {
 
             int newContr = Integer.parseInt(a);
-            int newQtdPr = Integer.parseInt(b);
+            double newQtdPr = Double.parseDouble(b);
             int newQualVinho = Integer.parseInt(c);
 
             Connection c1 = Util.criarConexao();
@@ -69,7 +70,7 @@ public class editAvaliacaoController {
                 if (sss.next()) {
 
                     PreparedStatement p6 = c1.prepareStatement("UPDATE AVALIACAO SET QTD_PRODUZIDA = ?, QUALIDADE_VINHO = ? WHERE ID_AVALIACAO = ?");
-                    p6.setInt(1, newQtdPr);
+                    p6.setDouble(1, newQtdPr);
                     p6.setString(2, c);
                     p6.setInt(3, bb);
                     p6.executeQuery();
@@ -94,7 +95,7 @@ public class editAvaliacaoController {
             } else {
                 System.out.println("O vinho não tem a qualidade minima desejada!");
                 msg.alertaAviso("O vinho não tem a qualidade mínima desejada!", "Aviso!", "Qualidade fraca!");
-
+                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
             }
 
 
